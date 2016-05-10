@@ -1,5 +1,5 @@
 *.class
-.item/*
+.idea/*
 .gradle/*
 /.settings/*
 .settings/*
@@ -8,7 +8,7 @@ android/.classpath
 android/.project
 core/.classpath
 core/.project
-
+local.properties
 
 
 # Mobile Tools for Java (J2ME)
