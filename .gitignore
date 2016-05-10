@@ -1,6 +1,5 @@
 *.class
-desktop/*
-/.gradle/*
+.item/*
 .gradle/*
 /.settings/*
 .settings/*
