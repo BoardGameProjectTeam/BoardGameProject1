@@ -78,3 +78,7 @@ Temporary Items
 *.properties
 
 *.xml
+
+local.properties
+
+.idea/workspace.xml
