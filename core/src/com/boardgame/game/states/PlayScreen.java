@@ -32,10 +32,10 @@ public class PlayScreen extends State {
     }
     @Override
     public void handleInput() {
-//        if(Gdx.input.justTouched()){
-//            bs.add(new BoardSpace(x,y,mb));
-//            x++;
-//        }
+        if(Gdx.input.justTouched()){
+            bs.add(new BoardSpace(x,y,mb));
+            x++;
+        }
         if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)) {
             if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
                 boardOffsetX -= 10;
