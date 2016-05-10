@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\android\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Cliff\\Desktop\\boardgame\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Cliff\\Desktop\\boardgame\\android\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\boardgame\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\boardgame\\android\\res\\drawable-xxhdpi\\ic_launcher.png"
+    }
+]
