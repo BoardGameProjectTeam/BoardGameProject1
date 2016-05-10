@@ -25,17 +25,17 @@ public class PlayScreen extends State {
     public PlayScreen(GameStateManager gsm){
         super(gsm);
         bs = new ArrayList<BoardSpace>();
-        mb = new MainBoard(30, 30);
+        mb = new MainBoard(10, 10);
         cam.setToOrtho(false, MyGdxGame.WIDTH*2-150, MyGdxGame.HEIGHT*2-150);
         boardOffsetX = 40;
         boardOffsetY = 700;
     }
     @Override
     public void handleInput() {
-        if(Gdx.input.justTouched()){
-            bs.add(new BoardSpace(x,y,mb));
-            x++;
-        }
+//        if(Gdx.input.justTouched()){
+//            bs.add(new BoardSpace(x,y,mb));
+//            x++;
+//        }
         if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)) {
             if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
                 boardOffsetX -= 10;
