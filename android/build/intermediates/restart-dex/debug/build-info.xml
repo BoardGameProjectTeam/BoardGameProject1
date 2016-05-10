@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="armeabi-v7a,armeabi"
-    api-level="19"
-    density="mdpi"
+    abi="x86"
+    api-level="23"
+    density="xxhdpi"
     format="7"
-    timestamp="705160313165" >
+    timestamp="17307200782604" >
 
     <task
         name="javac"
-        duration="306" />
+        duration="148" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="39" />
+        duration="358" />
     <task
         name="verifier"
-        duration="3" />
+        duration="70" />
 
-    <build timestamp="51332016135342" >
+    <artifact
+        location="D:\Romeo\Documents\Github\BoardGameProject1\android\build\outputs\apk\android-debug.apk"
+        type="MAIN" />
+
+    <build timestamp="17307200782604" >
         <artifact
-            location="C:\Users\Cliff\Documents\GitHub\BoardGameProject\android\build\outputs\apk\android-debug.apk"
+            location="D:\Romeo\Documents\Github\BoardGameProject1\android\build\outputs\apk\android-debug.apk"
             type="MAIN" />
     </build>
 

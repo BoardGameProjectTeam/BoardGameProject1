@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\android\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
+        "outputFile": "D:\\Romeo\\Documents\\Github\\BoardGameProject1\\android\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,13 +11,13 @@
                     "endOffset": 97
                 },
                 "from": {
-                    "file": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\android\\res\\values\\strings.xml",
+                    "file": "D:\\Romeo\\Documents\\Github\\BoardGameProject1\\android\\res\\values\\strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
-                        "startOffset": 56,
+                        "startOffset": 59,
                         "endColumn": 46,
-                        "endOffset": 98
+                        "endOffset": 101
                     }
                 }
             },
@@ -31,149 +31,14 @@
                     "endOffset": 560
                 },
                 "from": {
-                    "file": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\android\\res\\values\\styles.xml",
+                    "file": "D:\\Romeo\\Documents\\Github\\BoardGameProject1\\android\\res\\values\\styles.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
-                        "startOffset": 17,
+                        "startOffset": 19,
                         "endLine": 9,
                         "endColumn": 12,
-                        "endOffset": 475
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\boardgame\\android\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 46,
-                    "endOffset": 97
-                },
-                "from": {
-                    "file": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\boardgame\\android\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 56,
-                        "endColumn": 46,
-                        "endOffset": 98
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 3,
-                    "startColumn": 4,
-                    "startOffset": 102,
-                    "endLine": 10,
-                    "endColumn": 12,
-                    "endOffset": 560
-                },
-                "from": {
-                    "file": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\boardgame\\android\\res\\values\\styles.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 17,
-                        "endLine": 9,
-                        "endColumn": 12,
-                        "endOffset": 475
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "C:\\Users\\Cliff\\Desktop\\boardgame\\android\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 46,
-                    "endOffset": 97
-                },
-                "from": {
-                    "file": "C:\\Users\\Cliff\\Desktop\\boardgame\\android\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 56,
-                        "endColumn": 46,
-                        "endOffset": 98
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 3,
-                    "startColumn": 4,
-                    "startOffset": 102,
-                    "endLine": 10,
-                    "endColumn": 12,
-                    "endOffset": 560
-                },
-                "from": {
-                    "file": "C:\\Users\\Cliff\\Desktop\\boardgame\\android\\res\\values\\styles.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 17,
-                        "endLine": 9,
-                        "endColumn": 12,
-                        "endOffset": 475
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject1\\android\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 46,
-                    "endOffset": 97
-                },
-                "from": {
-                    "file": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject1\\android\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 56,
-                        "endColumn": 46,
-                        "endOffset": 98
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 3,
-                    "startColumn": 4,
-                    "startOffset": 102,
-                    "endLine": 10,
-                    "endColumn": 12,
-                    "endOffset": 560
-                },
-                "from": {
-                    "file": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject1\\android\\res\\values\\styles.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 17,
-                        "endLine": 9,
-                        "endColumn": 12,
-                        "endOffset": 475
+                        "endOffset": 484
                     }
                 }
             }
