@@ -1,6 +1,7 @@
 *.class
 .idea/*
 .settings/*
+.gradle/*
 desktop/.project
 android/.classpath
 android/.project
@@ -73,3 +74,7 @@ Temporary Items
 .idea/workspace.xml
 
 *.properties
+
+*.properties
+
+*.xml
