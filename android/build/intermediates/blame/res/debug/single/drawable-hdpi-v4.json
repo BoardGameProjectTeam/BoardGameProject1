@@ -4,6 +4,10 @@
         "source": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\android\\res\\drawable-hdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject1\\android\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject1\\android\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
         "merged": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\boardgame\\android\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
         "source": "C:\\Users\\Cliff\\Documents\\GitHub\\BoardGameProject\\boardgame\\android\\res\\drawable-hdpi\\ic_launcher.png"
     },
