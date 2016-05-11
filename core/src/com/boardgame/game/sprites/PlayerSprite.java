@@ -1,5 +1,6 @@
 package com.boardgame.game.sprites;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 /**
@@ -7,21 +8,16 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
  */
 public class PlayerSprite {
 
+    private Texture spriteSheet;
     private TextureRegion tile;
-    private TileMap map;
-    private int type;
-    public PlayerSprite(int type){
-        map = new TileMap();
-        this.type = type;
-        switch(type){
-//           case 0:
-            //normal tile
-//               break;
-            default:
-                //un imported tile
-                tile = new TextureRegion(map.getTile(9,0));
-                break;
-            }
+    int width;
+    int height;
+
+    public PlayerSprite(){
+        spriteSheet = new Texture("Samurai.png");
+                tile = new TextureRegion(spriteSheet);
+        width = 42;
+        height = 31;
         }
     public TextureRegion getTile(){
             return tile;

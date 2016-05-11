@@ -5,12 +5,13 @@ import com.boardgame.game.BoardClasses.BoardObject;
 import com.boardgame.game.gamepack.Card;
 import com.boardgame.game.gamepack.Skill;
 import com.boardgame.game.gamepack.SkillList;
+import com.boardgame.game.sprites.PlayerSprite;
 
 import java.util.ArrayList;
 
 public class Player extends BoardObject {
 
-	private TextureRegion player;
+	private PlayerSprite player;
 
 	private ArrayList<Card> hand= new ArrayList<Card>();
 	private SkillList skills;
