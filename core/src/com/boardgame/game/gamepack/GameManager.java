@@ -40,10 +40,10 @@ public class GameManager {
 		
 		
 		//mn.addPlayer(1, 1, "2");//testing adding a player style 1
-		Character p1 = new Character("1");//testng adding a player style 2
-		p1.setPos(3,3);
-		mn.addPlayer(p1);
-		bp.printBoard(mn);
+//		Character p1 = new Character("1");//testng adding a player style 2
+//		p1.setPos(3,3);
+//		mn.addPlayer(p1);
+//		bp.printBoard(mn);
 		
 		//Plans:
 		//turn order starts at 0, aka player 1

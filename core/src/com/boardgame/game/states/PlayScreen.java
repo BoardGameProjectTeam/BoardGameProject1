@@ -36,8 +36,9 @@ public class PlayScreen extends State {
         player = new PlayerSprite();
 
         //creating the active player (only one for now)
-        activeChar = new Character();
+        activeChar = new Character(mb.getSpaceAt(0,0));
         activeChar.setPos(0,0);
+
         mb.addPlayer(activeChar);
 
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);

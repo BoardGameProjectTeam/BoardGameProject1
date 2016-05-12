@@ -21,6 +21,7 @@ public class BoardMovement {
 			System.out.println("Outside x range");		
 		
 	}
+
 	public void moveLeft(MainBoard mainBoard, BoardObject obj){
 
 		BoardSpace b = obj.getSpaceon();

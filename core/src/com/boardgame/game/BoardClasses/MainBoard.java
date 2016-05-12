@@ -33,19 +33,25 @@ public class MainBoard {
 	}
 
 	public void moveObject(BoardObject obj, char direction){
-		switch(direction){
-			case 'u':
-				mv.moveUp(this,obj);
-				break;
-			case 'd':
-				mv.moveDown(this,obj);
-				break;
-			case 'l':
-				mv.moveLeft(this,obj);
-				break;
-			case 'r':
-				mv.moveRight(this,obj);
-				break;
+		if(obj !=null) {
+			System.out.println(obj.getX()+ " "+ obj.getY());
+			switch (direction) {
+				case 'u':
+					mv.moveUp(this, obj);
+					break;
+				case 'd':
+					mv.moveDown(this, obj);
+					break;
+				case 'l':
+					mv.moveLeft(this, obj);
+					break;
+				case 'r':
+					mv.moveRight(this, obj);
+					break;
+			}
+		}
+		else {
+			System.out.println("obj here null");
 		}
 	}
 
@@ -85,7 +91,7 @@ public class MainBoard {
 	//use this when making a fresh new character
 	public void addPlayer(int x,int y,String name){
 		BoardSpace s = getSpaceAt(x,y);
-		Character pp = new Character(name);
+		Character pp = new Character(name,getSpaceAt(x,y));
 		pp.setX(x);
 		pp.setY(y);
 		if(s != null){

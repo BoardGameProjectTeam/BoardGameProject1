@@ -2,6 +2,7 @@ package com.boardgame.game.PlayerClasses;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.boardgame.game.BoardClasses.BoardObject;
+import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.CardClasses.Card;
 import com.boardgame.game.gamepack.Skill;
 import com.boardgame.game.gamepack.SkillList;
@@ -15,23 +16,29 @@ public class Character extends BoardObject {
 
 	private ArrayList<Card> hand= new ArrayList<Card>();
 	private SkillList skills;
-	
+	private BoardSpace spaceon;
 	//dunno if these belong here? vv
 	private ArrayList<Card> passivecard= new ArrayList<Card>();
 	private ArrayList<Skill> passiveSkills = new ArrayList<Skill>();
 	
-	public Character(String name){
+	public Character(String name, BoardSpace spaceOn){
 		super.setName(name);
 		player = new PlayerSprite();
+		spaceon = spaceOn;
 	}
 
-	public Character() {
+	public Character(BoardSpace spaceOn) {
 		player = new PlayerSprite();
+		spaceon = spaceOn;
 	}
 
 	public void setPos(int x, int y){
 		super.setX(x);
 		super.setY(y);
+
+	}
+	public BoardSpace getSpaceon(){
+		return spaceon;
 	}
 	public SkillList getSkills() {
 		return skills;
