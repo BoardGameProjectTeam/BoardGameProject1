@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.MyGdxGame;
+import com.boardgame.game.sprites.PlayerSprite;
 import com.boardgame.game.sprites.TileMap;
 import com.boardgame.game.states.GameStateManager;
 import com.boardgame.game.states.State;
@@ -18,17 +19,24 @@ import java.util.ArrayList;
 public class PlayScreen extends State {
     private int boardOffsetX;
     private int boardOffsetY;
+    private int spriteOffsetX;
+    private int spriteOffsetY;
     private MainBoard mb;
     private ArrayList<BoardSpace> bs;
+    private PlayerSprite player;
     int x=0;
     int y=0;
     public PlayScreen(GameStateManager gsm){
         super(gsm);
         bs = new ArrayList<BoardSpace>();
         mb = new MainBoard(10, 10);
+        player = new PlayerSprite();
         cam.setToOrtho(false, MyGdxGame.WIDTH*2-150, MyGdxGame.HEIGHT*2-150);
+        spriteCam.setToOrtho(false, MyGdxGame.WIDTH/2+150, MyGdxGame.HEIGHT/2+150);
         boardOffsetX = 40;
         boardOffsetY = 700;
+        spriteOffsetX = 22;
+        spriteOffsetY = 520;
     }
     @Override
     public void handleInput() {
@@ -36,23 +44,37 @@ public class PlayScreen extends State {
             bs.add(new BoardSpace(x,y,mb));
             x++;
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)) {
-            if (Gdx.input.isKeyPressed(Input.Keys.LEFT))
-                boardOffsetX -= 10;
+            if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
+                if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+                    // boardOffsetX -= 10;
+                    spriteOffsetX -= 36;
+                    if(spriteOffsetX < 22)
+                        spriteOffsetX += 36;
+                }
 
-            if (Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-                boardOffsetX += 10;
+                if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
+                    //boardOffsetX += 10;
+                    spriteOffsetX += 36;
+                    if(spriteOffsetX > 346)
+                        spriteOffsetX -= 36;
+                }
 
-            if (Gdx.input.isKeyPressed(Input.Keys.UP))
-                boardOffsetY += 10;
+                if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+                    //boardOffsetY += 10;
+                    spriteOffsetY += 28;
+                    if(spriteOffsetY > 520)
+                        spriteOffsetY -= 28;
+                }
 
-
-            if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-                boardOffsetY -= 10;
+                if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
+                    //boardOffsetY -= 10;
+                    spriteOffsetY -= 28;
+                    if(spriteOffsetY < 268)
+                        spriteOffsetY += 28;
+                }
+                System.out.println(spriteOffsetX + " = X");
+                System.out.println(spriteOffsetY + " = Y");
             }
-            System.out.println(boardOffsetX + " = X");
-            System.out.println(boardOffsetY + " = Y");
-        }
     }
 
     @Override
@@ -66,7 +88,6 @@ public class PlayScreen extends State {
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
         //for loop for main board tiles
-
         for(int i = 0; i < mb.getXSize(); i ++){
             for(int j = 0; j < mb.getYSize(); j++){
 
@@ -75,9 +96,11 @@ public class PlayScreen extends State {
             }
         }
 //        if(bs.size()>0) {
-        for(int i = 0; i < bs.size();i++){
-            sb.draw(bs.get(i).getTextures(), i*74,0);
+        for(int i = 0; i < bs.size();i++) {
+            sb.draw(bs.get(i).getTextures(), i * 74, 0);
         }
+        sb.setProjectionMatrix(spriteCam.combined);
+        sb.draw(player.getTile(), spriteOffsetX, spriteOffsetY);
         sb.end();
         cam.update();
     }
