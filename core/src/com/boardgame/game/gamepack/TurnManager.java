@@ -1,11 +1,11 @@
 package com.boardgame.game.gamepack;
 
 import com.boardgame.game.BoardClasses.MainBoard;
-import com.boardgame.game.PlayerClasses.Player;
+import com.boardgame.game.PlayerClasses.Character;
 
 public class TurnManager {
 	
-	private Player p1;
+	private Character p1;
 	private MainBoard mb;
 	//3 phases
 	

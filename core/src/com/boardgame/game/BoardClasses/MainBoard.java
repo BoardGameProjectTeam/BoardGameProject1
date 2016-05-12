@@ -1,7 +1,6 @@
 package com.boardgame.game.BoardClasses;
 
-import com.boardgame.game.BoardClasses.BoardSpace;
-import com.boardgame.game.PlayerClasses.Player;
+import com.boardgame.game.PlayerClasses.Character;
 
 import java.util.ArrayList;
 
@@ -13,18 +12,18 @@ import java.util.ArrayList;
 public class MainBoard {
 
 	private ArrayList<BoardSpace> spaces= new ArrayList<BoardSpace>();
-	private ArrayList<Player> players= new ArrayList<Player>();
+	private ArrayList<Character> characters = new ArrayList<Character>();
 	int xsize;
 	int ysize;
 	boolean addon;
 	int turn=0;
 	
 	
-	public MainBoard(BoardSpace[] spaces, Player[] players){
+	public MainBoard(BoardSpace[] spaces, Character[] characters){
 		for(int i =0; i<spaces.length;i++)
 			this.spaces.add(spaces[i]);
-		for(int i = 0;i<players.length;i++)
-			this.players.add(players[i]);		
+		for(int i = 0; i< characters.length; i++)
+			this.characters.add(characters[i]);
 	}
 	public MainBoard(){
 		//for an empty board
@@ -40,8 +39,8 @@ public class MainBoard {
 		spaces.add(new BoardSpace(xsize,ysize,this));
 
 	}
-	public ArrayList<Player> getPlayers(){
-		return players;
+	public ArrayList<Character> getCharacters(){
+		return characters;
 	}
 	public int getXSize(){
 		return xsize;
@@ -75,26 +74,26 @@ public class MainBoard {
 	}
 	public void addPlayer(int x,int y,String name){
 		BoardSpace s = getSpaceAt(x,y);
-		Player pp = new Player(name);
+		Character pp = new Character(name);
 		pp.setX(x);
 		pp.setY(y);
 		if(s != null){
 			s.addObject(pp);
 			pp.setSpaceon(s);
-			players.add(pp);
+			characters.add(pp);
 		}else
 		{
 			System.out.println("S came out null "+ x+y );
 		}
 			
 	}
-	public void addPlayer(Player p){
+	public void addPlayer(Character p){
 		BoardSpace s = getSpaceAt(p.getX(),p.getY());
 		s.addObject(p);
 		if(s != null){
 			s.addObject(p);
 		p.setSpaceon(s);
-		players.add(p);
+		characters.add(p);
 		}
 	}
 	public boolean addonspace(){

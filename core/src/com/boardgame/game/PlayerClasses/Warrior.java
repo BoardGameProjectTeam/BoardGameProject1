@@ -1,6 +1,6 @@
 package com.boardgame.game.PlayerClasses;
 
-public class Warrior extends Player {
+public class Warrior extends Character {
 
 	public Warrior(String name) {
 		super(name);

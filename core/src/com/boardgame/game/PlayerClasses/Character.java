@@ -1,15 +1,14 @@
 package com.boardgame.game.PlayerClasses;
 
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.boardgame.game.BoardClasses.BoardObject;
-import com.boardgame.game.gamepack.Card;
+import com.boardgame.game.CardClasses.Card;
 import com.boardgame.game.gamepack.Skill;
 import com.boardgame.game.gamepack.SkillList;
 import com.boardgame.game.sprites.PlayerSprite;
 
 import java.util.ArrayList;
 
-public class Player extends BoardObject {
+public class Character extends BoardObject {
 
 	private PlayerSprite player;
 
@@ -20,7 +19,7 @@ public class Player extends BoardObject {
 	private ArrayList<Card> passivecard= new ArrayList<Card>();
 	private ArrayList<Skill> passiveSkills = new ArrayList<Skill>();
 	
-	public Player(String name){
+	public Character(String name){
 		super.setName(name);
 	}
 	public void setPos(int x, int y){

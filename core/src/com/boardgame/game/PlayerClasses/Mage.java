@@ -1,6 +1,6 @@
 package com.boardgame.game.PlayerClasses;
 
-public class Mage extends Player {
+public class Mage extends Character {
 
 	public Mage(String name) {
 		super(name);

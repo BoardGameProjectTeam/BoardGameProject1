@@ -1,7 +1,7 @@
 package com.boardgame.game.gamepack;
 
 import com.boardgame.game.BoardClasses.*;
-import com.boardgame.game.PlayerClasses.Player;
+import com.boardgame.game.PlayerClasses.Character;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,12 +13,12 @@ public class GameManager {
 		
 			   		
 		
-		//MainBoard mn = new MainBoard(new BoardSpace[8],new Player[4]);
+		//MainBoard mn = new MainBoard(new BoardSpace[8],new Character[4]);
 		Boolean exitme = false;
 		BoardMovement mv = new BoardMovement();			//var that controls movement
 		MainBoard mn = new MainBoard(8,8);		// game board
 		BoardPrinter bp = new BoardPrinter(mn);	//used to print board on console
-		Deck deck = new Deck();
+		com.boardgame.game.CardClasses.Deck deck = new com.boardgame.game.CardClasses.Deck();
 		//Reads in cards from the file Cards.txt
 		Scanner in1 = null;
 		try {
@@ -29,7 +29,7 @@ public class GameManager {
 		}
 		while (in1.hasNextLine()) {
 		    String line = in1.nextLine();
-		    deck.addCard(new Card(line));
+		    deck.addCard(new com.boardgame.game.CardClasses.Card(line));
 		}
 //		deck.printdeck(); //for testing //should be move 1,2,3,4
 //		deck.draw();
@@ -40,7 +40,7 @@ public class GameManager {
 		
 		
 		//mn.addPlayer(1, 1, "2");//testing adding a player style 1
-		Player p1 = new Player("1");//testng adding a player style 2
+		Character p1 = new Character("1");//testng adding a player style 2
 		p1.setPos(3,3);
 		mn.addPlayer(p1);
 		bp.printBoard(mn);
@@ -62,18 +62,18 @@ public class GameManager {
 			
 			switch(num){
 				case 2:
-					mv.moveRight(mn, mn.getPlayers().get(pnum));
+					mv.moveRight(mn, mn.getCharacters().get(pnum));
 					break;
 				case 1:
-					mv.moveLeft(mn, mn.getPlayers().get(pnum));
+					mv.moveLeft(mn, mn.getCharacters().get(pnum));
 					break;
 
 				case 3:
-					mv.moveUp(mn, mn.getPlayers().get(pnum));
+					mv.moveUp(mn, mn.getCharacters().get(pnum));
 					break;
 
 				case 4:
-					mv.moveDown(mn, mn.getPlayers().get(pnum));
+					mv.moveDown(mn, mn.getCharacters().get(pnum));
 					break;
 
 					default:

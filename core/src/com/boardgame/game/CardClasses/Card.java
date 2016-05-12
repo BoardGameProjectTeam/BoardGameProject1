@@ -1,4 +1,4 @@
-package com.boardgame.game.gamepack;
+package com.boardgame.game.CardClasses;
 
 public class Card {
 
