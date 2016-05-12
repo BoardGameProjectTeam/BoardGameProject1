@@ -30,6 +30,7 @@ public class MainBoard {
 		makeBoard(x,y);
 		xsize = x;
 		ysize = y;
+		mv = new BoardMovement();
 	}
 
 	public void moveObject(BoardObject obj, char direction){

@@ -6,10 +6,11 @@ package com.boardgame.game.BoardClasses;
  *
  */
 public class BoardMovement {
-
+	private BoardSpace b;
+	private BoardSpace b2;
 	public void moveRight(MainBoard mainBoard, BoardObject obj){
-		BoardSpace b = obj.getSpaceon();							//store old space
-		BoardSpace b2;											//for the new space
+		System.out.println("hi");
+		b = obj.getSpaceon();							//store old space
 		if(mainBoard.getXSize()>obj.getX()+1){							//checks to make sure its in bounds
 		b2= mainBoard.getSpaceAt((obj.getX()+1), obj.getY());				//Set the new location
 		b.removeObject();										//remove the object from the old space
@@ -24,8 +25,7 @@ public class BoardMovement {
 
 	public void moveLeft(MainBoard mainBoard, BoardObject obj){
 
-		BoardSpace b = obj.getSpaceon();
-		BoardSpace b2;
+		b = obj.getSpaceon();
 		if(0<=(obj.getX()-1)){
 		b2= mainBoard.getSpaceAt(obj.getX()-1, obj.getY());
 		b.removeObject();
@@ -38,8 +38,7 @@ public class BoardMovement {
 	}
 	
 	public void moveUp(MainBoard mainBoard, BoardObject obj){
-		BoardSpace b = obj.getSpaceon();
-		BoardSpace b2;
+		b = obj.getSpaceon();
 		if(0<=(obj.getY()-1)){
 		b2= mainBoard.getSpaceAt(obj.getX(), obj.getY()-1);
 		b.removeObject();
@@ -53,8 +52,7 @@ public class BoardMovement {
 		
 		
 	public void moveDown(MainBoard mainBoard, BoardObject obj){
-			BoardSpace b = obj.getSpaceon();
-			BoardSpace b2;
+			 b = obj.getSpaceon();
 			if(mainBoard.getYSize()>(obj.getY()+1)){
 			b2= mainBoard.getSpaceAt(obj.getX(), obj.getY()+1);
 			b.removeObject();

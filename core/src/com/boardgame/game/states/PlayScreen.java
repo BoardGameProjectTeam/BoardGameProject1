@@ -51,8 +51,8 @@ public class PlayScreen extends State {
     @Override
     public void handleInput() {
         if(Gdx.input.justTouched()){
-            bs.add(new BoardSpace(x,y,mb));
-            x++;
+//            bs.add(new BoardSpace(x,y,mb));
+//            x++;
         }
             if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
                 if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
@@ -75,6 +75,7 @@ public class PlayScreen extends State {
 //                    spriteOffsetY += 28;
 //                    if(spriteOffsetY > 520)
 //                        spriteOffsetY -= 28;
+                    mb.moveObject(activeChar,'u');
                 }
 
                 if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
@@ -82,6 +83,7 @@ public class PlayScreen extends State {
 //                    spriteOffsetY -= 28;
 //                    if(spriteOffsetY < 268)
 //                        spriteOffsetY += 28;
+                    mb.moveObject(activeChar,'d');
                 }
                 System.out.println(spriteOffsetX + " = X");
                 System.out.println(spriteOffsetY + " = Y");
@@ -113,7 +115,7 @@ public class PlayScreen extends State {
             sb.draw(bs.get(i).getTextures(), i * 74, 0);
         }
         sb.setProjectionMatrix(spriteCam.combined);
-        sb.draw(player.getTile(), spriteOffsetX, spriteOffsetY);
+//        sb.draw(player.getTile(), spriteOffsetX, spriteOffsetY);
         sb.end();
 //        cam.update();
     }
