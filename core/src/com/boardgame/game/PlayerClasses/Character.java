@@ -1,5 +1,6 @@
 package com.boardgame.game.PlayerClasses;
 
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.boardgame.game.BoardClasses.BoardObject;
 import com.boardgame.game.CardClasses.Card;
 import com.boardgame.game.gamepack.Skill;
@@ -23,6 +24,11 @@ public class Character extends BoardObject {
 		super.setName(name);
 		player = new PlayerSprite();
 	}
+
+	public Character() {
+		player = new PlayerSprite();
+	}
+
 	public void setPos(int x, int y){
 		super.setX(x);
 		super.setY(y);
@@ -55,6 +61,9 @@ public class Character extends BoardObject {
 	//for the boardspace function to check if its object is a player
 	public boolean isCharacter(){
 		return false;
+	}
+	public TextureRegion getTexture(){
+		return player.getTile();
 	}
 	
 }

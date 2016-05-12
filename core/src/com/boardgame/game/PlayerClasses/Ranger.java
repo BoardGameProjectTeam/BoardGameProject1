@@ -4,7 +4,7 @@ public class Ranger extends Character {
 
 	public Ranger(String name) {
 		super(name);
-		
+		//use archer sprite?
 	}
 
 }

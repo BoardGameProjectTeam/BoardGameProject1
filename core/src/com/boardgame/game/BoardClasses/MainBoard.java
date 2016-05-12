@@ -32,6 +32,23 @@ public class MainBoard {
 		ysize = y;
 	}
 
+	public void moveObject(BoardObject obj, char direction){
+		switch(direction){
+			case 'u':
+				mv.moveUp(this,obj);
+				break;
+			case 'd':
+				mv.moveDown(this,obj);
+				break;
+			case 'l':
+				mv.moveLeft(this,obj);
+				break;
+			case 'r':
+				mv.moveRight(this,obj);
+				break;
+		}
+	}
+
 	public ArrayList<Character> getCharacters(){
 		return characters;
 	}
@@ -64,6 +81,8 @@ public class MainBoard {
 	public ArrayList<BoardSpace> getBoardSpaces(){
 		return spaces;
 	}
+
+	//use this when making a fresh new character
 	public void addPlayer(int x,int y,String name){
 		BoardSpace s = getSpaceAt(x,y);
 		Character pp = new Character(name);
@@ -79,6 +98,7 @@ public class MainBoard {
 		}
 			
 	}
+	//use this when you made a character and want to add it to the main board
 	public void addPlayer(Character p){
 		BoardSpace s = getSpaceAt(p.getX(),p.getY());
 		s.addObject(p);

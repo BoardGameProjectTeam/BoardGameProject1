@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.MyGdxGame;
+import com.boardgame.game.PlayerClasses.Character;
 import com.boardgame.game.sprites.PlayerSprite;
 import com.boardgame.game.sprites.TileMap;
 import com.boardgame.game.states.GameStateManager;
@@ -24,6 +25,8 @@ public class PlayScreen extends State {
     private MainBoard mb;
     private ArrayList<BoardSpace> bs;
     private PlayerSprite player;
+    private Character activeChar;
+
     int x=0;
     int y=0;
     public PlayScreen(GameStateManager gsm){
@@ -31,6 +34,12 @@ public class PlayScreen extends State {
         bs = new ArrayList<BoardSpace>();
         mb = new MainBoard(7, 7);
         player = new PlayerSprite();
+
+        //creating the active player (only one for now)
+        activeChar = new Character();
+        activeChar.setPos(0,0);
+        mb.addPlayer(activeChar);
+
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
         spriteCam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
         boardOffsetX = 0;
@@ -49,28 +58,29 @@ public class PlayScreen extends State {
 //                    spriteOffsetX -= 36;
 //                    if(spriteOffsetX < 22)
 //                        spriteOffsetX += 36;
-
+                    mb.moveObject(activeChar,'l');
                 }
 
                 if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
                     //boardOffsetX += 10;
-                    spriteOffsetX += 36;
-                    if(spriteOffsetX > 346)
-                        spriteOffsetX -= 36;
+//                    spriteOffsetX += 36;
+//                    if(spriteOffsetX > 346)
+//                        spriteOffsetX -= 36;
+                    mb.moveObject(activeChar,'r');
                 }
 
                 if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
                     //boardOffsetY += 10;
-                    spriteOffsetY += 28;
-                    if(spriteOffsetY > 520)
-                        spriteOffsetY -= 28;
+//                    spriteOffsetY += 28;
+//                    if(spriteOffsetY > 520)
+//                        spriteOffsetY -= 28;
                 }
 
                 if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
                     //boardOffsetY -= 10;
-                    spriteOffsetY -= 28;
-                    if(spriteOffsetY < 268)
-                        spriteOffsetY += 28;
+//                    spriteOffsetY -= 28;
+//                    if(spriteOffsetY < 268)
+//                        spriteOffsetY += 28;
                 }
                 System.out.println(spriteOffsetX + " = X");
                 System.out.println(spriteOffsetY + " = Y");
@@ -93,6 +103,7 @@ public class PlayScreen extends State {
                 int width = mb.getSpaceAt(i,j).getTile().getWidth(); //panels width
                 int height = mb.getSpaceAt(i,j).getTile().getHeight(); // panels height
                 sb.draw(mb.getSpaceAt(i,j).getTextures() ,(i*width)+boardOffsetX,(j*height)+boardOffsetY);
+                sb.draw(activeChar.getTexture(),activeChar.getX()*width,activeChar.getY()*height);
 
             }
         }
