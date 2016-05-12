@@ -29,14 +29,14 @@ public class PlayScreen extends State {
     public PlayScreen(GameStateManager gsm){
         super(gsm);
         bs = new ArrayList<BoardSpace>();
-        mb = new MainBoard(10, 10);
+        mb = new MainBoard(7, 7);
         player = new PlayerSprite();
-        cam.setToOrtho(false, MyGdxGame.WIDTH*2-150, MyGdxGame.HEIGHT*2-150);
-        spriteCam.setToOrtho(false, MyGdxGame.WIDTH/2+150, MyGdxGame.HEIGHT/2+150);
-        boardOffsetX = 40;
-        boardOffsetY = 700;
-        spriteOffsetX = 22;
-        spriteOffsetY = 520;
+        cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
+        spriteCam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
+        boardOffsetX = 0;
+        boardOffsetY = 30;
+        spriteOffsetX = 0;
+        spriteOffsetY = 0;
     }
     @Override
     public void handleInput() {
@@ -46,7 +46,6 @@ public class PlayScreen extends State {
         }
             if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
                 if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-                    // boardOffsetX -= 10;
                     spriteOffsetX -= 36;
                     if(spriteOffsetX < 22)
                         spriteOffsetX += 36;
@@ -90,8 +89,9 @@ public class PlayScreen extends State {
         //for loop for main board tiles
         for(int i = 0; i < mb.getXSize(); i ++){
             for(int j = 0; j < mb.getYSize(); j++){
-
-                sb.draw(mb.getSpaceAt(i,j).getTextures() ,(i*74)+boardOffsetX,(j*74)+boardOffsetY);
+                int width = mb.getSpaceAt(i,j).getTile().getWidth(); //panels width
+                int height = mb.getSpaceAt(i,j).getTile().getHeight(); // panels height
+                sb.draw(mb.getSpaceAt(i,j).getTextures() ,(i*width)+boardOffsetX,(j*height)+boardOffsetY);
 
             }
         }
@@ -102,7 +102,7 @@ public class PlayScreen extends State {
         sb.setProjectionMatrix(spriteCam.combined);
         sb.draw(player.getTile(), spriteOffsetX, spriteOffsetY);
         sb.end();
-        cam.update();
+//        cam.update();
     }
 
     @Override

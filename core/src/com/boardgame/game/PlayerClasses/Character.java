@@ -21,6 +21,7 @@ public class Character extends BoardObject {
 	
 	public Character(String name){
 		super.setName(name);
+		player = new PlayerSprite();
 	}
 	public void setPos(int x, int y){
 		super.setX(x);
@@ -49,6 +50,11 @@ public class Character extends BoardObject {
 	}
 	public void setPassiveSkills(ArrayList<Skill> passiveSkills) {
 		this.passiveSkills = passiveSkills;
+	}
+
+	//for the boardspace function to check if its object is a player
+	public boolean isCharacter(){
+		return false;
 	}
 	
 }

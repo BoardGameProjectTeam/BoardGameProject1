@@ -48,8 +48,13 @@ public class BoardSpace {
 	public void removeObject(){
 			storedObj = null;		
 	}
-	public Boolean hasPlayer(){
-		return storedObj !=null;
+
+	//needs fixing, as this is used to check if a space is occupied...
+	public Boolean hasCharacter(){
+		return storedObj.isCharacter();
+	}
+	public Boolean hasObject(){
+		return storedObj != null;
 	}
 
 	//location get/set methods
@@ -71,6 +76,7 @@ public class BoardSpace {
 		return storedObj;
 	}
 
+	//Trap related functions
 	public Trap getTrap() {
 		return storedTrap;
 	}
@@ -85,9 +91,10 @@ public class BoardSpace {
 			return false;
 	}
 	public boolean hasTrap() {
-		// TODO Auto-generated method stub
 		return storedTrap != null;
 	}
+
+	//this will be used when trying to copy the space to another, maybe due to a card effect.
 	public BoardSpace duplicate(){
 		BoardSpace s = new BoardSpace(x, y,board);
 		s.addObject(storedObj);

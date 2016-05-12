@@ -43,5 +43,13 @@ public abstract class BoardObject {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public boolean isCharacter(){
+		return false;
+	}
+
+	//used for objects that will block movement onto the space it occupies
+	public boolean occupySpace(){
+		return false;
+	}
 	
 }

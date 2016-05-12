@@ -17,8 +17,8 @@ public class PlayerSprite {
 
     public PlayerSprite(){
         spriteSheet = new Texture("Samurai.png");
-        x = 1;
-        y = 1;
+        x = 0;
+        y = 0;
         width = 40;
         height = 29;
         tile = new TextureRegion(spriteSheet, x, y, width, height);

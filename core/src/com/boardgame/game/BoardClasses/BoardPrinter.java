@@ -33,13 +33,13 @@ public class BoardPrinter {
 				for(int j = 0; j<ysize; j++){
 					BoardSpace s = mb.getSpaceAt(j, i);
 					System.out.print("[");
-					if(s.hasPlayer()){
+					if(s.hasCharacter()){
 						System.out.print(s.getObject().getName());
 					}
 					if(s.hasTrap()){
 						System.out.print("T");
 					}
-					if(!(s.hasTrap() || s.hasPlayer())){
+					if(!(s.hasTrap() || s.hasCharacter())){
 						System.out.print(" ");
 					}
 					

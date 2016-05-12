@@ -9,13 +9,18 @@ import com.badlogic.gdx.graphics.Texture;
 public class SingleTile {
     private Texture tile;
     private int type;
+    private int width;
+    private int height;
+
     public SingleTile(int type){
         this.type = type;
         switch(type){
             case 0:
                 //normal tile
-                tile = new Texture("normal.png");
+                tile = new Texture("normal_small.png");
                 this.type = type;
+                width = 35;
+                height = 35;
                 break;
             default:
                 //not imported tile, so use default normal.
@@ -29,6 +34,12 @@ public class SingleTile {
     }
     public int getType(){
         return type;
+    }
+    public int getWidth(){
+        return width;
+    }
+    public int getHeight(){
+        return height;
     }
 
 }
