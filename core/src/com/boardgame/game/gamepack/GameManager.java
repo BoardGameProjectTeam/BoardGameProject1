@@ -24,7 +24,7 @@ public class GameManager {
 		try {
 		    in1 = new Scanner(new File("Cards.txt"));
 		} catch (FileNotFoundException exception) {
-		    System.err.println("failed to open dates.txt");
+		    System.err.println("failed to open Cards.txt");
 		    System.exit(1);
 		}
 		while (in1.hasNextLine()) {

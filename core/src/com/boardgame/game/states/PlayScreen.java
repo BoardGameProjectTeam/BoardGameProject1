@@ -46,9 +46,10 @@ public class PlayScreen extends State {
         }
             if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
                 if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-                    spriteOffsetX -= 36;
-                    if(spriteOffsetX < 22)
-                        spriteOffsetX += 36;
+//                    spriteOffsetX -= 36;
+//                    if(spriteOffsetX < 22)
+//                        spriteOffsetX += 36;
+
                 }
 
                 if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {

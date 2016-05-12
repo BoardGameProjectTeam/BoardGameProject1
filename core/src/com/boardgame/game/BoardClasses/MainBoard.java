@@ -17,28 +17,21 @@ public class MainBoard {
 	int ysize;
 	boolean addon;
 	int turn=0;
-	
+	private BoardMovement mv;
 	
 	public MainBoard(BoardSpace[] spaces, Character[] characters){
 		for(int i =0; i<spaces.length;i++)
 			this.spaces.add(spaces[i]);
 		for(int i = 0; i< characters.length; i++)
 			this.characters.add(characters[i]);
-	}
-	public MainBoard(){
-		//for an empty board
+		mv = new BoardMovement();
 	}
 	public MainBoard(int x, int y){
 		makeBoard(x,y);
 		xsize = x;
 		ysize = y;
 	}
-	public void addSpace(){
-//		xsize ++;
 
-		spaces.add(new BoardSpace(xsize,ysize,this));
-
-	}
 	public ArrayList<Character> getCharacters(){
 		return characters;
 	}
@@ -48,7 +41,6 @@ public class MainBoard {
 	public int getYSize(){
 		return ysize;
 	}
-
 
 	public void makeBoard(int x, int y){
 		for(int i =0; i < x;i++)
