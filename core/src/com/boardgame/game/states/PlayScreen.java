@@ -39,14 +39,16 @@ public class PlayScreen extends State {
 
         //creating the active player (only one for now)
         activeChar = new Character(mb.getSpaceAt(0,0));
-        activeChar.setPos(0,0);
 
         //testing...
         passiveChar = new Character(mb.getSpaceAt(1,1), 2);
-        passiveChar.setPos(1,1);
 
         mb.addPlayer(activeChar);
         mb.addPlayer(passiveChar); //testing
+
+//        passiveChar = new Character(mb.getSpaceAt(2,2),3);
+//        passiveChar.setPos(2,2);
+//        mb.addPlayer(passiveChar);
 
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
         spriteCam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
@@ -60,9 +62,10 @@ public class PlayScreen extends State {
         if(Gdx.input.justTouched()){
 //            bs.add(new BoardSpace(x,y,mb));
 //            x++;
+            System.out.println("player stats: "+activeChar.getSpaceon().getX()+" "+activeChar.getSpaceon().getY());
         }
             if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
-                System.out.println(activeChar.getX()+" "+activeChar.getY());
+//                System.out.println(activeChar.getX()+" "+activeChar.getY());
                 if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
 //                    spriteOffsetX -= 36;
 //                    if(spriteOffsetX < 22)

@@ -23,20 +23,24 @@ public class Character extends BoardObject {
 	
 	public Character(String name, BoardSpace spaceOn){
 		super.setName(name);
-		player = new PlayerSprite();
-		spaceon = spaceOn;
+		commonConstructor(spaceOn);
 	}
 
 	public Character(BoardSpace spaceOn) {
-		player = new PlayerSprite();
-		spaceon = spaceOn;
+		commonConstructor(spaceOn);
 	}
 
+	private void commonConstructor(BoardSpace spaceOn){
+		player = new PlayerSprite();
+		spaceon = spaceOn;
+		setPos(spaceOn.getX(),spaceOn.getY());
+	}
 	//testing different constructor
 	public Character(BoardSpace spaceOn, int charSeq)
 	{
 		player = new PlayerSprite(charSeq);
 		spaceon = spaceOn;
+		setPos(spaceOn.getX(),spaceOn.getY());
 	}
 
 	public void setPos(int x, int y){
