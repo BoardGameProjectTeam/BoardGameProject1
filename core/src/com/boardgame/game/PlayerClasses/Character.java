@@ -28,8 +28,14 @@ public class Character extends BoardObject {
 	}
 
 	public Character(BoardSpace spaceOn) {
-		//player = new PlayerSprite();
-		player = new PlayerSprite(2); //testing
+		player = new PlayerSprite();
+		spaceon = spaceOn;
+	}
+
+	//testing different constructor
+	public Character(BoardSpace spaceOn, int charSeq)
+	{
+		player = new PlayerSprite(charSeq);
 		spaceon = spaceOn;
 	}
 

@@ -24,9 +24,10 @@ public class PlayScreen extends State {
     private int spriteOffsetY;
     private MainBoard mb;
     private ArrayList<BoardSpace> bs;
-    private PlayerSprite player;
+//    private PlayerSprite player;
     private Character activeChar;
     private Character passiveChar; //testing
+    private Character temp;
 
     int x=0;
     int y=0;
@@ -34,14 +35,14 @@ public class PlayScreen extends State {
         super(gsm);
         bs = new ArrayList<BoardSpace>();
         mb = new MainBoard(7, 7);
-        player = new PlayerSprite();
+//        player = new PlayerSprite();
 
         //creating the active player (only one for now)
         activeChar = new Character(mb.getSpaceAt(0,0));
         activeChar.setPos(0,0);
 
         //testing...
-        passiveChar = new Character(mb.getSpaceAt(1,1));
+        passiveChar = new Character(mb.getSpaceAt(1,1), 2);
         passiveChar.setPos(1,1);
 
         mb.addPlayer(activeChar);
@@ -62,7 +63,7 @@ public class PlayScreen extends State {
         }
             if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
                 System.out.println(activeChar.getX()+" "+activeChar.getY());
-                if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+                if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
 //                    spriteOffsetX -= 36;
 //                    if(spriteOffsetX < 22)
 //                        spriteOffsetX += 36;
@@ -91,6 +92,13 @@ public class PlayScreen extends State {
 //                    if(spriteOffsetY < 268)
 //                        spriteOffsetY += 28;
                     mb.moveObject(activeChar,'d');
+                }
+
+                if (Gdx.input.isKeyJustPressed(Input.Keys.Z))
+                {
+                    temp = activeChar;
+                    activeChar = passiveChar;
+                    passiveChar = temp;
                 }
             }
     }
