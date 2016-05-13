@@ -5,8 +5,10 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
+import com.boardgame.game.CardClasses.SlashCard;
 import com.boardgame.game.MyGdxGame;
 import com.boardgame.game.PlayerClasses.Character;
+import com.boardgame.game.PlayerClasses.MainPlayer;
 import com.boardgame.game.sprites.PlayerSprite;
 import com.boardgame.game.sprites.TileMap;
 import com.boardgame.game.states.GameStateManager;
@@ -29,10 +31,20 @@ public class PlayScreen extends State {
     private Character passiveChar; //testing
     private Character temp;
 
+    private MainPlayer p1;
+    private MainPlayer p2;
+
     int x=0;
     int y=0;
     public PlayScreen(GameStateManager gsm){
         super(gsm);
+        p1 = new MainPlayer();
+        p2 = new MainPlayer();
+
+        //setup player 1
+        p1.getHand().addCard(new SlashCard());
+
+
         bs = new ArrayList<BoardSpace>();
         mb = new MainBoard(7, 7);
 //        player = new PlayerSprite();
