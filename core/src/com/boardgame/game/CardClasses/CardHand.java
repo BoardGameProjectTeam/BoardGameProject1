@@ -27,5 +27,8 @@ public class CardHand {
     public int findCard(Card card){
         return cards.indexOf(card);
     }
+    public int handSize(){
+        return cards.size();
+    }
 
 }

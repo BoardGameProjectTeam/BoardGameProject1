@@ -1,5 +1,6 @@
 package com.boardgame.game.CardClasses;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.boardgame.game.sprites.CardSprite;
 import com.boardgame.game.sprites.SlashCardSprite;
 
@@ -21,6 +22,9 @@ public class Card {
 	public Card dupe(){
 		Card c = new Card(name);
 		return c;
+	}
+	public Texture getCardSprite(){
+		return cardSprite.getCardTexture();
 	}
 
 }

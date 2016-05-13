@@ -43,6 +43,9 @@ public class PlayScreen extends State {
 
         //setup player 1
         p1.getHand().addCard(new SlashCard());
+        p1.getHand().addCard(new SlashCard());
+        p1.getHand().addCard(new SlashCard());
+        p1.getHand().addCard(new SlashCard());
 
 
         bs = new ArrayList<BoardSpace>();
@@ -137,6 +140,9 @@ public class PlayScreen extends State {
                 sb.draw(activeChar.getTexture(),activeChar.getX()*width+boardOffsetX,activeChar.getY()*height+boardOffsetY);
                 sb.draw(passiveChar.getTexture(),passiveChar.getX()*width+boardOffsetX,passiveChar.getY()*height+boardOffsetY); //testing
             }
+        }
+        for(int i = 0; i<p1.getHand().handSize();i++) {
+            sb.draw(p1.getHand().getCard(i).getCardSprite(),i*p1.getHand().getCard(i).getCardSprite().getWidth(), 300);
         }
 //        if(bs.size()>0) {
         for(int i = 0; i < bs.size();i++) {
