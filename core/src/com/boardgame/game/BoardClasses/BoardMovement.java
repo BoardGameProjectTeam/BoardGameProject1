@@ -9,7 +9,7 @@ public class BoardMovement {
 	private BoardSpace b;
 	private BoardSpace b2;
 	public void moveRight(MainBoard mainBoard, BoardObject obj){
-		System.out.println("hi");
+
 		b = obj.getSpaceon();							//store old space
 		if(mainBoard.getXSize()>obj.getX()+1){							//checks to make sure its in bounds
 		b2= mainBoard.getSpaceAt((obj.getX()+1), obj.getY());				//Set the new location
@@ -37,7 +37,7 @@ public class BoardMovement {
 			System.out.println("Outside x range");		
 	}
 	
-	public void moveUp(MainBoard mainBoard, BoardObject obj){
+	public void moveDown(MainBoard mainBoard, BoardObject obj){
 		b = obj.getSpaceon();
 		if(0<=(obj.getY()-1)){
 		b2= mainBoard.getSpaceAt(obj.getX(), obj.getY()-1);
@@ -51,7 +51,7 @@ public class BoardMovement {
 	}
 		
 		
-	public void moveDown(MainBoard mainBoard, BoardObject obj){
+	public void moveUp(MainBoard mainBoard, BoardObject obj){
 			 b = obj.getSpaceon();
 			if(mainBoard.getYSize()>(obj.getY()+1)){
 			b2= mainBoard.getSpaceAt(obj.getX(), obj.getY()+1);

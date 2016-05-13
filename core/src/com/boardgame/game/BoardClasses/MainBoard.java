@@ -52,7 +52,7 @@ public class MainBoard {
 			}
 		}
 		else {
-			System.out.println("obj here null");
+
 		}
 	}
 

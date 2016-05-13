@@ -4,10 +4,11 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fabac318-6509-4479-8225-0ce3a93091d0" name="Default" comment="">
+    <list default="true" id="fabac318-6509-4479-8225-0ce3a93091d0" name="Default" comment="fixed player to move up and down properly, and">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/BoardMovement.java" afterPath="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/BoardMovement.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java" afterPath="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/boardgame/game/sprites/PlayerSprite.java" afterPath="$PROJECT_DIR$/core/src/com/boardgame/game/sprites/PlayerSprite.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/boardgame/game/states/PlayScreen.java" afterPath="$PROJECT_DIR$/core/src/com/boardgame/game/states/PlayScreen.java" />
     </list>
     <ignored path="BoardGameProject1.iws" />
@@ -40,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/states/PlayScreen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
+              <caret line="103" column="48" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
               <folding>
                 <element signature="e#3149#3150#0" expanded="true" />
                 <element signature="e#3178#3179#0" expanded="true" />
@@ -63,20 +64,20 @@
         <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/gamepack/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+              <caret line="0" column="36" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainBoard.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.08707865">
-              <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="37" column="60" selection-start-line="37" selection-start-column="60" selection-end-line="37" selection-end-column="60" />
               <folding>
-                <element signature="e#1368#1369#0" expanded="true" />
-                <element signature="e#1392#1393#0" expanded="true" />
+                <element signature="e#1329#1330#0" expanded="true" />
+                <element signature="e#1353#1354#0" expanded="true" />
                 <element signature="method#makeBoard#0;class#MainBoard#0" expanded="false" />
                 <element signature="method#getSpaceAt#0;class#MainBoard#0" expanded="false" />
               </folding>
@@ -87,8 +88,8 @@
       <file leaf-file-name="BoardMovement.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/BoardMovement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.175">
-              <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+            <state vertical-scroll-proportion="-2.5">
+              <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -127,6 +128,18 @@
               <folding>
                 <element signature="e#581#582#0" expanded="true" />
                 <element signature="e#599#600#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerSprite.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/sprites/PlayerSprite.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4348404">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -3505,7 +3518,6 @@
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/CardClasses/CardHand.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/PlayerClasses/MainPlayer.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/states/State.java" />
-        <option value="$PROJECT_DIR$/core/src/com/boardgame/game/sprites/PlayerSprite.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/BoardSpace.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/BoardObject.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/sprites/SingleTile.java" />
@@ -3514,9 +3526,10 @@
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/PlayerClasses/Ranger.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/PlayerClasses/Warrior.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/PlayerClasses/Character.java" />
-        <option value="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/BoardMovement.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java" />
+        <option value="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/BoardMovement.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/states/PlayScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/boardgame/game/sprites/PlayerSprite.java" />
       </list>
     </option>
   </component>
@@ -4052,7 +4065,13 @@
       <option name="project" value="LOCAL" />
       <updated>1463096089719</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fixed issue by initializeing boardmovement in mainboard">
+      <created>1463096851896</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1463096851896</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -4109,7 +4128,8 @@
     <MESSAGE value="More changes to main board" />
     <MESSAGE value="Tried tieing the player to the board, added active player to screen" />
     <MESSAGE value="made character take a boardspace" />
-    <option name="LAST_COMMIT_MESSAGE" value="made character take a boardspace" />
+    <MESSAGE value="fixed issue by initializeing boardmovement in mainboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed issue by initializeing boardmovement in mainboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4387,8 +4407,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding>
-            <element signature="e#1368#1369#0" expanded="true" />
-            <element signature="e#1392#1393#0" expanded="true" />
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
             <element signature="method#makeBoard#0;class#MainBoard#0" expanded="false" />
             <element signature="method#getSpaceAt#0;class#MainBoard#0" expanded="false" />
           </folding>
@@ -4501,16 +4521,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/sprites/PlayerSprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/states/GameStateManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4533,14 +4543,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/PlayerClasses/MainPlayer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -4569,14 +4571,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/BoardMovement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.175">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/PlayerClasses/Warrior.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19946809">
@@ -4593,18 +4587,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/BoardMovement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.5">
+          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/PlayerClasses/MainPlayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/gamepack/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+          <caret line="0" column="36" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="60" selection-start-line="37" selection-start-column="60" selection-end-line="37" selection-end-column="60" />
+          <folding>
+            <element signature="e#1329#1330#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="method#makeBoard#0;class#MainBoard#0" expanded="false" />
+            <element signature="method#getSpaceAt#0;class#MainBoard#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/states/PlayScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
+          <caret line="103" column="48" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
           <folding>
             <element signature="e#3149#3150#0" expanded="true" />
             <element signature="e#3178#3179#0" expanded="true" />
@@ -4612,15 +4635,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/sprites/PlayerSprite.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08707865">
-          <caret line="32" column="33" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.4348404">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding>
-            <element signature="e#1368#1369#0" expanded="true" />
-            <element signature="e#1392#1393#0" expanded="true" />
-            <element signature="method#makeBoard#0;class#MainBoard#0" expanded="false" />
-            <element signature="method#getSpaceAt#0;class#MainBoard#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

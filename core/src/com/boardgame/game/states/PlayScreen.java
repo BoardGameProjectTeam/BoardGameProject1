@@ -106,7 +106,7 @@ public class PlayScreen extends State {
                 int width = mb.getSpaceAt(i,j).getTile().getWidth(); //panels width
                 int height = mb.getSpaceAt(i,j).getTile().getHeight(); // panels height
                 sb.draw(mb.getSpaceAt(i,j).getTextures() ,(i*width)+boardOffsetX,(j*height)+boardOffsetY);
-                sb.draw(activeChar.getTexture(),activeChar.getX()*width,activeChar.getY()*height);
+                sb.draw(activeChar.getTexture(),activeChar.getX()*width+boardOffsetX,activeChar.getY()*height+boardOffsetY);
 
             }
         }
