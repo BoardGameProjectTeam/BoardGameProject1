@@ -61,6 +61,7 @@ public class PlayScreen extends State {
 //            x++;
         }
             if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
+                System.out.println(activeChar.getX()+" "+activeChar.getY());
                 if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
 //                    spriteOffsetX -= 36;
 //                    if(spriteOffsetX < 22)
@@ -91,8 +92,6 @@ public class PlayScreen extends State {
 //                        spriteOffsetY += 28;
                     mb.moveObject(activeChar,'d');
                 }
-                System.out.println(spriteOffsetX + " = X");
-                System.out.println(spriteOffsetY + " = Y");
             }
     }
 
