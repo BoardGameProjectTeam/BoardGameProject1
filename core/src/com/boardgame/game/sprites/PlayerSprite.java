@@ -10,6 +10,7 @@ public class PlayerSprite {
 
     private Texture spriteSheet;
     private TextureRegion tile;
+    private String filename;
     int x;
     int y;
     int width;
@@ -23,6 +24,28 @@ public class PlayerSprite {
         height = 29;
         tile = new TextureRegion(spriteSheet, x, y, width, height);
         }
+
+    //testing multiple sprite sheets
+    public PlayerSprite(int numChar)
+    {
+            switch (numChar) {
+                case 1:
+                    filename = "Samurai.png";
+                    break;
+                case 2:
+                    filename = "Ninja.png";
+                    break;
+                case 3:
+                    filename = "Archer.png";
+                    break;
+            }
+            spriteSheet = new Texture(filename);
+            x = 1;
+            y = 1;
+            width = 40;
+            height = 29;
+            tile = new TextureRegion(spriteSheet, x, y, width, height);
+    }
     public TextureRegion getTile(){
             return tile;
         }

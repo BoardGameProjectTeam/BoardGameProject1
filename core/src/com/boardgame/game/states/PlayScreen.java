@@ -26,6 +26,7 @@ public class PlayScreen extends State {
     private ArrayList<BoardSpace> bs;
     private PlayerSprite player;
     private Character activeChar;
+    private Character passiveChar; //testing
 
     int x=0;
     int y=0;
@@ -39,7 +40,12 @@ public class PlayScreen extends State {
         activeChar = new Character(mb.getSpaceAt(0,0));
         activeChar.setPos(0,0);
 
+        //testing...
+        passiveChar = new Character(mb.getSpaceAt(1,1));
+        passiveChar.setPos(1,1);
+
         mb.addPlayer(activeChar);
+        mb.addPlayer(passiveChar); //testing
 
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
         spriteCam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
@@ -107,7 +113,7 @@ public class PlayScreen extends State {
                 int height = mb.getSpaceAt(i,j).getTile().getHeight(); // panels height
                 sb.draw(mb.getSpaceAt(i,j).getTextures() ,(i*width)+boardOffsetX,(j*height)+boardOffsetY);
                 sb.draw(activeChar.getTexture(),activeChar.getX()*width+boardOffsetX,activeChar.getY()*height+boardOffsetY);
-
+                sb.draw(passiveChar.getTexture(),passiveChar.getX()*width+boardOffsetX,passiveChar.getY()*height+boardOffsetY); //testing
             }
         }
 //        if(bs.size()>0) {

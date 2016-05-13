@@ -28,7 +28,8 @@ public class Character extends BoardObject {
 	}
 
 	public Character(BoardSpace spaceOn) {
-		player = new PlayerSprite();
+		//player = new PlayerSprite();
+		player = new PlayerSprite(2); //testing
 		spaceon = spaceOn;
 	}
 
