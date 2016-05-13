@@ -6,6 +6,8 @@ import com.boardgame.game.gamepack.Trap;
 import com.boardgame.game.sprites.SingleTile;
 import com.boardgame.game.sprites.Tile;
 
+import java.util.ArrayList;
+
 /**
  * This class is designed to represent an individual board space panel
  * It needs the mainboard to have references to its parent.
@@ -19,6 +21,7 @@ public class BoardSpace {
 	//objects on space
 	private Trap storedTrap;
 	private BoardObject storedObj;
+	private ArrayList<BoardObject> objs;
 
 	//location variables
 	private int x;
@@ -31,6 +34,7 @@ public class BoardSpace {
 		this.setY(y);
 		board = mainBoard;
 		tile = new SingleTile(0);
+		objs = new ArrayList<BoardObject>();
 	}
 
 	//constructor for when specifying a type of panel to create
@@ -39,14 +43,20 @@ public class BoardSpace {
 		this.setY(y);
 		board = mainBoard;
 		tile = new SingleTile(type);
+		objs = new ArrayList<BoardObject>();
 	}
 
 	//used for placing objects on the space
 	public void addObject(BoardObject p){
-			storedObj = p;
+//			storedObj = p;
+			objs.add(p);
+
+
 	}
-	public void removeObject(){
-			storedObj = null;		
+
+	public void removeObject(BoardObject p){
+//			storedObj = null;
+		objs.remove(p);
 	}
 
 	//needs fixing, as this is used to check if a space is occupied...
@@ -54,7 +64,8 @@ public class BoardSpace {
 		return storedObj.isCharacter();
 	}
 	public Boolean hasObject(){
-		return storedObj != null;
+
+		return objs.size()>0;
 	}
 
 	//location get/set methods

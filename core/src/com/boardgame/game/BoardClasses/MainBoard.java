@@ -18,7 +18,6 @@ public class MainBoard {
 	boolean addon;
 	int turn=0;
 	private BoardMovement mv;
-	
 	public MainBoard(BoardSpace[] spaces, Character[] characters){
 		for(int i =0; i<spaces.length;i++)
 			this.spaces.add(spaces[i]);
@@ -35,7 +34,7 @@ public class MainBoard {
 
 	public void moveObject(BoardObject obj, char direction){
 		if(obj !=null) {
-			System.out.println(obj.getX()+ " "+ obj.getY());
+//			System.out.println(obj.getX()+ " "+ obj.getY());
 			switch (direction) {
 				case 'u':
 					mv.moveUp(this, obj);
@@ -108,12 +107,15 @@ public class MainBoard {
 	//use this when you made a character and want to add it to the main board
 	public void addPlayer(Character p){
 		BoardSpace s = getSpaceAt(p.getX(),p.getY());
-		s.addObject(p);
+
 		if(s != null){
 			s.addObject(p);
 		p.setSpaceon(s);
 		characters.add(p);
 		}
+	}
+	public Character getCharacter(int i){
+		return characters.get(i);
 	}
 	public boolean addonspace(){
 		return addon;
