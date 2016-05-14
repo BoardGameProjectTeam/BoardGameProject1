@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fabac318-6509-4479-8225-0ce3a93091d0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java" afterPath="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/boardgame/game/Controllers/PlayController.java" afterPath="$PROJECT_DIR$/core/src/com/boardgame/game/Controllers/PlayController.java" />
     </list>
     <ignored path="BoardGameProject1.iws" />
@@ -52,11 +53,21 @@
       <file leaf-file-name="PlayController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/Controllers/PlayController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36835107">
-              <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.70079786">
+              <caret line="72" column="77" selection-start-line="72" selection-start-column="77" selection-end-line="72" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainBoard.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.8">
+              <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -3449,7 +3460,6 @@
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/SkillClasses/PassiveSkill.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/SkillClasses/SkillInterface.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/SkillClasses/Skill.java" />
-        <option value="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/states/State.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/sprites/CardSprite.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/sprites/SlashCardSprite.java" />
@@ -3457,6 +3467,7 @@
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/PlayerClasses/Character.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/BoardMovement.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/states/PlayScreen.java" />
+        <option value="$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java" />
         <option value="$PROJECT_DIR$/core/src/com/boardgame/game/Controllers/PlayController.java" />
       </list>
     </option>
@@ -4200,7 +4211,13 @@
       <option name="project" value="LOCAL" />
       <updated>1463255896668</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="fixed location detection">
+      <created>1463256675551</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1463256675551</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -4272,7 +4289,8 @@
     <MESSAGE value="now able to track touch coords properly" />
     <MESSAGE value="added small card pic" />
     <MESSAGE value="made teleport in board movement" />
-    <option name="LAST_COMMIT_MESSAGE" value="made teleport in board movement" />
+    <MESSAGE value="fixed location detection" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed location detection" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -4698,14 +4716,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="9" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/CardClasses/SlashCard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -4753,10 +4763,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/BoardClasses/MainBoard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.8">
+          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/boardgame/game/Controllers/PlayController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36835107">
-          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.70079786">
+          <caret line="72" column="77" selection-start-line="72" selection-start-column="77" selection-end-line="72" selection-end-column="77" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

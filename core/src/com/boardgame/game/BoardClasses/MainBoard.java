@@ -31,6 +31,11 @@ public class MainBoard {
 		ysize = y;
 		mv = new BoardMovement();
 	}
+	public void teleportObject(BoardObject obj, int x, int y){
+		if(obj!=null){
+			mv.teleport(this,obj,getSpaceAt(x,y));
+		}
+	}
 
 	public void moveObject(BoardObject obj, char direction){
 		if(obj !=null) {

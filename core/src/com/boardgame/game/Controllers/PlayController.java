@@ -70,6 +70,8 @@ public class PlayController implements InputProcessor{
                     " "+
                     screenY);
 
+            ps.getMainBoard().teleportObject(ps.getActiveChar(),xx/70,yy/70);
+
         }catch (Exception e){
             System.out.println("Can't find space at " + screenX+" "+screenY);
         }
