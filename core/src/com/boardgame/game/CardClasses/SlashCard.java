@@ -11,12 +11,13 @@ import com.boardgame.game.sprites.SlashCardSprite;
 public class SlashCard extends Card {
 
     private SlashCardSprite cardSprite;
+
     public SlashCard() {
         super("Slash");
-        setCardSprite("slashCard.png",70,90);
+        setCardSprite(70,90);
     }
-    public void setCardSprite(String filename,int width, int height){
-        cardSprite = new SlashCardSprite(filename,width,height);
+    public void setCardSprite(int width, int height){
+        cardSprite = new SlashCardSprite(width,height);
     }
     public Texture getCardSprite(){
         return cardSprite.getCardTexture();

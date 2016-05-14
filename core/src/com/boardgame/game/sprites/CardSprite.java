@@ -22,7 +22,6 @@ public abstract class CardSprite {
     public int getWidth() {
         return width;
     }
-
     public int getHeight() {
         return height;
     }

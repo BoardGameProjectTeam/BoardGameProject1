@@ -18,7 +18,7 @@ public class BoardMovement {
 			if (!b2.hasObject()) {
 				b.removeObject(obj);                                        //remove the object from the old space
 				b2.addObject(obj);                                        //place object in the new space
-				obj.setX(obj.getX() + 1);                                        //change the objects x to reflect the new space
+//				obj.setX(obj.getX() + 1);                                        //change the objects x to reflect the new space
 				obj.setSpaceon(b2);                                        //change the stored space to be the new space
 
 			}
@@ -37,7 +37,7 @@ public class BoardMovement {
 			if(!b2.hasObject()) {
 				b.removeObject(obj);
 				b2.addObject(obj);
-				obj.setX(obj.getX() - 1);
+//				obj.setX(obj.getX() - 1);
 				obj.setSpaceon(b2);
 			}
 		}
@@ -52,7 +52,7 @@ public class BoardMovement {
 			if(!b2.hasObject()) {
 				b.removeObject(obj);
 				b2.addObject(obj);
-				obj.setY(obj.getY() - 1);
+//				obj.setY(obj.getY() - 1);
 				obj.setSpaceon(b2);
 			}else
 			{
@@ -71,7 +71,7 @@ public class BoardMovement {
 				if(!b2.hasObject()) {
 					b.removeObject(obj);
 					b2.addObject(obj);
-					obj.setY(obj.getY() + 1);
+//					obj.setY(obj.getY() + 1); fixed in player to not need this anymore
 					obj.setSpaceon(b2);
 				}
 			}
@@ -79,5 +79,13 @@ public class BoardMovement {
 					System.out.println("Outside y range");	
 			
 	}
-	
+	public void teleport(MainBoard mainBoard, BoardObject obj, BoardSpace boardSpace){
+		b = mainBoard.getSpaceAt(obj.getX(),obj.getY());
+		b2 = boardSpace;
+		if(!b2.hasObject()){
+			b.removeObject(obj);
+			b2.addObject(obj);
+			obj.setSpaceon(b2);
+		}
+	}
 }

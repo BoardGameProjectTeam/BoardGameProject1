@@ -53,7 +53,10 @@ public class Character extends BoardObject implements ABoardObject{
 	public BoardSpace getSpaceon(){
 		return spaceon;
 	}
-	public void setSpaceon(BoardSpace spaceon){this.spaceon = spaceon;}
+	public void setSpaceon(BoardSpace spaceon){
+		this.spaceon = spaceon;
+		setPos(spaceon.getX(),spaceon.getY());
+	}
 	public void setPassivecard(ArrayList<Card> passivecard) {
 		this.passivecard = passivecard;
 	}

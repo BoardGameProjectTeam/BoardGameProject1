@@ -125,6 +125,12 @@ public class PlayScreen extends State {
         activeChar = passiveChar;
         passiveChar = temp;
     }
+    public int getBoardOffsetX(){
+        return boardOffsetX;
+    }
+    public int getBoardOffsetY(){
+        return boardOffsetY;
+    }
 
 
     @Override

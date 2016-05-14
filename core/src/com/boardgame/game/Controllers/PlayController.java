@@ -56,7 +56,15 @@ public class PlayController implements InputProcessor{
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         screenY = MyGdxGame.HEIGHT-screenY;
         try {
-            System.out.println(ps.getMainBoard().getSpaceAt(screenX/70, screenY/70).getX()+" "+ps.getMainBoard().getSpaceAt(screenX/70, screenY/70).getY()+" "+screenX+" "+screenY);
+            System.out.println(
+                    ps.getMainBoard().getSpaceAt((screenX+ps.getBoardOffsetX())/70,(screenY/70+ps.getBoardOffsetY())).getX()+
+                    " "+
+                    ps.getMainBoard().getSpaceAt((screenX+ps.getBoardOffsetX())/70,(screenY/70+ps.getBoardOffsetY())).getY()+
+                    " "+
+                    screenX+
+                    " "+
+                    screenY);
+
         }catch (Exception e){
             System.out.println("Can't find space at " + screenX+" "+screenY);
         }
