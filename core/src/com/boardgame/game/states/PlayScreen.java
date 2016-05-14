@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.CardClasses.SlashCard;
+import com.boardgame.game.Controllers.PlayController;
 import com.boardgame.game.MyGdxGame;
 import com.boardgame.game.PlayerClasses.Character;
 import com.boardgame.game.PlayerClasses.MainPlayer;
@@ -22,8 +23,6 @@ import java.util.ArrayList;
 public class PlayScreen extends State {
     private int boardOffsetX;
     private int boardOffsetY;
-    private int spriteOffsetX;
-    private int spriteOffsetY;
     private MainBoard mb;
     private ArrayList<BoardSpace> bs;
 //    private PlayerSprite player;
@@ -34,10 +33,12 @@ public class PlayScreen extends State {
     private MainPlayer p1;
     private MainPlayer p2;
 
-    int x=0;
-    int y=0;
+    private PlayController playController;
+
     public PlayScreen(GameStateManager gsm){
         super(gsm);
+        playController = new PlayController(this);
+        Gdx.input.setInputProcessor(playController);
         p1 = new MainPlayer();
         p2 = new MainPlayer();
 
@@ -69,56 +70,14 @@ public class PlayScreen extends State {
         spriteCam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
         boardOffsetX = 0;
         boardOffsetY = 30;
-        spriteOffsetX = 0;
-        spriteOffsetY = 0;
+
     }
     @Override
     public void handleInput() {
         if(Gdx.input.justTouched()){
-//            bs.add(new BoardSpace(x,y,mb));
-//            x++;
             System.out.println("player stats: "+activeChar.getSpaceon().getX()+" "+activeChar.getSpaceon().getY());
         }
-            if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
-//                System.out.println(activeChar.getX()+" "+activeChar.getY());
-                if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
-//                    spriteOffsetX -= 36;
-//                    if(spriteOffsetX < 22)
-//                        spriteOffsetX += 36;
-                    mb.moveObject(activeChar,'l');
-                }
 
-                if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
-                    //boardOffsetX += 10;
-//                    spriteOffsetX += 36;
-//                    if(spriteOffsetX > 346)
-//                        spriteOffsetX -= 36;
-                    mb.moveObject(activeChar,'r');
-                }
-
-                if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-                    //boardOffsetY += 10;
-//                    spriteOffsetY += 28;
-//                    if(spriteOffsetY > 520)
-//                        spriteOffsetY -= 28;
-                    mb.moveObject(activeChar,'u');
-                }
-
-                if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
-                    //boardOffsetY -= 10;
-//                    spriteOffsetY -= 28;
-//                    if(spriteOffsetY < 268)
-//                        spriteOffsetY += 28;
-                    mb.moveObject(activeChar,'d');
-                }
-
-                if (Gdx.input.isKeyJustPressed(Input.Keys.Z))
-                {
-                    temp = activeChar;
-                    activeChar = passiveChar;
-                    passiveChar = temp;
-                }
-            }
     }
 
     @Override
@@ -152,6 +111,18 @@ public class PlayScreen extends State {
 //        sb.draw(player.getTile(), spriteOffsetX, spriteOffsetY);
         sb.end();
 //        cam.update();
+    }
+
+    public MainBoard getMainBoard(){
+        return mb;
+    }
+    public Character getActiveChar(){
+        return activeChar;
+    }
+    public void switchChar(){
+        temp = activeChar;
+        activeChar = passiveChar;
+        passiveChar = temp;
     }
 
     @Override
