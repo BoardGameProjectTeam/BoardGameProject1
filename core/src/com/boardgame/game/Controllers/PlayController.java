@@ -56,10 +56,15 @@ public class PlayController implements InputProcessor{
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         screenY = MyGdxGame.HEIGHT-screenY;
         try {
+            int xx = screenX+ps.getBoardOffsetX();
+            int yy = screenY-ps.getBoardOffsetY();
+            System.out.println(screenX+ps.getBoardOffsetX()+" this is x");
+            System.out.println(screenY+ps.getBoardOffsetY()+" this is ");
+
             System.out.println(
-                    ps.getMainBoard().getSpaceAt((screenX+ps.getBoardOffsetX())/70,(screenY/70+ps.getBoardOffsetY())).getX()+
+                    ps.getMainBoard().getSpaceAt(xx/70,yy/70).getX()+
                     " "+
-                    ps.getMainBoard().getSpaceAt((screenX+ps.getBoardOffsetX())/70,(screenY/70+ps.getBoardOffsetY())).getY()+
+                    ps.getMainBoard().getSpaceAt(xx/70,yy/70).getY()+
                     " "+
                     screenX+
                     " "+
