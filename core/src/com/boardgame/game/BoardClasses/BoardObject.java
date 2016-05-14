@@ -4,10 +4,10 @@ package com.boardgame.game.BoardClasses;
  * an object that can be interacted with on the board.
  */
 
-public abstract class BoardObject {
+public abstract class BoardObject implements ABoardObject {
 
-	private int xpos;
-	private int ypos;
+	private int x;
+	private int y;
 	private BoardSpace spaceon;
 	private String name;
 	
@@ -16,16 +16,16 @@ public abstract class BoardObject {
 	}
 	
 	public int getX(){
-		return xpos;
+		return x;
 	}
 	public int getY(){
-		return ypos;
+		return y;
 	}
 	public void setX(int x){
-		xpos = x;
+		this.x = x;
 	}
 	public void setY(int y){
-		ypos = y;
+		this.y = y;
 	}
 
 	public BoardSpace getSpaceon() {

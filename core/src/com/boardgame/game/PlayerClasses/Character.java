@@ -1,24 +1,24 @@
 package com.boardgame.game.PlayerClasses;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.boardgame.game.BoardClasses.ABoardObject;
 import com.boardgame.game.BoardClasses.BoardObject;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.CardClasses.Card;
-import com.boardgame.game.gamepack.Skill;
-import com.boardgame.game.gamepack.SkillList;
+import com.boardgame.game.SkillClasses.Skill;
+import com.boardgame.game.SkillClasses.SkillList;
 import com.boardgame.game.sprites.PlayerSprite;
 
 import java.util.ArrayList;
 
-public class Character extends BoardObject {
+public class Character extends BoardObject implements ABoardObject{
 
 	private PlayerSprite player;
 
-	private ArrayList<Card> hand= new ArrayList<Card>();
 	private SkillList skills;
-	private BoardSpace spaceon;
+	private BoardSpace spaceon; //for tracking purposes
 	//dunno if these belong here? vv
-	private ArrayList<Card> passivecard= new ArrayList<Card>();
+	private ArrayList<Card> passivecard= new ArrayList<Card>(); //for any passive cards that affect this character
 	private ArrayList<Skill> passiveSkills = new ArrayList<Skill>();
 	
 	public Character(String name, BoardSpace spaceOn){
@@ -34,6 +34,8 @@ public class Character extends BoardObject {
 		player = new PlayerSprite();
 		spaceon = spaceOn;
 		setPos(spaceOn.getX(),spaceOn.getY());
+		passivecard = new ArrayList<Card>();
+		passiveSkills = new ArrayList<Skill>();
 	}
 	//testing different constructor
 	public Character(BoardSpace spaceOn, int charSeq)
@@ -51,21 +53,7 @@ public class Character extends BoardObject {
 	public BoardSpace getSpaceon(){
 		return spaceon;
 	}
-	public SkillList getSkills() {
-		return skills;
-	}
-	public void setSkills(SkillList skills) {
-		this.skills = skills;
-	}
-	public ArrayList<Card> getHand() {
-		return hand;
-	}
-	public void setHand(ArrayList<Card> hand) {
-		this.hand = hand;
-	}
-	public ArrayList<Card> getPassivecard() {
-		return passivecard;
-	}
+	public void setSpaceon(BoardSpace spaceon){this.spaceon = spaceon;}
 	public void setPassivecard(ArrayList<Card> passivecard) {
 		this.passivecard = passivecard;
 	}
