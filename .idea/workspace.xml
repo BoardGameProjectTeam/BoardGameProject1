@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fabac318-6509-4479-8225-0ce3a93091d0" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/boardgame/game/Controllers/PlayController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/android.iml" afterPath="$PROJECT_DIR$/android/android.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/boardgame/game/states/PlayScreen.java" afterPath="$PROJECT_DIR$/core/src/com/boardgame/game/states/PlayScreen.java" />
     </list>
     <ignored path="BoardGameProject1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -4212,7 +4211,13 @@
       <option name="project" value="LOCAL" />
       <updated>1463160682501</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="moved (most) inputs to PlayController">
+      <created>1463240904328</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1463240904328</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -4278,7 +4283,8 @@
     <MESSAGE value="minor changes to character and playscreen(moved setpos)" />
     <MESSAGE value="added Slash...card/sprite" />
     <MESSAGE value="draw the cards on scree yay" />
-    <option name="LAST_COMMIT_MESSAGE" value="draw the cards on scree yay" />
+    <MESSAGE value="moved (most) inputs to PlayController" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved (most) inputs to PlayController" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
