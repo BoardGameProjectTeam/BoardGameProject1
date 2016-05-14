@@ -2,6 +2,7 @@ package com.boardgame.game.states;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
@@ -124,6 +125,7 @@ public class PlayScreen extends State {
         activeChar = passiveChar;
         passiveChar = temp;
     }
+
 
     @Override
     public void dispose() {

@@ -76,11 +76,14 @@ public class MainBoard {
 	}
 
 	public BoardSpace getSpaceAt(int x, int y){
+		try{
 		for(int i=0;i<spaces.size();i++){
 			
 			if(spaces.get(i).getX()==x&&spaces.get(i).getY()==y){
 				return spaces.get(i);
 			}
+		}}catch (Exception e){
+			System.out.println("Exception error finding space at " +x +y);
 		}
 		return null;
 	}
@@ -90,17 +93,16 @@ public class MainBoard {
 
 	//use this when making a fresh new character
 	public void addPlayer(int x,int y,String name){
-		BoardSpace s = getSpaceAt(x,y);
-		Character pp = new Character(name,getSpaceAt(x,y));
-		pp.setX(x);
-		pp.setY(y);
-		if(s != null){
+		try {
+			BoardSpace s = getSpaceAt(x, y);
+			Character pp = new Character(name, getSpaceAt(x, y));
+			pp.setX(x);
+			pp.setY(y);
 			s.addObject(pp);
 			pp.setSpaceon(s);
 			characters.add(pp);
-		}else
-		{
-			System.out.println("S came out null "+ x+y );
+		}catch (Exception e){
+			System.out.println("error board space doesn't exit at "+x+y );
 		}
 			
 	}

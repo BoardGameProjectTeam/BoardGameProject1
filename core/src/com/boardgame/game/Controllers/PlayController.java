@@ -3,6 +3,8 @@ package com.boardgame.game.Controllers;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.math.Vector3;
+import com.boardgame.game.MyGdxGame;
 import com.boardgame.game.states.PlayScreen;
 
 /**
@@ -17,42 +19,24 @@ public class PlayController implements InputProcessor{
     @Override
     public boolean keyDown(int keycode) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
-//                System.out.println(activeChar.getX()+" "+activeChar.getY());
             if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
-//                    spriteOffsetX -= 36;
-//                    if(spriteOffsetX < 22)
-//                        spriteOffsetX += 36;
                 ps.getMainBoard().moveObject(ps.getActiveChar(),'l');
             }
 
             if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
-                //boardOffsetX += 10;
-//                    spriteOffsetX += 36;
-//                    if(spriteOffsetX > 346)
-//                        spriteOffsetX -= 36;
                 ps.getMainBoard().moveObject(ps.getActiveChar(),'r');
             }
 
             if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-                //boardOffsetY += 10;
-//                    spriteOffsetY += 28;
-//                    if(spriteOffsetY > 520)
-//                        spriteOffsetY -= 28;
                 ps.getMainBoard().moveObject(ps.getActiveChar(),'u');
             }
 
             if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
-                //boardOffsetY -= 10;
-//                    spriteOffsetY -= 28;
-//                    if(spriteOffsetY < 268)
-//                        spriteOffsetY += 28;
                 ps.getMainBoard().moveObject(ps.getActiveChar(),'d');
             }
 
-            if (Gdx.input.isKeyJustPressed(Input.Keys.Z))
-            {
+            if (Gdx.input.isKeyJustPressed(Input.Keys.Z)) {
                 ps.switchChar();
-
             }
         }
         return false;
@@ -70,6 +54,12 @@ public class PlayController implements InputProcessor{
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        screenY = MyGdxGame.HEIGHT-screenY;
+        try {
+            System.out.println(ps.getMainBoard().getSpaceAt(screenX/70, screenY/70).getX()+" "+ps.getMainBoard().getSpaceAt(screenX/70, screenY/70).getY()+" "+screenX+" "+screenY);
+        }catch (Exception e){
+            System.out.println("Can't find space at " + screenX+" "+screenY);
+        }
         return false;
     }
 
