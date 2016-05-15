@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector3;
+import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.MyGdxGame;
 import com.boardgame.game.states.PlayScreen;
 
@@ -58,21 +59,30 @@ public class PlayController implements InputProcessor{
         try {
             int xx = screenX+ps.getBoardOffsetX();
             int yy = screenY-ps.getBoardOffsetY();
-            System.out.println(screenX+ps.getBoardOffsetX()+" this is x");
-            System.out.println(screenY+ps.getBoardOffsetY()+" this is ");
+//            System.out.println(screenX+ps.getBoardOffsetX()+" this is x");
+//            System.out.println(screenY+ps.getBoardOffsetY()+" this is ");
 
-            System.out.println(
-                    ps.getMainBoard().getSpaceAt(xx/70,yy/70).getX()+
-                    " "+
-                    ps.getMainBoard().getSpaceAt(xx/70,yy/70).getY()+
-                    " "+
-                    screenX+
-                    " "+
-                    screenY);
+//            System.out.println(
+//                    ps.getMainBoard().getSpaceAt(xx/70,yy/70).getX()+
+//                    " "+
+//                    ps.getMainBoard().getSpaceAt(xx/70,yy/70).getY()+
+//                    " "+
+//                    screenX+
+//                    " "+
+//                    screenY);
+            BoardSpace boardSpace = ps.getMainBoard().getSpaceAt(xx/70,yy/70);
 
-            ps.getMainBoard().teleportObject(ps.getActiveChar(),xx/70,yy/70);
-
-        }catch (Exception e){
+            if(boardSpace.hasObject()){
+               if(boardSpace.getObject().isCharacter()){
+                   ps.switchActiveChar(boardSpace.getCharacter());
+               }
+            }else {
+                ps.getMainBoard().teleportObject(ps.getActiveChar(), xx / 70, yy / 70);
+            }
+        }catch (NullPointerException n){
+            System.out.println("null pointer exception");
+        }
+        catch (Exception e){
             System.out.println("Can't find space at " + screenX+" "+screenY);
         }
         return false;

@@ -69,7 +69,7 @@ public class Character extends BoardObject implements ABoardObject{
 
 	//for the boardspace function to check if its object is a player
 	public boolean isCharacter(){
-		return false;
+		return true;
 	}
 	public TextureRegion getTexture(){
 		return player.getTile();

@@ -28,7 +28,8 @@ public class PlayScreen extends State {
     private ArrayList<BoardSpace> bs;
 //    private PlayerSprite player;
     private Character activeChar;
-    private Character passiveChar; //testing
+//    private Character passiveChar; //testing
+    private ArrayList<Character> characters;
     private Character temp;
 
     private MainPlayer p1;
@@ -55,17 +56,15 @@ public class PlayScreen extends State {
 //        player = new PlayerSprite();
 
         //creating the active player (only one for now)
-        activeChar = new Character(mb.getSpaceAt(0,0));
+//        activeChar = new Character(mb.getSpaceAt(0,0));
+        characters = new ArrayList<Character>();
+        characters.add(new Character(mb.getSpaceAt(0,0)));
+        characters.add(new Character(mb.getSpaceAt(1,1),2));
+        activeChar = characters.get(0);
 
-        //testing...
-        passiveChar = new Character(mb.getSpaceAt(1,1), 2);
-
-        mb.addPlayer(activeChar);
-        mb.addPlayer(passiveChar); //testing
-
-//        passiveChar = new Character(mb.getSpaceAt(2,2),3);
-//        passiveChar.setPos(2,2);
-//        mb.addPlayer(passiveChar);
+        for(int i = 0; i < characters.size();i++){
+            mb.addPlayer(characters.get(i));
+        }
 
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
         spriteCam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
@@ -76,7 +75,7 @@ public class PlayScreen extends State {
     @Override
     public void handleInput() {
         if(Gdx.input.justTouched()){
-            System.out.println("player stats: "+activeChar.getSpaceon().getX()+" "+activeChar.getSpaceon().getY());
+//            System.out.println("player stats: "+activeChar.getSpaceon().getX()+" "+activeChar.getSpaceon().getY());
         }
 
     }
@@ -98,7 +97,11 @@ public class PlayScreen extends State {
                 int height = mb.getSpaceAt(i,j).getTile().getHeight(); // panels height
                 sb.draw(mb.getSpaceAt(i,j).getTextures() ,(i*width)+boardOffsetX,(j*height)+boardOffsetY);
                 sb.draw(activeChar.getTexture(),activeChar.getX()*width+boardOffsetX,activeChar.getY()*height+boardOffsetY);
-                sb.draw(passiveChar.getTexture(),passiveChar.getX()*width+boardOffsetX,passiveChar.getY()*height+boardOffsetY); //testing
+                for(int k = 0; k < characters.size(); k++){
+                    Character c = characters.get(k);
+                    sb.draw(c.getTexture(),c.getX()*width+boardOffsetX,c.getY()*height+boardOffsetY);
+                }
+//                sb.draw(passiveChar.getTexture(),passiveChar.getX()*width+boardOffsetX,passiveChar.getY()*height+boardOffsetY); //testing
             }
         }
         for(int i = 0; i<p1.getHand().handSize();i++) {
@@ -121,9 +124,16 @@ public class PlayScreen extends State {
         return activeChar;
     }
     public void switchChar(){
-        temp = activeChar;
-        activeChar = passiveChar;
-        passiveChar = temp;
+        int index;
+        index = characters.indexOf(activeChar);
+        index ++;
+        if(index>=characters.size()){
+            index = 0;
+        }
+        activeChar = characters.get(index);
+    }
+    public void switchActiveChar(Character character){
+        activeChar = character;
     }
     public int getBoardOffsetX(){
         return boardOffsetX;

@@ -2,6 +2,7 @@ package com.boardgame.game.BoardClasses;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.boardgame.game.PlayerClasses.Character;
 import com.boardgame.game.gamepack.Trap;
 import com.boardgame.game.sprites.SingleTile;
 import com.boardgame.game.sprites.Tile;
@@ -22,6 +23,7 @@ public class BoardSpace {
 	private Trap storedTrap;
 	private BoardObject storedObj;
 	private ArrayList<BoardObject> objs;
+	private Character character;
 
 	//location variables
 	private int x;
@@ -50,8 +52,9 @@ public class BoardSpace {
 	public void addObject(BoardObject p){
 //			storedObj = p;
 			objs.add(p);
-
-
+			if(p.isCharacter()){
+				storeCharacter((Character)p);
+			}
 	}
 
 	public void removeObject(BoardObject p){
@@ -63,10 +66,7 @@ public class BoardSpace {
 	public Boolean hasCharacter(){
 		return storedObj.isCharacter();
 	}
-	public Boolean hasObject(){
-
-		return objs.size()>0;
-	}
+	public Boolean hasObject(){	return objs.size()>0;}
 
 	//location get/set methods
 	public int getX() {
@@ -84,7 +84,7 @@ public class BoardSpace {
 
 	//used for finding the object on the space currently
 	public BoardObject getObject(){
-		return storedObj;
+		return objs.get(0);
 	}
 
 	//Trap related functions
@@ -112,13 +112,16 @@ public class BoardSpace {
 		//s.addTrap(storedTrap);
 		return s;
 	}
+	public void storeCharacter(Character character){
+		this.character = character;
+	}
 	public SingleTile getTile(){
 		return tile;
 	}
 	public Texture getTextures(){
 		return tile.getTile();
 	}
-
+	public Character getCharacter(){return character;}
 	public void printspot(){
 		System.out.println(x +" , " + y);
 	}
