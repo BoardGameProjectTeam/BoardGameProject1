@@ -13,6 +13,8 @@ import com.boardgame.game.states.PlayScreen;
  */
 public class PlayController implements InputProcessor{
         PlayScreen ps;
+        int panelWidth= 35;
+        int panelHeight= 35;
     public PlayController(PlayScreen ps){
         this.ps = ps;
     }
@@ -55,36 +57,41 @@ public class PlayController implements InputProcessor{
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        screenY = MyGdxGame.HEIGHT-screenY;
-        try {
-            int xx = screenX+ps.getBoardOffsetX();
-            int yy = screenY-ps.getBoardOffsetY();
-//            System.out.println(screenX+ps.getBoardOffsetX()+" this is x");
-//            System.out.println(screenY+ps.getBoardOffsetY()+" this is ");
+//        screenY = MyGdxGame.HEIGHT-screenY;
+        Vector3 v3 = new Vector3(screenX+ps.getBoardOffsetX(),screenY+ps.getBoardOffsetY(),0);
+        ps.getcam().unproject(v3);
 
-//            System.out.println(
-//                    ps.getMainBoard().getSpaceAt(xx/70,yy/70).getX()+
-//                    " "+
-//                    ps.getMainBoard().getSpaceAt(xx/70,yy/70).getY()+
-//                    " "+
-//                    screenX+
-//                    " "+
-//                    screenY);
-            BoardSpace boardSpace = ps.getMainBoard().getSpaceAt(xx/70,yy/70);
+        if(v3.y<245) {
+            //playermovement
+            try {
+                int xx = (int) v3.x;
+                int yy = (int) v3.y;
 
-            if(boardSpace.hasObject()){
-               if(boardSpace.getObject().isCharacter()){
-                   ps.switchActiveChar(boardSpace.getCharacter());
-               }
-            }else {
-                ps.getMainBoard().teleportObject(ps.getActiveChar(), xx / 70, yy / 70);
+                System.out.println(xx + " this is x");
+                System.out.println(yy + " this is y");
+
+                BoardSpace boardSpace = ps.getMainBoard().getSpaceAt(xx / 35, yy / 35);
+
+                if (boardSpace.hasObject()) {
+                    if (boardSpace.getObject().isCharacter()) {
+                        ps.switchActiveChar(boardSpace.getCharacter());
+                    }
+                } else {
+                    ps.getMainBoard().teleportObject(ps.getActiveChar(), xx / 35, yy / 35);
+                }
+            } catch (NullPointerException n) {
+                System.out.println("null pointer exception");
+            } catch (Exception e) {
+                System.out.println("Can't find space at " + screenX + " " + screenY);
             }
-        }catch (NullPointerException n){
-            System.out.println("null pointer exception");
+        }else{
+            //touching outside board
+
         }
-        catch (Exception e){
-            System.out.println("Can't find space at " + screenX+" "+screenY);
-        }
+
+
+
+
         return false;
     }
 

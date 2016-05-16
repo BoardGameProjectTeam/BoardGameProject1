@@ -49,6 +49,7 @@ public class PlayScreen extends State {
         p1.getHand().addCard(new SlashCard());
         p1.getHand().addCard(new SlashCard());
         p1.getHand().addCard(new SlashCard());
+        p1.getHand().addCard(new SlashCard());
 
 
         bs = new ArrayList<BoardSpace>();
@@ -60,6 +61,8 @@ public class PlayScreen extends State {
         characters = new ArrayList<Character>();
         characters.add(new Character(mb.getSpaceAt(0,0)));
         characters.add(new Character(mb.getSpaceAt(1,1),2));
+        characters.add(new Character(mb.getSpaceAt(1,2),3));
+
         activeChar = characters.get(0);
 
         for(int i = 0; i < characters.size();i++){
@@ -69,7 +72,7 @@ public class PlayScreen extends State {
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
         spriteCam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
         boardOffsetX = 0;
-        boardOffsetY = 30;
+        boardOffsetY = 0;
 
     }
     @Override
