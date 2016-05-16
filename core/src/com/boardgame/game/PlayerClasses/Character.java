@@ -1,5 +1,6 @@
 package com.boardgame.game.PlayerClasses;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.boardgame.game.BoardClasses.ABoardObject;
 import com.boardgame.game.BoardClasses.BoardObject;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class Character extends BoardObject implements ABoardObject{
 
 	private PlayerSprite player;
-
+	private Sprite sprite;
 	private SkillList skills;
 	private BoardSpace spaceon; //for tracking purposes
 	//dunno if these belong here? vv

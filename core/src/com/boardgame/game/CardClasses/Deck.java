@@ -4,27 +4,31 @@ import java.util.ArrayList;
 
 public class Deck {
 
-	ArrayList<com.boardgame.game.CardClasses.Card> cards = new ArrayList<com.boardgame.game.CardClasses.Card>();
+	ArrayList<Card> cards = new ArrayList<Card>();
 	
 	public Deck(){
 		
 	}
-	public void addCard(com.boardgame.game.CardClasses.Card c){
+	public void addCard(Card c){
 		cards.add(c);
 	}
-	public Deck(ArrayList<com.boardgame.game.CardClasses.Card> card){
+
+	public Deck(ArrayList<Card> card){
 		cards = card;
 	}
 	
-	public com.boardgame.game.CardClasses.Card draw(){
-		com.boardgame.game.CardClasses.Card c = cards.get(0).dupe();
-		cards.remove(0);
-		return c;
+	public Card draw(){
+		if(cards.size()>0) {
+			Card c = cards.get(0);
+			cards.remove(0);
+			return c;
+		}else
+			throw new NullPointerException("nocards");
 	}
 	public void shuffle(){
-		//need to do
+		//TODO
 	}
-	public com.boardgame.game.CardClasses.Card selectCard(int i){
+	public Card selectCard(int i){
 		if(i < cards.size())
 		{
 			return cards.get(i);

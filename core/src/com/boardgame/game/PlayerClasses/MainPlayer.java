@@ -2,6 +2,7 @@ package com.boardgame.game.PlayerClasses;
 
 import com.boardgame.game.CardClasses.Card;
 import com.boardgame.game.CardClasses.CardHand;
+import com.boardgame.game.CardClasses.Deck;
 
 import java.util.ArrayList;
 
@@ -13,16 +14,30 @@ import java.util.ArrayList;
 public class MainPlayer {
     private ArrayList<Character> characters;
     private CardHand hand;
+    private Deck deck;
 
     public MainPlayer(){
+        deck = new Deck();
         hand = new CardHand();
         characters = new ArrayList<Character>();
     }
     public MainPlayer(ArrayList<Card> cards, ArrayList<Character> characters){
         hand = new CardHand(cards);
+        this.characters = characters;
+        deck = new Deck();
+    }
+    public void drawCard(){
+        try {
+            hand.addCard(deck.draw());
+        }catch (Exception e){
+            System.out.println("No more cards");
+        }
     }
     public CardHand getHand(){
         return hand;
+    }
+    public Deck getDeck(){
+        return deck;
     }
 
 

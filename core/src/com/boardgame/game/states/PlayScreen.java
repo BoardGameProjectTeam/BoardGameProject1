@@ -32,6 +32,7 @@ public class PlayScreen extends State {
     private ArrayList<Character> characters;
     private Character temp;
 
+    private MainPlayer activePlayer;
     private MainPlayer p1;
     private MainPlayer p2;
 
@@ -41,16 +42,16 @@ public class PlayScreen extends State {
         super(gsm);
         playController = new PlayController(this);
         Gdx.input.setInputProcessor(playController);
+
         p1 = new MainPlayer();
         p2 = new MainPlayer();
-
+        activePlayer = p1;
         //setup player 1
-        p1.getHand().addCard(new SlashCard());
-        p1.getHand().addCard(new SlashCard());
-        p1.getHand().addCard(new SlashCard());
-        p1.getHand().addCard(new SlashCard());
-        p1.getHand().addCard(new SlashCard());
-
+for(int i = 0; i<6;i++) {
+    p1.getDeck().addCard(new SlashCard());
+}
+        p1.drawCard();
+        p1.drawCard();
 
         bs = new ArrayList<BoardSpace>();
         mb = new MainBoard(7, 7);
@@ -78,6 +79,7 @@ public class PlayScreen extends State {
     @Override
     public void handleInput() {
         if(Gdx.input.justTouched()){
+            p1.drawCard();
 //            System.out.println("player stats: "+activeChar.getSpaceon().getX()+" "+activeChar.getSpaceon().getY());
         }
 
@@ -144,7 +146,9 @@ public class PlayScreen extends State {
     public int getBoardOffsetY(){
         return boardOffsetY;
     }
-
+    public MainPlayer getActivePlayer(){
+        return getActivePlayer();
+    }
 
     @Override
     public void dispose() {

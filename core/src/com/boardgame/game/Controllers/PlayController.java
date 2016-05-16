@@ -86,6 +86,10 @@ public class PlayController implements InputProcessor{
             }
         }else{
             //touching outside board
+//            for (ps.:
+//                 ) {
+//
+//            }
 
         }
 
