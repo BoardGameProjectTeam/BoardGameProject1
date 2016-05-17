@@ -17,7 +17,7 @@ public class Character extends BoardObject implements ABoardObject{
 
 	private PlayerSprite player;
 	private Sprite sprite;
-	private CharacterStats stats;
+	protected CharacterStats stats;
 	private SkillList skills;
 	private BoardSpace spaceon; //for tracking purposes
 	//dunno if these belong here? vv
@@ -39,7 +39,7 @@ public class Character extends BoardObject implements ABoardObject{
 		setPos(spaceOn.getX(),spaceOn.getY());
 		passivecard = new ArrayList<Card>();
 		passiveSkills = new ArrayList<Skill>();
-		stats = new CharacterStats(20, 10, 1, 2);
+		stats = new CharacterStats(0, 0, 0, 0);
 
 	}
 	//testing different constructor
@@ -48,6 +48,7 @@ public class Character extends BoardObject implements ABoardObject{
 		player = new PlayerSprite(charSeq);
 		spaceon = spaceOn;
 		setPos(spaceOn.getX(),spaceOn.getY());
+		stats = new CharacterStats(0, 0, 0, 0);
 	}
 
 	public void setPos(int x, int y){

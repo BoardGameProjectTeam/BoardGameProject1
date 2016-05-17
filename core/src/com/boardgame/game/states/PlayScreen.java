@@ -10,6 +10,7 @@ import com.boardgame.game.CardClasses.SlashCard;
 import com.boardgame.game.Controllers.PlayController;
 import com.boardgame.game.MyGdxGame;
 import com.boardgame.game.PlayerClasses.Character;
+import com.boardgame.game.PlayerClasses.Mage;
 import com.boardgame.game.PlayerClasses.MainPlayer;
 import com.boardgame.game.sprites.PlayerSprite;
 import com.boardgame.game.sprites.TileMap;
@@ -30,7 +31,7 @@ public class PlayScreen extends State {
     private Character activeChar;
 //    private Character passiveChar; //testing
     private ArrayList<Character> characters;
-    private Character temp;
+    private Mage temp;
 
     private MainPlayer activePlayer;
     private MainPlayer p1;
@@ -60,7 +61,7 @@ public class PlayScreen extends State {
         //creating the active player (only one for now)
 //        activeChar = new Character(mb.getSpaceAt(0,0));
         characters = new ArrayList<Character>();
-        characters.add(new Character(mb.getSpaceAt(0,0)));
+        characters.add(new Mage("Mage", mb.getSpaceAt(0,0)));   //uses mage stats
         characters.add(new Character(mb.getSpaceAt(1,1),2));
         characters.add(new Character(mb.getSpaceAt(1,2),3));
 
@@ -93,8 +94,8 @@ public class PlayScreen extends State {
     @Override
     public void render(SpriteBatch sb) {
 
-        //display HP to console
-        System.out.println(activeChar.getStats().getHP());
+        //display MP to console
+        System.out.println("MP: " + activeChar.getStats().getMP());
 
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
