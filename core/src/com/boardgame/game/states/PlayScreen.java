@@ -47,9 +47,9 @@ public class PlayScreen extends State {
         p2 = new MainPlayer();
         activePlayer = p1;
         //setup player 1
-for(int i = 0; i<6;i++) {
-    p1.getDeck().addCard(new SlashCard());
-}
+        for(int i = 0; i<6;i++) {
+            p1.getDeck().addCard(new SlashCard());
+        }
         p1.drawCard();
         p1.drawCard();
 
@@ -93,6 +93,9 @@ for(int i = 0; i<6;i++) {
     @Override
     public void render(SpriteBatch sb) {
 
+        //display HP to console
+        System.out.println(activeChar.getStats().getHP());
+
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
         //for loop for main board tiles
@@ -109,6 +112,7 @@ for(int i = 0; i<6;i++) {
 //                sb.draw(passiveChar.getTexture(),passiveChar.getX()*width+boardOffsetX,passiveChar.getY()*height+boardOffsetY); //testing
             }
         }
+
         for(int i = 0; i<p1.getHand().handSize();i++) {
             sb.draw(p1.getHand().getCard(i).getCardSprite(),i*p1.getHand().getCard(i).getCardSprite().getWidth(), 300);
         }
