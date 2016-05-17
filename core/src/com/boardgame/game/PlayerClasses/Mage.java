@@ -11,5 +11,5 @@ public class Mage extends Character {
 		// TODO Auto-generated constructor stub
 	}
 
-
+	//needs some passive skills
 }
