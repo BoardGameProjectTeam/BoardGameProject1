@@ -17,6 +17,7 @@ public abstract class Attack {
     protected ArrayList<BoardSpace> targetSpaces;
     protected ArrayList<Character> targets;
     protected char direction;
+    protected int power;
 
     //for targeting specific players
     public Attack(Character user,Character target){
@@ -36,7 +37,8 @@ public abstract class Attack {
     }
     //for targeting one space
     public Attack(Character user, BoardSpace targetSpace){
-
+        this.user = user;
+        this.targetSpace = targetSpace;
     }
 
 

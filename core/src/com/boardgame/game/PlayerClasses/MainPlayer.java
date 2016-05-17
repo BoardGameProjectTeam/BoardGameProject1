@@ -15,9 +15,10 @@ public class MainPlayer {
     private ArrayList<Character> characters;
     private CardHand hand;
     private Deck deck;
-
+    private Deck discardPile;
     public MainPlayer(){
         deck = new Deck();
+        discardPile = new Deck();
         hand = new CardHand();
         characters = new ArrayList<Character>();
     }
@@ -39,6 +40,10 @@ public class MainPlayer {
     public Deck getDeck(){
         return deck;
     }
+    public void UseCard(Card card){
+
+    }
+
 
 
 
