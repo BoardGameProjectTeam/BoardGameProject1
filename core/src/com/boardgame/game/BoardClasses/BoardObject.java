@@ -6,15 +6,12 @@ package com.boardgame.game.BoardClasses;
 
 public abstract class BoardObject implements ABoardObject {
 
-	private int x;
-	private int y;
-	private BoardSpace spaceon;
-	private String name;
-	
-	public BoardObject(){
-		
-	}
-	
+	protected int x;
+	protected int y;
+	protected BoardSpace spaceon;
+	protected String name;
+	protected int hp;
+
 	public int getX(){
 		return x;
 	}
@@ -51,5 +48,7 @@ public abstract class BoardObject implements ABoardObject {
 	public boolean occupySpace(){
 		return false;
 	}
-	
+	public void takeDamage(int i){
+		hp -= i;
+	}
 }
