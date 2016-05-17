@@ -85,7 +85,7 @@ public class PlayScreen extends State {
             p1.drawCard();
 //            System.out.println("player stats: "+activeChar.getSpaceon().getX()+" "+activeChar.getSpaceon().getY());
 //        System.out.println();
-            animations.add(new SlashAnimation(0,0));
+            animations.add(new SlashAnimation(0,0));//need to convert 0,0 for where you touch next to test
         }
         if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){
             cam.position.x --;
@@ -142,6 +142,10 @@ public class PlayScreen extends State {
             s = animations.get(i);
             if (!s.removeme()) {
                 sb.draw(s.getTexture(), s.getX() - s.getPanelSize(), s.getY() - s.getPanelSize());
+            }else
+            {
+                s.dispose();
+                animations.remove(s);
             }
         }
 

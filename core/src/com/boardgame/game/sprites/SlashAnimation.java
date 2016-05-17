@@ -24,7 +24,7 @@ public class SlashAnimation {
     }
     public void update(float dt){
 
-        if(slashAnimation.getCurrentFrame()>=11){
+        if(slashAnimation.getCurrentFrame()>=9){
             dispose();
             removeMe = true;
         }else{
