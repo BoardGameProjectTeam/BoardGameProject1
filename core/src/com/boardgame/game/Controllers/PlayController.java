@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector3;
+import com.boardgame.game.Animations.SlashAnimation;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.MyGdxGame;
 import com.boardgame.game.states.PlayScreen;
@@ -13,8 +14,7 @@ import com.boardgame.game.states.PlayScreen;
  */
 public class PlayController implements InputProcessor{
         PlayScreen ps;
-        int panelWidth= 35;
-        int panelHeight= 35;
+        int panelSize= 35;
     public PlayController(PlayScreen ps){
         this.ps = ps;
     }
@@ -70,14 +70,17 @@ public class PlayController implements InputProcessor{
                 System.out.println(xx + " this is x");
                 System.out.println(yy + " this is y");
 
-                BoardSpace boardSpace = ps.getMainBoard().getSpaceAt(xx / 35, yy / 35);
+                xx /=panelSize;
+                yy /=panelSize;
+                BoardSpace boardSpace = ps.getMainBoard().getSpaceAt(xx, yy);
 
                 if (boardSpace.hasObject()) {
                     if (boardSpace.getObject().isCharacter()) {
                         ps.switchActiveChar(boardSpace.getCharacter());
                     }
                 } else {
-                    ps.getMainBoard().teleportObject(ps.getActiveChar(), xx / 35, yy / 35);
+                    ps.getMainBoard().teleportObject(ps.getActiveChar(), xx, yy);
+                    ps.addAnimation(new SlashAnimation(xx,yy));
                 }
             } catch (NullPointerException n) {
                 System.out.println("null pointer exception");

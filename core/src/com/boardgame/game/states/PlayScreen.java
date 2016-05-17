@@ -3,6 +3,8 @@ package com.boardgame.game.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.boardgame.game.Animations.AttackAnimation;
+import com.boardgame.game.Attacks.Attack;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.CardClasses.SlashCard;
@@ -11,7 +13,7 @@ import com.boardgame.game.MyGdxGame;
 import com.boardgame.game.PlayerClasses.Character;
 import com.boardgame.game.PlayerClasses.Mage;
 import com.boardgame.game.PlayerClasses.MainPlayer;
-import com.boardgame.game.sprites.SlashAnimation;
+import com.boardgame.game.Animations.SlashAnimation;
 
 import java.util.ArrayList;
 
@@ -36,7 +38,7 @@ public class PlayScreen extends State {
     private PlayController playController;
 
     //for testing
-    private ArrayList<SlashAnimation> animations;//need to make a general animation object class
+    private ArrayList<AttackAnimation> animations;//need to make a general animation object class
 //    private SlashAnimation ss;
 
     public PlayScreen(GameStateManager gsm){
@@ -44,7 +46,7 @@ public class PlayScreen extends State {
         playController = new PlayController(this);
         Gdx.input.setInputProcessor(playController);
 //        ss = new SlashAnimation();
-        animations = new ArrayList<SlashAnimation>();
+        animations = new ArrayList<AttackAnimation>();
 //        animations.add(new SlashAnimation(0,3));//testing
         p1 = new MainPlayer();
         p2 = new MainPlayer();
@@ -85,12 +87,12 @@ public class PlayScreen extends State {
             p1.drawCard();
 //            System.out.println("player stats: "+activeChar.getSpaceon().getX()+" "+activeChar.getSpaceon().getY());
 //        System.out.println();
-            animations.add(new SlashAnimation(0,0));//need to convert 0,0 for where you touch next to test
+//            animations.add(new SlashAnimation(0,0));//need to convert 0,0 for where you touch next to test
         }
         if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){
-            cam.position.x --;
-            cam.position.y --;
-            cam.update();
+//            cam.position.x --;
+//            cam.position.y --;
+//            cam.update();
         }
 
 
@@ -101,7 +103,7 @@ public class PlayScreen extends State {
         handleInput();
 
         //for each animation in animations, ss = animation.get(i) that's what this means
-        for (SlashAnimation ss:animations) {
+        for (AttackAnimation ss:animations) {
             ss.update(dt);
         }
     }
@@ -138,9 +140,9 @@ public class PlayScreen extends State {
         }
 
         for(int i = 0; i < animations.size();i++) {
-            SlashAnimation s;
+            AttackAnimation s;
             s = animations.get(i);
-            if (!s.removeme()) {
+            if (!s.removeMe()) {
                 sb.draw(s.getTexture(), s.getX() - s.getPanelSize(), s.getY() - s.getPanelSize());
             }else
             {
@@ -182,7 +184,9 @@ public class PlayScreen extends State {
     public MainPlayer getActivePlayer(){
         return getActivePlayer();
     }
-
+    public void addAnimation(AttackAnimation animation){
+        animations.add(animation);
+    }
     @Override
     public void dispose() {
 

@@ -1,26 +1,25 @@
-package com.boardgame.game.sprites;
+package com.boardgame.game.Animations;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.boardgame.game.sprites.Animation;
 
 /**
  * Created by Cliff on 5/16/2016.
  */
-public class SlashAnimation {
+public class SlashAnimation extends AttackAnimation{
     private Animation slashAnimation;
     private int width = 192;
     private int height = 192;
-    private int x;
-    private int y;
-    private int panelsize = 35;
     private Texture slash;
     private Boolean removeMe;
     public SlashAnimation(int x, int y){
+        panelSize = 35;
         slash = new Texture("slash_small.png");
         slashAnimation = new Animation(new TextureRegion(slash),5,2,.1f);
         removeMe = false;
-        this.x = x* panelsize;
-        this.y = y* panelsize;
+        this.x = x* panelSize;
+        this.y = y* panelSize;
     }
     public void update(float dt){
 
@@ -40,7 +39,7 @@ public class SlashAnimation {
     public void dispose(){
         slash.dispose();
     }
-    public boolean removeme(){
+    public boolean removeMe(){
         return removeMe;
     }
     public int getHeight() {
@@ -67,6 +66,6 @@ public class SlashAnimation {
         return x;
     }
     public int getPanelSize(){
-        return panelsize;
+        return panelSize;
     }
 }
