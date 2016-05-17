@@ -2,7 +2,6 @@ package com.boardgame.game.states;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
@@ -12,10 +11,7 @@ import com.boardgame.game.MyGdxGame;
 import com.boardgame.game.PlayerClasses.Character;
 import com.boardgame.game.PlayerClasses.Mage;
 import com.boardgame.game.PlayerClasses.MainPlayer;
-import com.boardgame.game.sprites.PlayerSprite;
-import com.boardgame.game.sprites.TileMap;
-import com.boardgame.game.states.GameStateManager;
-import com.boardgame.game.states.State;
+import com.boardgame.game.sprites.SlashAnimation;
 
 import java.util.ArrayList;
 
@@ -39,11 +35,17 @@ public class PlayScreen extends State {
 
     private PlayController playController;
 
+    //for testing
+    private ArrayList<SlashAnimation> animations;//need to make a general animation object class
+//    private SlashAnimation ss;
+
     public PlayScreen(GameStateManager gsm){
         super(gsm);
         playController = new PlayController(this);
         Gdx.input.setInputProcessor(playController);
-
+//        ss = new SlashAnimation();
+        animations = new ArrayList<SlashAnimation>();
+//        animations.add(new SlashAnimation(0,3));//testing
         p1 = new MainPlayer();
         p2 = new MainPlayer();
         activePlayer = p1;
@@ -83,6 +85,12 @@ public class PlayScreen extends State {
             p1.drawCard();
 //            System.out.println("player stats: "+activeChar.getSpaceon().getX()+" "+activeChar.getSpaceon().getY());
 //        System.out.println();
+            animations.add(new SlashAnimation(0,0));
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){
+            cam.position.x --;
+            cam.position.y --;
+            cam.update();
         }
 
 
@@ -91,6 +99,11 @@ public class PlayScreen extends State {
     @Override
     public void update(float dt) {
         handleInput();
+
+        //for each animation in animations, ss = animation.get(i) that's what this means
+        for (SlashAnimation ss:animations) {
+            ss.update(dt);
+        }
     }
 
     @Override
@@ -123,6 +136,15 @@ public class PlayScreen extends State {
         for(int i = 0; i < bs.size();i++) {
             sb.draw(bs.get(i).getTextures(), i * 74, 0);
         }
+
+        for(int i = 0; i < animations.size();i++) {
+            SlashAnimation s;
+            s = animations.get(i);
+            if (!s.removeme()) {
+                sb.draw(s.getTexture(), s.getX() - s.getPanelSize(), s.getY() - s.getPanelSize());
+            }
+        }
+
         sb.setProjectionMatrix(spriteCam.combined);
 //        sb.draw(player.getTile(), spriteOffsetX, spriteOffsetY);
         sb.end();
