@@ -80,7 +80,29 @@ public class MainBoard {
 		{
 			for(int j =0; j < y;j++)
 			{
-				spaces.add(new BoardSpace(i,j,this));
+				BoardSpace sp;
+				sp = new BoardSpace(i,j,this);
+				spaces.add(sp);
+			}
+		}
+		for(int i =0; i < x;i++)
+		{
+			for(int j =0; j < y;j++)
+			{
+				BoardSpace sp;
+				sp = getSpaceAt(i,j);
+				if(i>0){
+					sp.setLeftSpace(getSpaceAt(i-1,j));
+				}
+				if(i<x){
+					sp.setRightSpace(getSpaceAt(i+1,j));
+				}
+				if(j>0){
+					sp.setBelowSpace(getSpaceAt(i,j-1));
+				}
+				if(j<y){
+					sp.setAboveSpace(getSpaceAt(i,j+1));
+				}
 			}
 		}
 	}

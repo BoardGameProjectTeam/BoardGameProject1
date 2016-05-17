@@ -30,6 +30,11 @@ public class BoardSpace {
 	private int y;
 	private MainBoard board;
 
+
+	private BoardSpace aboveSpace;
+	private BoardSpace belowSpace;
+	private BoardSpace leftSpace;
+	private BoardSpace rightSpace;
 	//default constructor
 	public BoardSpace(int x, int y, MainBoard mainBoard){
 		this.setX(x);
@@ -112,6 +117,38 @@ public class BoardSpace {
 		//s.addTrap(storedTrap);
 		return s;
 	}
+	public BoardSpace getAboveSpace() {
+		return aboveSpace;
+	}
+
+	public void setAboveSpace(BoardSpace aboveSpace) {
+		this.aboveSpace = aboveSpace;
+	}
+
+	public BoardSpace getBelowSpace() {
+		return belowSpace;
+	}
+
+	public void setBelowSpace(BoardSpace belowSpace) {
+		this.belowSpace = belowSpace;
+	}
+
+	public BoardSpace getLeftSpace() {
+		return leftSpace;
+	}
+
+	public void setLeftSpace(BoardSpace leftSpace) {
+		this.leftSpace = leftSpace;
+	}
+
+	public BoardSpace getRightSpace() {
+		return rightSpace;
+	}
+
+	public void setRightSpace(BoardSpace rightSpace) {
+		this.rightSpace = rightSpace;
+	}
+
 	public void storeCharacter(Character character){
 		this.character = character;
 	}

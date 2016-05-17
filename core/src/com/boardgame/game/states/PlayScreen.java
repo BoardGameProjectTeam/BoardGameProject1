@@ -82,7 +82,9 @@ public class PlayScreen extends State {
         if(Gdx.input.justTouched()){
             p1.drawCard();
 //            System.out.println("player stats: "+activeChar.getSpaceon().getX()+" "+activeChar.getSpaceon().getY());
+//        System.out.println();
         }
+
 
     }
 
@@ -95,7 +97,7 @@ public class PlayScreen extends State {
     public void render(SpriteBatch sb) {
 
         //display MP to console
-        System.out.println("MP: " + activeChar.getStats().getMP());
+//        System.out.println("MP: " + activeChar.getStats().getMP());
 
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
