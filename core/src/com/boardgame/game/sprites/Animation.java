@@ -21,10 +21,10 @@ public class Animation {
         int frameWidth = region.getRegionWidth() / frameCountW;
 //        int frameHeight = region.getRegionHeight() / frameCountH;
         for (int i = 0; i < frameCountH; i++) {
-            for(int j = 0; j < frameCountW; j++){
+//            for(int j = 0; j < frameCountW; j++){
 //                frames.add(new TextureRegion(region,i*frameWidth,0,j*frameWidth,region.getRegionHeight()));
-                  frames.add(new TextureRegion(region,i*frameWidth,0,j*frameWidth,region.getRegionHeight()));
-            }
+                  frames.add(new TextureRegion(region,i*frameWidth,0,frameWidth,region.getRegionHeight()));
+//            }
         }
         this.frameCountW = frameCountW;
         maxFrameTime = cycleTime/frameCountW;

@@ -20,12 +20,18 @@ public class SlashAnimation {
         removeMe = false;
     }
     public void update(float dt){
-        slashAnimation.update(dt);
-        if(slashAnimation.getCurrentFrame()>5){
+
+        if(slashAnimation.getCurrentFrame()>3){
             dispose();
             removeMe = true;
+        }else{
+            slashAnimation.update(dt);
         }
 
+
+    }
+    public TextureRegion getTexture(){
+        return slashAnimation.getFrame();
     }
     public void dispose(){
         slash.dispose();
