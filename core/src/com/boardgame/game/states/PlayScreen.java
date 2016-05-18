@@ -182,7 +182,7 @@ public class PlayScreen extends State {
         return boardOffsetY;
     }
     public MainPlayer getActivePlayer(){
-        return getActivePlayer();
+        return activePlayer;
     }
     public void addAnimation(AttackAnimation animation){
         animations.add(animation);
