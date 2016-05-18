@@ -6,6 +6,7 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.math.Vector3;
 import com.boardgame.game.Animations.SlashAnimation;
 import com.boardgame.game.BoardClasses.BoardSpace;
+import com.boardgame.game.CardClasses.Card;
 import com.boardgame.game.MyGdxGame;
 import com.boardgame.game.states.PlayScreen;
 
@@ -93,6 +94,10 @@ public class PlayController implements InputProcessor{
 //                 ) {
 //
 //            }
+            for(Card card:ps.getActivePlayer().getHand().getCards()){
+                //TODO
+            }
+
 
         }
 

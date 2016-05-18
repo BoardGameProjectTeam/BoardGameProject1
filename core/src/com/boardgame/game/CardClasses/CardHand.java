@@ -30,5 +30,8 @@ public class CardHand {
     public int handSize(){
         return cards.size();
     }
+    public ArrayList<Card> getCards(){
+        return cards;
+    }
 
 }
