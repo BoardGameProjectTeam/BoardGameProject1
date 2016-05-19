@@ -35,6 +35,7 @@ public class PlayScreen extends State {
 
     private PlayController playController;
 
+    private int numberOfCards = 20;
     private int panelSize= 35;
     private int handY = 300;
 
@@ -54,7 +55,7 @@ public class PlayScreen extends State {
         activePlayer = p1;
 
         //setup player 1
-        for(int i = 0; i<6;i++) {
+        for(int i = 0; i<numberOfCards;i++) {
             p1.getDeck().addCard(new SlashCard(i*35,handY));
         }
         p1.drawCard(0);

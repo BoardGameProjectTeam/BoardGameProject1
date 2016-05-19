@@ -92,13 +92,11 @@ public class PlayController implements InputProcessor{
             }
         }else{
             //touching outside board
-//            for (ps.:
-//                 ) {
-//
-//            }
-//            for(Card card:ps.getActivePlayer().getHand().getCards()){
+
+            //handles card execution
                 for(int i = 0; i < ps.getActivePlayer().getHand().getCards().size();i++){
                     Card card = ps.getActivePlayer().getHand().getCard(i);
+
                 if(card.checkBounds(xx,yy)){
                     CardHand hand = ps.getActivePlayer().getHand();
                     int position = hand.getCards().indexOf(card);
