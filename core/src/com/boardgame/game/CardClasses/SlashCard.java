@@ -6,7 +6,7 @@ package com.boardgame.game.CardClasses;
 public class SlashCard extends Card {
 
     public SlashCard(int x, int y) {
-        super("slashCard_small.png", x, y);
+        super("slashCard_Small.png", x, y);
     }
 
 }

@@ -16,8 +16,11 @@ import com.boardgame.game.states.PlayScreen;
 public class PlayController implements InputProcessor{
         PlayScreen ps;
         int panelSize= 35;
+        private ActionPerformer actionPerformer;
+
     public PlayController(PlayScreen ps){
         this.ps = ps;
+        actionPerformer = new ActionPerformer(ps.getMainBoard());
     }
 
     @Override
@@ -100,7 +103,9 @@ public class PlayController implements InputProcessor{
                 if(card.checkBounds(xx,yy)){
                     CardHand hand = ps.getActivePlayer().getHand();
                     int position = hand.getCards().indexOf(card);
+//                    actionPerformer.useCard(card);
                     hand.removeCard(card);
+
                     for(int j = position;
                         j< hand.getCards().size();
                             j++){

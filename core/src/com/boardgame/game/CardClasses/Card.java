@@ -13,6 +13,7 @@ public class Card {
 	protected Rectangle clickbox;
 	protected int width;
 	protected int height;
+	protected int attackType;
 
 
 

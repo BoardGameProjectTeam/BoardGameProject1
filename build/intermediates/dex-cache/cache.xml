@@ -5,7 +5,7 @@
         jar="C:\Users\Cliff\Documents\GitHub\BoardGameProject1\android\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="efba74fb513bc21d7efd3aa4b7ec7dc544309405">
+        sha1="6127543580541940c4f5c0ed602d5c2178846032">
         <dex dex="C:\Users\Cliff\Documents\GitHub\BoardGameProject1\android\build\intermediates\pre-dexed\debug\instant-run_b0efdf85cf7f826de08388228155c29e32952754.jar" />
     </item>
     <item
@@ -33,7 +33,7 @@
         jar="C:\Users\Cliff\Documents\GitHub\BoardGameProject1\android\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         revision="23.0.3"
-        sha1="62126bec99bf548700a5604f0a816c2579290eed">
+        sha1="5ba4e00bca0873a3e13e7ade23c4ea281970861e">
         <dex dex="C:\Users\Cliff\Documents\GitHub\BoardGameProject1\android\build\intermediates\pre-dexed\debug\instant-run-bootstrap_04d281910572d93daa35550196079c0b0633c204.jar" />
     </item>
 
