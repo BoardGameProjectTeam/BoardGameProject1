@@ -101,13 +101,13 @@ public class PlayController implements InputProcessor{
                     Card card = ps.getActivePlayer().getHand().getCard(i);
                 if(card.checkBounds(xx,yy)){
                     CardHand hand = ps.getActivePlayer().getHand();
-
-                    for(int position = hand.getCards().indexOf(card);
-                        position< hand.getCards().size();
-                            position++){
-                        hand.getCard(position).setLocation(position*35,ps.getHandY());
+                    int position = hand.getCards().indexOf(card);
+                    hand.removeCard(card);
+                    for(int j = position;
+                        j< hand.getCards().size();
+                            j++){
+                        hand.getCard(j).setLocation(j*35,ps.getHandY());
                     }
-                    ps.getActivePlayer().getHand().removeCard(card);
 
                 }
             }
