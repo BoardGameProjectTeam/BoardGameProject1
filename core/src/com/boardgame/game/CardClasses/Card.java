@@ -39,7 +39,15 @@ public class Card {
 
 		if(x > sprite.getX()){
 			if(x<sprite.getWidth()+sprite.getX()){
-			return true;
+				if(y>sprite.getY()){
+					if(y<sprite.getHeight()+sprite.getY()){
+						return true;
+					}
+				}else{
+					System.out.println("sprite y is" +sprite.getY()+" : sprite height is: "+sprite.getHeight()+sprite.getY());
+					System.out.println("Mouse y ="+y);
+				}
+
 			}
 		}
 		return false;

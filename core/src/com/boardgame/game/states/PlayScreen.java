@@ -57,8 +57,8 @@ public class PlayScreen extends State {
         for(int i = 0; i<6;i++) {
             p1.getDeck().addCard(new SlashCard(i*35,handY));
         }
-        p1.drawCard();
-        p1.drawCard();
+        p1.drawCard(0);
+        p1.drawCard(1);
 
         bs = new ArrayList<BoardSpace>();
         mb = new MainBoard(7, 7);
@@ -91,11 +91,13 @@ public class PlayScreen extends State {
 //        System.out.println();
 //            animations.add(new SlashAnimation(0,0));//need to convert 0,0 for where you touch next to test
         }
-        if(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY)){
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)){
 //            cam.position.x --;
 //            cam.position.y --;
 //            cam.update();
-            p1.drawCard();
+            System.out.println(p1.getHand().getCards().size());
+            p1.drawCard(p1.getHand().getCards().size());
+
         }
 
 

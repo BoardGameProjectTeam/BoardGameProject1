@@ -17,9 +17,10 @@ public class Deck {
 		cards = card;
 	}
 	
-	public Card draw(){
+	public Card draw(int position){
 		if(cards.size()>0) {
 			Card c = cards.get(0);
+			c.setLocation(position*35,c.getY());
 			cards.remove(0);
 			return c;
 		}else

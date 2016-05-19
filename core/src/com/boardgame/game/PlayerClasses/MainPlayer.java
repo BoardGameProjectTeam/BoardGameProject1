@@ -27,9 +27,9 @@ public class MainPlayer {
         this.characters = characters;
         deck = new Deck();
     }
-    public void drawCard(){
+    public void drawCard(int position){
         try {
-            hand.addCard(deck.draw());
+            hand.addCard(deck.draw(position));
         }catch (Exception e){
             System.out.println("No more cards");
         }
