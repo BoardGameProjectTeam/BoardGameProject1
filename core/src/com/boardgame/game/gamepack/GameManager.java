@@ -29,7 +29,7 @@ public class GameManager {
 		}
 		while (in1.hasNextLine()) {
 		    String line = in1.nextLine();
-		    deck.addCard(new com.boardgame.game.CardClasses.Card(line));
+//		    deck.addCard(new com.boardgame.game.CardClasses.Card(line));
 		}
 //		deck.printdeck(); //for testing //should be move 1,2,3,4
 //		deck.draw();

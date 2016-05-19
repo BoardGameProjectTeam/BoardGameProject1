@@ -7,7 +7,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.boardgame.game.Animations.SlashAnimation;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.CardClasses.Card;
-import com.boardgame.game.MyGdxGame;
+import com.boardgame.game.CardClasses.CardHand;
 import com.boardgame.game.states.PlayScreen;
 
 /**
@@ -61,12 +61,14 @@ public class PlayController implements InputProcessor{
 //        screenY = MyGdxGame.HEIGHT-screenY;
         Vector3 v3 = new Vector3(screenX+ps.getBoardOffsetX(),screenY+ps.getBoardOffsetY(),0);
         ps.getcam().unproject(v3);
+        int xx = (int) v3.x;
+        int yy = (int) v3.y;
 
         if(v3.y<245) {
             //playermovement
-            try {
-                int xx = (int) v3.x;
-                int yy = (int) v3.y;
+    try {
+
+//                its set to 480, but i changed it again to 720
 
                 System.out.println(xx + " this is x");
                 System.out.println(yy + " this is y");
@@ -94,8 +96,20 @@ public class PlayController implements InputProcessor{
 //                 ) {
 //
 //            }
-            for(Card card:ps.getActivePlayer().getHand().getCards()){
-                //TODO
+//            for(Card card:ps.getActivePlayer().getHand().getCards()){
+                for(int i = 0; i < ps.getActivePlayer().getHand().getCards().size();i++){
+                    Card card = ps.getActivePlayer().getHand().getCard(i);
+                if(card.checkBounds(xx,yy)){
+                    CardHand hand = ps.getActivePlayer().getHand();
+
+                    for(int position = hand.getCards().indexOf(card);
+                        position< hand.getCards().size();
+                            position++){
+                        hand.getCard(position).setLocation(position*35,ps.getHandY());
+                    }
+                    ps.getActivePlayer().getHand().removeCard(card);
+
+                }
             }
 
 

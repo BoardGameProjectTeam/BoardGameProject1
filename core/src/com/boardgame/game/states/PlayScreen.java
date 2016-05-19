@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.boardgame.game.Animations.AttackAnimation;
-import com.boardgame.game.Attacks.Attack;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.CardClasses.SlashCard;
@@ -13,7 +12,6 @@ import com.boardgame.game.MyGdxGame;
 import com.boardgame.game.PlayerClasses.Character;
 import com.boardgame.game.PlayerClasses.Mage;
 import com.boardgame.game.PlayerClasses.MainPlayer;
-import com.boardgame.game.Animations.SlashAnimation;
 
 import java.util.ArrayList;
 
@@ -37,6 +35,9 @@ public class PlayScreen extends State {
 
     private PlayController playController;
 
+    private int panelSize= 35;
+    private int handY = 300;
+
     //for testing
     private ArrayList<AttackAnimation> animations;//need to make a general animation object class
 //    private SlashAnimation ss;
@@ -51,9 +52,10 @@ public class PlayScreen extends State {
         p1 = new MainPlayer();
         p2 = new MainPlayer();
         activePlayer = p1;
+
         //setup player 1
         for(int i = 0; i<6;i++) {
-            p1.getDeck().addCard(new SlashCard());
+            p1.getDeck().addCard(new SlashCard(i*35,handY));
         }
         p1.drawCard();
         p1.drawCard();
@@ -84,7 +86,7 @@ public class PlayScreen extends State {
     @Override
     public void handleInput() {
         if(Gdx.input.justTouched()){
-            p1.drawCard();
+//            p1.drawCard();
 //            System.out.println("player stats: "+activeChar.getSpaceon().getX()+" "+activeChar.getSpaceon().getY());
 //        System.out.println();
 //            animations.add(new SlashAnimation(0,0));//need to convert 0,0 for where you touch next to test
@@ -93,6 +95,7 @@ public class PlayScreen extends State {
 //            cam.position.x --;
 //            cam.position.y --;
 //            cam.update();
+            p1.drawCard();
         }
 
 
@@ -132,7 +135,9 @@ public class PlayScreen extends State {
         }
 
         for(int i = 0; i<p1.getHand().handSize();i++) {
-            sb.draw(p1.getHand().getCard(i).getCardSprite(),i*p1.getHand().getCard(i).getCardSprite().getWidth(), 300);
+            sb.draw(p1.getHand().getCard(i).getCardTexture(),
+                    p1.getHand().getCard(i).getX(),
+                    handY);
         }
 //        if(bs.size()>0) {
         for(int i = 0; i < bs.size();i++) {
@@ -187,6 +192,7 @@ public class PlayScreen extends State {
     public void addAnimation(AttackAnimation animation){
         animations.add(animation);
     }
+    public int getHandY(){return handY;}
     @Override
     public void dispose() {
 
