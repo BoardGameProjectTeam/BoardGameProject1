@@ -8,6 +8,9 @@ android/.project
 core/.classpath
 core/.project
 local.properties
+android/build/intermediates/assets/*
+android/build/intermediates/instant-run-support/*
+android/build/intermediates/jniLibs/*
 
 
 # Mobile Tools for Java (J2ME)
