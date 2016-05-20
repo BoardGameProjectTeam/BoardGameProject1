@@ -11,6 +11,9 @@ local.properties
 android/build/intermediates/assets/*
 android/build/intermediates/instant-run-support/*
 android/build/intermediates/jniLibs/*
+android/build/intermediates/transforms/dex/*
+android/build/intermediates/transforms/instantRunSlicer/*
+android/build/intermediates/transforms/mergeJniLibs/*
 
 
 # Mobile Tools for Java (J2ME)
