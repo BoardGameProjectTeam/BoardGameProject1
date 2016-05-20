@@ -9,7 +9,7 @@ core/.classpath
 core/.project
 local.properties
 android/build/intermediates/assets/*
-*merger.xml
+*.iws
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
@@ -74,6 +74,5 @@ Temporary Items
 .idea/misc.xml
 *.properties
 *.xml
-.idea/workspace.xml
 sh.exe.stackdump
 local.properties
