@@ -17,4 +17,4 @@
 *.RTF	 diff=astextplain
 
 # Ignore merger files
-*merger.xml	export-ignore
+*.xml  export-ignore
