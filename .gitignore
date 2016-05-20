@@ -9,7 +9,7 @@ core/.classpath
 core/.project
 local.properties
 android/build/intermediates/assets/*
-android\build\intermediates\incremental\mergeDebugAndroidTestAssets/merger.xml
+*merger.xml
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
