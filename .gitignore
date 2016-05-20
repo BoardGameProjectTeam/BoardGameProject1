@@ -77,20 +77,9 @@ Temporary Items
 
 *.properties
 
-*.properties
-
 *.xml
 
 local.properties
 
 .idea/workspace.xml
-.idea/workspace.xml
 sh.exe.stackdump
-local.properties
-android/android.iml
-android/build/intermediates/incremental/mergeDebugAndroidTestAssets/*
-android/build/intermediates/incremental/mergeDebugAndroidTestResources/*
-android/build/intermediates/incremental/mergeDebugAndroidTestShaders/*
-android/build/intermediates/incremental/mergeDebugAssets/*
-android/build/intermediates/incremental/mergeDebugResources/*
-android/build/intermediates/incremental/mergeDebugShaders/*
