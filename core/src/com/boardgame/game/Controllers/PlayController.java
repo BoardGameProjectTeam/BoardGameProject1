@@ -26,7 +26,7 @@ public class PlayController implements InputProcessor{
         this.playModel = playModel;
         this.playScreen = playScreen;
 
-        actionPerformer = new ActionPerformer(playModel.getMainBoard());
+        actionPerformer = new ActionPerformer(playModel);
     }
 
     @Override
@@ -110,7 +110,9 @@ public class PlayController implements InputProcessor{
                 if(card.checkBounds(xx,yy)){
                     CardHand hand = playModel.getActivePlayer().getHand();
                     int position = hand.getCards().indexOf(card);
+                    //perform card action here?
                     actionPerformer.useCard(card);
+                    //getanimation?
                     hand.removeCard(card);
 
                     for(int j = position;
@@ -150,4 +152,6 @@ public class PlayController implements InputProcessor{
     public boolean scrolled(int amount) {
         return false;
     }
+
+
 }

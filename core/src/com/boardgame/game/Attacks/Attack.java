@@ -1,5 +1,6 @@
 package com.boardgame.game.Attacks;
 
+import com.boardgame.game.BoardClasses.BoardObject;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.PlayerClasses.Character;
@@ -19,7 +20,11 @@ public abstract class Attack {
     protected char direction;
     protected int power;
 
-    //for targeting specific players
+    public Attack(){
+
+    }
+
+    //single target
     public Attack(Character user,Character target){
         this.user = user;
         singleTarget = target;
@@ -41,6 +46,11 @@ public abstract class Attack {
         this.targetSpace = targetSpace;
     }
 
+    public void setPower(int i){
+        power = i;
+    }
+
+    public abstract void performAction();
 
 
 }

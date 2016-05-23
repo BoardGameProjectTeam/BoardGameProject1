@@ -1,6 +1,7 @@
 package com.boardgame.game.CardClasses;
 
 import com.boardgame.game.Attacks.Attack;
+import com.boardgame.game.Attacks.SingleAreaAttack;
 import com.boardgame.game.Attacks.Slash;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
@@ -11,15 +12,20 @@ import java.util.ArrayList;
 /**
  * Created by Cliff on 5/12/2016.
  */
-public class SlashCard extends Card {
+public class SlashCard extends SingleAreaCard {
 
     public SlashCard(int x, int y) {
         super("slashCard_Small.png", x, y);
+        setName("Slash");
+        cardType = 0;
+        attackType = 1;
+
     }
 
-    public Attack attack(MainBoard mainBoard, Character user, Character target, BoardSpace targetSpace, ArrayList<BoardSpace> targetSpaces, char direction){
-        attack=new Slash(user,targetSpace);
-        return attack;
+    //get attac
+
+    public SingleAreaAttack attack(Character user, BoardSpace targetSpace){
+        return new Slash(user,targetSpace);
     }
 
 

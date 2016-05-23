@@ -94,6 +94,7 @@ public class PlayModel {
     public ArrayList getCharacters(){
         return characters;
     }
+
     public void switchActiveChar(Character character){
         activeChar = character;
     }

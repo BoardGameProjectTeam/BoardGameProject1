@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.boardgame.game.Attacks.Attack;
+import com.boardgame.game.Attacks.SingleAreaAttack;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.PlayerClasses.Character;
@@ -84,9 +85,8 @@ public abstract class Card {
 	public Attack getAttack(){
 		return attack;
 	}
-
-	public abstract Attack attack(MainBoard mainBoard, Character user, Character target, BoardSpace targetSpace, ArrayList<BoardSpace> targetSpaces, char direction);
-
-
+	public SingleAreaAttack getSingleAreaAttack(Character user, BoardSpace targetSpace){
+		return new SingleAreaAttack(user,targetSpace);
+	}
 
 }
