@@ -3,21 +3,18 @@ package com.boardgame.game.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.boardgame.game.Animations.AttackAnimation;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
-import com.boardgame.game.CardClasses.SlashCard;
 import com.boardgame.game.Controllers.PlayController;
 import com.boardgame.game.MyGdxGame;
 import com.boardgame.game.PlayerClasses.Character;
 import com.boardgame.game.PlayerClasses.Mage;
-import com.boardgame.game.PlayerClasses.MainPlayer;
 
 import java.util.ArrayList;
 
-import ModelClasses.PlayModel;
+import com.boardgame.game.ModelClasses.PlayModel;
 
 /**
  * Created by Cliff on 5/6/2016.

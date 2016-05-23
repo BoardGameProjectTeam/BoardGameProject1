@@ -1,4 +1,4 @@
-package ModelClasses;
+package com.boardgame.game.ModelClasses;
 
 import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.CardClasses.SlashCard;

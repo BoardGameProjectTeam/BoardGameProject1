@@ -10,7 +10,7 @@ import com.boardgame.game.CardClasses.Card;
 import com.boardgame.game.CardClasses.CardHand;
 import com.boardgame.game.states.PlayScreen;
 
-import ModelClasses.PlayModel;
+import com.boardgame.game.ModelClasses.PlayModel;
 
 /**
  * Created by Cliff on 5/13/2016.
