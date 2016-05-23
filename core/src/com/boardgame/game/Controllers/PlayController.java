@@ -10,40 +10,47 @@ import com.boardgame.game.CardClasses.Card;
 import com.boardgame.game.CardClasses.CardHand;
 import com.boardgame.game.states.PlayScreen;
 
+import ModelClasses.PlayModel;
+
 /**
  * Created by Cliff on 5/13/2016.
  */
 public class PlayController implements InputProcessor{
-        PlayScreen ps;
+
+    private PlayScreen playScreen;
+    private PlayModel playModel;
         int panelSize= 35;
         private ActionPerformer actionPerformer;
 
-    public PlayController(PlayScreen ps){
-        this.ps = ps;
-        actionPerformer = new ActionPerformer(ps.getMainBoard());
+    public PlayController(PlayModel playModel,PlayScreen playScreen){
+        this.playModel = playModel;
+        this.playScreen = playScreen;
+
+        actionPerformer = new ActionPerformer(playModel.getMainBoard());
     }
 
     @Override
     public boolean keyDown(int keycode) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
             if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
-                ps.getMainBoard().moveObject(ps.getActiveChar(),'l');
+                playModel.getMainBoard().moveObject(playModel.getActiveChar(),'l');
             }
 
             if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
-                ps.getMainBoard().moveObject(ps.getActiveChar(),'r');
+                playModel.getMainBoard().moveObject(playModel.getActiveChar(),'r');
             }
 
             if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-                ps.getMainBoard().moveObject(ps.getActiveChar(),'u');
+                playModel.getMainBoard().moveObject(playModel.getActiveChar(),'u');
             }
 
             if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
-                ps.getMainBoard().moveObject(ps.getActiveChar(),'d');
+                playModel.getMainBoard().moveObject(playModel.getActiveChar(),'d');
             }
 
             if (Gdx.input.isKeyJustPressed(Input.Keys.Z)) {
-                ps.switchChar();
+                playModel.switchChar();
+                playModel.draw();
             }
         }
         return false;
@@ -62,8 +69,8 @@ public class PlayController implements InputProcessor{
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 //        screenY = MyGdxGame.HEIGHT-screenY;
-        Vector3 v3 = new Vector3(screenX+ps.getBoardOffsetX(),screenY+ps.getBoardOffsetY(),0);
-        ps.getcam().unproject(v3);
+        Vector3 v3 = new Vector3(screenX,screenY,0);
+        playScreen.getcam().unproject(v3);
         int xx = (int) v3.x;
         int yy = (int) v3.y;
 
@@ -78,15 +85,15 @@ public class PlayController implements InputProcessor{
 
                 xx /=panelSize;
                 yy /=panelSize;
-                BoardSpace boardSpace = ps.getMainBoard().getSpaceAt(xx, yy);
+                BoardSpace boardSpace = playModel.getMainBoard().getSpaceAt(xx, yy);
 
                 if (boardSpace.hasObject()) {
                     if (boardSpace.getObject().isCharacter()) {
-                        ps.switchActiveChar(boardSpace.getCharacter());
+                        playModel.switchActiveChar(boardSpace.getCharacter());
                     }
                 } else {
-                    ps.getMainBoard().teleportObject(ps.getActiveChar(), xx, yy);
-                    ps.addAnimation(new SlashAnimation(xx,yy));
+                    playModel.getMainBoard().teleportObject(playModel.getActiveChar(), xx, yy);
+                    playScreen.addAnimation(new SlashAnimation(xx,yy));
                 }
             } catch (NullPointerException n) {
                 System.out.println("null pointer exception");
@@ -97,19 +104,19 @@ public class PlayController implements InputProcessor{
             //touching outside board
 
             //handles card execution
-                for(int i = 0; i < ps.getActivePlayer().getHand().getCards().size();i++){
-                    Card card = ps.getActivePlayer().getHand().getCard(i);
+                for(int i = 0; i < playModel.getActivePlayer().getHand().getCards().size();i++){
+                    Card card = playModel.getActivePlayer().getHand().getCard(i);
 
                 if(card.checkBounds(xx,yy)){
-                    CardHand hand = ps.getActivePlayer().getHand();
+                    CardHand hand = playModel.getActivePlayer().getHand();
                     int position = hand.getCards().indexOf(card);
-//                    actionPerformer.useCard(card);
+                    actionPerformer.useCard(card);
                     hand.removeCard(card);
 
                     for(int j = position;
                         j< hand.getCards().size();
                             j++){
-                        hand.getCard(j).setLocation(j*35,ps.getHandY());
+                        hand.getCard(j).setLocation(j*35,playModel.getHandY());
                     }
 
                 }

@@ -3,8 +3,14 @@ package com.boardgame.game.CardClasses;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
+import com.boardgame.game.Attacks.Attack;
+import com.boardgame.game.BoardClasses.BoardSpace;
+import com.boardgame.game.BoardClasses.MainBoard;
+import com.boardgame.game.PlayerClasses.Character;
 
-public class Card {
+import java.util.ArrayList;
+
+public abstract class Card {
 
 
 	protected String name;
@@ -13,7 +19,9 @@ public class Card {
 	protected Rectangle clickbox;
 	protected int width;
 	protected int height;
-	protected int attackType;
+	protected int attackType;// 0 for ...
+	protected Attack attack;
+	protected int cardType;
 
 
 
@@ -22,7 +30,7 @@ public class Card {
 		sprite = new Sprite(cardTexture);
 		sprite.setPosition(x,y);
 		sprite.setBounds(x,y,sprite.getWidth(),sprite.getHeight());
-
+		attackType = 0;
 		this.name = fileName;
 	}
 	public String getName() {
@@ -56,10 +64,10 @@ public class Card {
 	public void dispose(){
 		cardTexture.dispose();
 	}
-	public Card dupe(){
-		Card c = new Card(name,(int)sprite.getX(),(int)sprite.getY());
-		return c;
-	}
+//	public Card dupe(){
+//		Card c = new Card(name,(int)sprite.getX(),(int)sprite.getY());
+//		return c;
+//	}
 	public Texture getCardTexture(){
 		return sprite.getTexture();
 	}
@@ -69,6 +77,15 @@ public class Card {
 	public int getY(){
 		return (int)sprite.getY();
 	}
+	public int getCardType(){return cardType;}
+	public int getAttackType(){
+		return attackType;
+	}
+	public Attack getAttack(){
+		return attack;
+	}
+
+	public abstract Attack attack(MainBoard mainBoard, Character user, Character target, BoardSpace targetSpace, ArrayList<BoardSpace> targetSpaces, char direction);
 
 
 
