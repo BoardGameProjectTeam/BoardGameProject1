@@ -5,6 +5,7 @@
 desktop/.project
 android/.classpath
 android/.project
+android/build/*
 core/.classpath
 core/.project
 local.properties
