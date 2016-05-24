@@ -50,5 +50,6 @@ public abstract class BoardObject implements ABoardObject {
 	}
 	public void takeDamage(int i){
 		hp -= i;
+		System.out.println(hp);
 	}
 }

@@ -26,7 +26,7 @@ public class PlayController implements InputProcessor{
         this.playModel = playModel;
         this.playScreen = playScreen;
 
-        actionPerformer = new ActionPerformer(playModel);
+        actionPerformer = new ActionPerformer(playModel, playScreen);
     }
 
     @Override
@@ -93,7 +93,7 @@ public class PlayController implements InputProcessor{
                     }
                 } else {
                     playModel.getMainBoard().teleportObject(playModel.getActiveChar(), xx, yy);
-                    playScreen.addAnimation(new SlashAnimation(xx,yy));
+//                    playScreen.addAnimation(new SlashAnimation(xx,yy));
                 }
             } catch (NullPointerException n) {
                 System.out.println("null pointer exception");

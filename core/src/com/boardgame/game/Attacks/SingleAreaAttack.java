@@ -2,6 +2,7 @@ package com.boardgame.game.Attacks;
 
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.PlayerClasses.Character;
+import com.boardgame.game.states.PlayScreen;
 
 /**
  * These attacks are for when the attack covers an area
@@ -14,8 +15,10 @@ public  class SingleAreaAttack extends Attack{
         this.user = user;
         this.targetSpace = targetSpace;
     }
-    public void performAction(){
-    //...
+    public void performAction(PlayScreen playScreen){
+        System.out.println("got to action");
+
+
     }
 
 }

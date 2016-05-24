@@ -65,10 +65,7 @@ public abstract class Card {
 	public void dispose(){
 		cardTexture.dispose();
 	}
-//	public Card dupe(){
-//		Card c = new Card(name,(int)sprite.getX(),(int)sprite.getY());
-//		return c;
-//	}
+
 	public Texture getCardTexture(){
 		return sprite.getTexture();
 	}
@@ -85,8 +82,6 @@ public abstract class Card {
 	public Attack getAttack(){
 		return attack;
 	}
-	public SingleAreaAttack getSingleAreaAttack(Character user, BoardSpace targetSpace){
-		return new SingleAreaAttack(user,targetSpace);
-	}
+	public abstract SingleAreaAttack getSingleAreaAttack(Character user, BoardSpace targetSpace);
 
 }

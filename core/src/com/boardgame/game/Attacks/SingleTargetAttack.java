@@ -1,6 +1,7 @@
 package com.boardgame.game.Attacks;
 
 import com.boardgame.game.PlayerClasses.Character;
+import com.boardgame.game.states.PlayScreen;
 
 /**
  * These are for attacks that specify a single character as its target
@@ -13,7 +14,8 @@ public class SingleTargetAttack extends Attack{
         this.user = user;
         this.target = target;
     }
-    public void performAction(){
-        //...
+    public void performAction(PlayScreen playScreen){
+
     }
+
 }

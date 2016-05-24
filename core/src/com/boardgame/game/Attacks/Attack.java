@@ -4,6 +4,7 @@ import com.boardgame.game.BoardClasses.BoardObject;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.PlayerClasses.Character;
+import com.boardgame.game.states.PlayScreen;
 
 import java.util.ArrayList;
 
@@ -50,7 +51,7 @@ public abstract class Attack {
         power = i;
     }
 
-    public abstract void performAction();
+    public abstract void performAction(PlayScreen playScreen);
 
 
 }

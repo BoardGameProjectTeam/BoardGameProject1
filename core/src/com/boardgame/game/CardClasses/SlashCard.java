@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Created by Cliff on 5/12/2016.
  */
-public class SlashCard extends SingleAreaCard {
+public class SlashCard extends Card {
 
     public SlashCard(int x, int y) {
         super("slashCard_Small.png", x, y);
@@ -23,10 +23,8 @@ public class SlashCard extends SingleAreaCard {
     }
 
     //get attac
-
-    public SingleAreaAttack attack(Character user, BoardSpace targetSpace){
+    public SingleAreaAttack getSingleAreaAttack(Character user, BoardSpace targetSpace){
         return new Slash(user,targetSpace);
     }
-
 
 }
