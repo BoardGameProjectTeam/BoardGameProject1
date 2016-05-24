@@ -5,10 +5,12 @@
 desktop/.project
 android/.classpath
 android/.project
+android/build/*
 core/.classpath
 core/.project
 local.properties
 *merger.xml
+android/build/intermediates/assets/debug/*
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
