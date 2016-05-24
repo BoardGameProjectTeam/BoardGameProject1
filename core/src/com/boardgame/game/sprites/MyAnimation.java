@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.Array;
  *
  * Created by Cliff on 5/3/2016.
  */
-public class Animation {
+public class MyAnimation {
     private Array<TextureRegion> frames;
     private float maxFrameTime;
     private float currentFrameTime;
@@ -16,7 +16,7 @@ public class Animation {
     private int frameCountH;
     private int frame;
 
-    public Animation(TextureRegion region, int frameCountW, int frameCountH, float cycleTime) {
+    public MyAnimation(TextureRegion region, int frameCountW, int frameCountH, float cycleTime) {
         frames = new Array<TextureRegion>();
         int frameWidth = region.getRegionWidth() / frameCountW;
         int frameHeight = region.getRegionHeight() / frameCountH;
@@ -35,6 +35,7 @@ public class Animation {
     }
     public void update(float dt){
         currentFrameTime += dt;
+        System.out.println(dt);
         if(currentFrameTime>maxFrameTime){
             frame++;
             currentFrameTime = 0;

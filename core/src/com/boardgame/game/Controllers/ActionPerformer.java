@@ -41,12 +41,15 @@ public class ActionPerformer {
                         //single area
                         Character user = playModel.getActiveChar();
                         BoardSpace target =playModel.getActiveChar().getSpaceon();
-
-
                         target = target.getRightSpace();
                         SingleAreaAttack atk = card.getSingleAreaAttack(user,target);
                         atk.performAction(playScreen);
                         break;
+                    case 2:
+                        //projectile
+                        break;
+
+
                 }
                 //set up attack
                 //attack.performAction

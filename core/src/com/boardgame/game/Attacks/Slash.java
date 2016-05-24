@@ -22,12 +22,18 @@ public class Slash extends SingleAreaAttack {
             if(targetSpace.hasObject()){
                 BoardObject theTarget = targetSpace.getObject();
                 theTarget.takeDamage(power);
+                playScreen.addAnimation(new SlashAnimation(targetSpace.getX(),targetSpace.getY()));
+                System.out.println("used slash");
+            }else
+            {
+                playScreen.addAnimation(new SlashAnimation(targetSpace.getX(),targetSpace.getY()));
+                System.out.println("used slash");
             }
-            playScreen.addAnimation(new SlashAnimation(targetSpace.getX(),targetSpace.getY()));
-            System.out.println("used slash");
-            //need to finish
-        }catch (Exception e){
-            System.out.println("target error");
+        }catch (NullPointerException n){
+            System.out.println("null pointer error in slash attack");
+        }
+        catch (Exception e){
+            System.out.println("target error in slash attack");
         }
     }
 }

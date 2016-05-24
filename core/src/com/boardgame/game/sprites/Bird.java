@@ -19,14 +19,14 @@ public class Bird {
 
     private Texture bird;
     private Texture texture;
-    private Animation birdAnimation;
+    private MyAnimation birdAnimation;
     private Sound flap;
     public Bird(int x, int y){
         position = new Vector3(x,y,0);
         velocity = new Vector3(0, 0, 0);
         bird = new Texture("bird.png");
         texture = new Texture("birdanimation.png");// used for animation
-        birdAnimation = new Animation(new TextureRegion(texture),3,1,0.5f);
+        birdAnimation = new MyAnimation(new TextureRegion(texture),3,1,0.5f);
         bounds = new Rectangle(x,y,bird.getWidth()/3, bird.getHeight());
         flap = Gdx.audio.newSound(Gdx.files.internal("sfx_wing.ogg"));
     }
