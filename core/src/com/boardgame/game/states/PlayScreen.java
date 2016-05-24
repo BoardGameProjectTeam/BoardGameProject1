@@ -3,8 +3,10 @@ package com.boardgame.game.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.boardgame.game.Animations.AttackAnimation;
+import com.boardgame.game.Animations.SlashAnimation;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.Controllers.PlayController;
@@ -34,9 +36,16 @@ public class PlayScreen extends State {
 
     //for testing
     private ArrayList<AttackAnimation> animations;//need to make a general animation object class
-
+    private Animation animation;
     public PlayScreen(GameStateManager gsm){
         super(gsm);
+
+        //testing
+//        Texture texture =new Texture("Slash_small.png");
+
+
+
+
 
         playModel = new PlayModel(this);
         playController = new PlayController(playModel,this);
@@ -44,6 +53,7 @@ public class PlayScreen extends State {
         Gdx.input.setInputProcessor(playController);
 
         animations = new ArrayList<AttackAnimation>();
+//        animations.add(new SlashAnimation(0,0));
 
         mb = playModel.getMainBoard();
         activeChar = playModel.getActiveChar();

@@ -2,21 +2,21 @@ package com.boardgame.game.Animations;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.boardgame.game.sprites.Animation;
+import com.boardgame.game.sprites.MyAnimation;
 
 /**
  * Created by Cliff on 5/16/2016.
  */
 public class SlashAnimation extends AttackAnimation{
-    private Animation slashAnimation;
+    private MyAnimation slashAnimation;
     private int width = 192;
     private int height = 192;
     private Texture slash;
     private Boolean removeMe;
     public SlashAnimation(int x, int y){
         panelSize = 35;
-        slash = new Texture("slash_small.png");
-        slashAnimation = new Animation(new TextureRegion(slash),5,2,.1f);
+        slash = new Texture("Slash_small.png");
+        slashAnimation = new MyAnimation(new TextureRegion(slash),5,2,.1f);
         removeMe = false;
         this.x = x* panelSize;
         this.y = y* panelSize;
