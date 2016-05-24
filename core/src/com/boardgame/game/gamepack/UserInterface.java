@@ -1,4 +1,4 @@
-package com.boardgame.game.states;
+package com.boardgame.game.gamepack;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -16,82 +16,47 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.boardgame.game.BoardClasses.BoardSpace;
+import com.boardgame.game.BoardClasses.MainBoard;
 
 /**
- * Created by Romeo on 5/23/2016.
+ * Created by Romeo on 5/24/2016.
  */
-public class TestUI extends ApplicationAdapter implements InputProcessor {
-    private Skin skin;
+public class UserInterface extends ApplicationAdapter implements InputProcessor {
     private Stage stage;
+    private Skin skin;
+    private Table hpTable;
+    private TextButton hpDisplay;
 
-    private Table table;
-    private TextButton startButton;
-    private TextButton quitButton;
-
+    private BoardSpace spaceon;
+    private Character charPos;
     private SpriteBatch batch;
     private Sprite sprite;
 
     @Override
-    public void create () {
+    public void create() {
         skin = new Skin(Gdx.files.internal("uiskin.json"));
         stage = new Stage(new ScreenViewport());
-        table = new Table();
-        table.setWidth(stage.getWidth());
-        table.align(Align.center | Align.bottom);
+        hpTable = new Table();
+        hpTable.setWidth(70);   //tile width
+        hpTable.align(Align.center);
+        hpTable.setPosition(0,70);
 
-        table.setPosition(0,0);
-        startButton = new TextButton("New Game",skin);
-        quitButton = new TextButton("Quit Game",skin);
-
-        startButton.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                Gdx.app.log("Clicked button","Yep, you did");
-                event.stop();
-            }
-        });
-
-//        table.padTop(30);
-
-        table.add(startButton).padBottom(20);
-
-        table.row();
-        table.add(quitButton).padBottom(30);
-
-        stage.addActor(table);
+        hpDisplay = new TextButton("HP", skin);
 
 
+        hpTable.add(hpDisplay).padBottom(10);
+        stage.addActor(hpTable);
 
-        batch = new SpriteBatch();
-        sprite = new Sprite(new Texture("Samurai.png"));    //background picture
-        sprite.setSize(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
-
-        Timer.schedule(new Timer.Task() {
-            @Override
-            public void run() {
-                sprite.setFlip(false,!sprite.isFlipY());
-            }
-        },10,10,10000);
-
-
-        // ORDER IS IMPORTANT!
-        InputMultiplexer im = new InputMultiplexer(stage,this);
-        Gdx.input.setInputProcessor(im);
+        Gdx.input.setInputProcessor(stage);
     }
 
     @Override
-    public void render () {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        batch.begin();
-        sprite.draw(batch);
-        batch.end();
-
+    public void render() {
+//        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
     }
-
 
     @Override
     public boolean keyDown(int keycode) {
@@ -134,3 +99,4 @@ public class TestUI extends ApplicationAdapter implements InputProcessor {
         return false;
     }
 }
+
