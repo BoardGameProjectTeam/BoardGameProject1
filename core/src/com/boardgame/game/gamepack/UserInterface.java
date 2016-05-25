@@ -18,6 +18,7 @@ import com.badlogic.gdx.utils.Timer;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
+import com.boardgame.game.ModelClasses.PlayModel;
 
 /**
  * Created by Romeo on 5/24/2016.
@@ -33,6 +34,12 @@ public class UserInterface extends ApplicationAdapter implements InputProcessor 
     private SpriteBatch batch;
     private Sprite sprite;
 
+    public UserInterface(int x, int y) {
+
+        System.out.println("**"+x+ " "+y);
+    }
+
+
     @Override
     public void create() {
         skin = new Skin(Gdx.files.internal("uiskin.json"));
@@ -40,14 +47,10 @@ public class UserInterface extends ApplicationAdapter implements InputProcessor 
         hpTable = new Table();
         hpTable.setWidth(70);   //tile width
         hpTable.align(Align.center);
-        hpTable.setPosition(0,70);
-
+        hpTable.setPosition(0, 70);
         hpDisplay = new TextButton("HP", skin);
-
-
         hpTable.add(hpDisplay).padBottom(10);
         stage.addActor(hpTable);
-
         Gdx.input.setInputProcessor(stage);
     }
 

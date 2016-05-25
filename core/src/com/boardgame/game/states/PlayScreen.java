@@ -17,6 +17,7 @@ import com.boardgame.game.PlayerClasses.Mage;
 import java.util.ArrayList;
 
 import com.boardgame.game.ModelClasses.PlayModel;
+import com.boardgame.game.gamepack.UserInterface;
 
 /**
  * Created by Cliff on 5/6/2016.
@@ -33,6 +34,8 @@ public class PlayScreen extends State {
 
     private PlayController playController;
     private PlayModel playModel;
+
+    private UserInterface hpBar;
 
     //for testing
     private ArrayList<AttackAnimation> animations;//need to make a general animation object class
@@ -66,6 +69,8 @@ public class PlayScreen extends State {
         boardOffsetX = 0;
         boardOffsetY = 0;
 
+        hpBar = new UserInterface(activeChar.getX(), activeChar.getY());
+
     }
     @Override
     //for testing only
@@ -97,6 +102,8 @@ public class PlayScreen extends State {
         //display MP to console
 //        System.out.println("MP: " + activeChar.getStats().getMP());
 
+
+
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
         //for loop for main board tiles
@@ -113,6 +120,9 @@ public class PlayScreen extends State {
 //                sb.draw(passiveChar.getTexture(),passiveChar.getX()*width+boardOffsetX,passiveChar.getY()*height+boardOffsetY); //testing
             }
         }
+
+        hpBar.create();
+        hpBar.render();
 
         for(int i = 0; i<playModel.getActivePlayer().getHand().handSize();i++) {
             //change this acordingly

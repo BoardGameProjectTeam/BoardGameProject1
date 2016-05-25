@@ -9,6 +9,7 @@ import com.boardgame.game.CardClasses.Card;
 import com.boardgame.game.PlayerClasses.CharacterStats;
 import com.boardgame.game.SkillClasses.Skill;
 import com.boardgame.game.SkillClasses.SkillList;
+import com.boardgame.game.gamepack.UserInterface;
 import com.boardgame.game.sprites.PlayerSprite;
 
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class Character extends BoardObject implements ABoardObject{
 	//dunno if these belong here? vv
 	private ArrayList<Card> passivecard= new ArrayList<Card>(); //for any passive cards that affect this character
 	private ArrayList<Skill> passiveSkills = new ArrayList<Skill>();
+
+	private UserInterface hpBar;
 	
 	public Character(String name, BoardSpace spaceOn){
 		super.setName(name);
@@ -40,6 +43,7 @@ public class Character extends BoardObject implements ABoardObject{
 		passivecard = new ArrayList<Card>();
 		passiveSkills = new ArrayList<Skill>();
 		stats = new CharacterStats(0, 0, 0, 0);
+		hpBar = new UserInterface(getX(), getY()+70);
 
 	}
 	//testing different constructor
