@@ -30,7 +30,6 @@ public class PlayScreen extends State {
 
     private Character activeChar;
     private ArrayList<Character> characters;
-    private Mage temp;
 
     private PlayController playController;
     private PlayModel playModel;
@@ -41,12 +40,6 @@ public class PlayScreen extends State {
     private ArrayList<AttackAnimation> animations;//need to make a general animation object class
     public PlayScreen(GameStateManager gsm){
         super(gsm);
-
-
-
-
-
-
 
         playModel = new PlayModel(this);
         playController = new PlayController(playModel,this);
@@ -63,26 +56,21 @@ public class PlayScreen extends State {
         bs = new ArrayList<BoardSpace>();
 
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
-        spriteCam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
+//        spriteCam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
         boardOffsetX = 0;
         boardOffsetY = 0;
 
         hpBar = new UserInterface(activeChar.getX()*70,activeChar.getY()*70);
-
-
     }
     @Override
     //for testing only
     public void handleInput() {
-        if(Gdx.input.justTouched()){
+        if(Gdx.input.justTouched()) {
 
         }
-        if(Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)){
-
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
 
         }
-
-
     }
 
     @Override
@@ -101,8 +89,6 @@ public class PlayScreen extends State {
         //display MP to console
 //        System.out.println("MP: " + activeChar.getStats().getMP());
 
-
-
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
         //for loop for main board tiles
@@ -120,8 +106,6 @@ public class PlayScreen extends State {
             }
         }
 
-
-
         for(int i = 0; i<playModel.getActivePlayer().getHand().handSize();i++) {
             //change this acordingly
             Texture texture = playModel.getActivePlayer().getHand().getCard(i).getCardTexture();
@@ -137,6 +121,8 @@ public class PlayScreen extends State {
         }
 
 
+
+
         for(int i = 0; i < animations.size();i++) {
             AttackAnimation s;
             s = animations.get(i);
@@ -149,11 +135,13 @@ public class PlayScreen extends State {
             }
         }
 
-        hpBar.setSpot(playModel.getActiveChar().getX()*70, playModel.getActiveChar().getY()*70);
-        hpBar.render();
         sb.setProjectionMatrix(spriteCam.combined);
 //        sb.draw(player.getTile(), spriteOffsetX, spriteOffsetY);
         sb.end();
+
+        hpBar.setSpot(playModel.getActiveChar().getX()*70, (playModel.getActiveChar().getY()*70)+50);
+        hpBar.render();
+        System.out.println(playModel.getActiveChar().getStats().getHP());
 //        cam.update();
     }
 

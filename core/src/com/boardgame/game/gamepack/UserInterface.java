@@ -19,6 +19,8 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.ModelClasses.PlayModel;
+import com.boardgame.game.PlayerClasses.Character;
+import com.boardgame.game.states.PlayScreen;
 
 /**
  * Created by Romeo on 5/24/2016.
@@ -29,26 +31,28 @@ public class UserInterface extends ApplicationAdapter implements InputProcessor 
     private Table hpTable;
     private TextButton hpDisplay;
 
-    private BoardSpace spaceon;
-    private Character charPos;
+    private PlayScreen playscreen;
+    private PlayModel playmodel;
+    private Character activechar;
     private SpriteBatch batch;
     private Sprite sprite;
 
     public UserInterface(int x, int y) {
         create(x, y);
-        System.out.println("**"+x+ " "+y);
     }
-
 
 //    @Override
     public void create(int x, int y) {
         skin = new Skin(Gdx.files.internal("uiskin.json"));
         stage = new Stage(new ScreenViewport());
         hpTable = new Table();
+        playmodel = new PlayModel(playscreen);
+        activechar = playmodel.getActiveChar();
+
         hpTable.setWidth(70);   //tile width
         hpTable.align(Align.center);
-        hpTable.setPosition(x, y); //needs work
-        hpDisplay = new TextButton("HP", skin);
+        hpTable.setPosition(x, y);
+        hpDisplay = new TextButton("HP: " + activechar.getStats().getHP(), skin);
         hpTable.add(hpDisplay).padBottom(10);
         stage.addActor(hpTable);
 //        Gdx.input.setInputProcessor(stage);   //can only have one input processor
@@ -57,11 +61,11 @@ public class UserInterface extends ApplicationAdapter implements InputProcessor 
     @Override
     public void render() {
 //        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        stage.act(Gdx.graphics.getDeltaTime());
+//        stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
     }
     public void setSpot(int x, int y){
-        hpTable.setPosition(x, y); //needs work
+        hpTable.setPosition(x, y);
     }
 
 

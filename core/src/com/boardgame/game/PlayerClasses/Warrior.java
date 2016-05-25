@@ -6,6 +6,7 @@ public class Warrior extends Character {
 
 	public Warrior(String name, BoardSpace spaceOn) {
 		super(name, spaceOn);
+		stats = new CharacterStats(30, 5, 3, 2);
 		// TODO Auto-generated constructor stub
 	}
 

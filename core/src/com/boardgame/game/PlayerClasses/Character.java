@@ -24,8 +24,6 @@ public class Character extends BoardObject implements ABoardObject{
 	//dunno if these belong here? vv
 	private ArrayList<Card> passivecard= new ArrayList<Card>(); //for any passive cards that affect this character
 	private ArrayList<Skill> passiveSkills = new ArrayList<Skill>();
-
-	private UserInterface hpBar;
 	
 	public Character(String name, BoardSpace spaceOn){
 		super.setName(name);
@@ -43,8 +41,6 @@ public class Character extends BoardObject implements ABoardObject{
 		passivecard = new ArrayList<Card>();
 		passiveSkills = new ArrayList<Skill>();
 		stats = new CharacterStats(0, 0, 0, 0);
-		hpBar = new UserInterface(getX(), getY()+70);
-
 	}
 	//testing different constructor
 	public Character(BoardSpace spaceOn, int charSeq)
@@ -52,6 +48,8 @@ public class Character extends BoardObject implements ABoardObject{
 		player = new PlayerSprite(charSeq);
 		spaceon = spaceOn;
 		setPos(spaceOn.getX(),spaceOn.getY());
+		passivecard = new ArrayList<Card>();
+		passiveSkills = new ArrayList<Skill>();
 		stats = new CharacterStats(0, 0, 0, 0);
 	}
 

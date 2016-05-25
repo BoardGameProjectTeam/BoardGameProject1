@@ -6,6 +6,8 @@ import com.boardgame.game.Controllers.PlayController;
 import com.boardgame.game.PlayerClasses.Character;
 import com.boardgame.game.PlayerClasses.Mage;
 import com.boardgame.game.PlayerClasses.MainPlayer;
+import com.boardgame.game.PlayerClasses.Ranger;
+import com.boardgame.game.PlayerClasses.Warrior;
 import com.boardgame.game.states.PlayScreen;
 
 import java.util.ArrayList;
