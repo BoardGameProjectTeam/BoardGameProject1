@@ -1,5 +1,6 @@
 package com.boardgame.game.Controllers;
 
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.boardgame.game.Attacks.Attack;
 import com.boardgame.game.Attacks.SingleAreaAttack;
 import com.boardgame.game.Attacks.SingleTargetAttack;
