@@ -60,6 +60,10 @@ public class UserInterface extends ApplicationAdapter implements InputProcessor 
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
     }
+    public void setSpot(int x, int y){
+        hpTable.setPosition(x, y); //needs work
+    }
+
 
     @Override
     public boolean keyDown(int keycode) {

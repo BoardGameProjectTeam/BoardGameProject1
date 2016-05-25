@@ -67,6 +67,7 @@ public class PlayScreen extends State {
         boardOffsetX = 0;
         boardOffsetY = 0;
 
+        hpBar = new UserInterface(activeChar.getX()*70,activeChar.getY()*70);
 
 
     }
@@ -148,13 +149,14 @@ public class PlayScreen extends State {
             }
         }
 
-        hpBar = new UserInterface(activeChar.getX()*35, activeChar.getY()*35);
+        hpBar.setSpot(playModel.getActiveChar().getX()*70, playModel.getActiveChar().getY()*70);
         hpBar.render();
         sb.setProjectionMatrix(spriteCam.combined);
 //        sb.draw(player.getTile(), spriteOffsetX, spriteOffsetY);
         sb.end();
 //        cam.update();
     }
+
 
 
 
