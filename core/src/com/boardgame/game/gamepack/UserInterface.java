@@ -35,23 +35,23 @@ public class UserInterface extends ApplicationAdapter implements InputProcessor 
     private Sprite sprite;
 
     public UserInterface(int x, int y) {
-
+        create(x, y);
         System.out.println("**"+x+ " "+y);
     }
 
 
-    @Override
-    public void create() {
+//    @Override
+    public void create(int x, int y) {
         skin = new Skin(Gdx.files.internal("uiskin.json"));
         stage = new Stage(new ScreenViewport());
         hpTable = new Table();
         hpTable.setWidth(70);   //tile width
         hpTable.align(Align.center);
-        hpTable.setPosition(0, 70);
+        hpTable.setPosition(x, y); //needs work
         hpDisplay = new TextButton("HP", skin);
         hpTable.add(hpDisplay).padBottom(10);
         stage.addActor(hpTable);
-        Gdx.input.setInputProcessor(stage);
+//        Gdx.input.setInputProcessor(stage);   //can only have one input processor
     }
 
     @Override

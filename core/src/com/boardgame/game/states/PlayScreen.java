@@ -39,12 +39,10 @@ public class PlayScreen extends State {
 
     //for testing
     private ArrayList<AttackAnimation> animations;//need to make a general animation object class
-    private Animation animation;
     public PlayScreen(GameStateManager gsm){
         super(gsm);
 
-        //testing
-//        Texture texture =new Texture("Slash_small.png");
+
 
 
 
@@ -69,7 +67,7 @@ public class PlayScreen extends State {
         boardOffsetX = 0;
         boardOffsetY = 0;
 
-        hpBar = new UserInterface(activeChar.getX(), activeChar.getY());
+
 
     }
     @Override
@@ -121,8 +119,7 @@ public class PlayScreen extends State {
             }
         }
 
-        hpBar.create();
-        hpBar.render();
+
 
         for(int i = 0; i<playModel.getActivePlayer().getHand().handSize();i++) {
             //change this acordingly
@@ -138,6 +135,7 @@ public class PlayScreen extends State {
             sb.draw(bs.get(i).getTextures(), i * 74, 0);
         }
 
+
         for(int i = 0; i < animations.size();i++) {
             AttackAnimation s;
             s = animations.get(i);
@@ -150,6 +148,8 @@ public class PlayScreen extends State {
             }
         }
 
+        hpBar = new UserInterface(activeChar.getX()*35, activeChar.getY()*35);
+        hpBar.render();
         sb.setProjectionMatrix(spriteCam.combined);
 //        sb.draw(player.getTile(), spriteOffsetX, spriteOffsetY);
         sb.end();
