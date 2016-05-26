@@ -20,6 +20,9 @@ import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.ModelClasses.PlayModel;
 import com.boardgame.game.PlayerClasses.Character;
+import com.boardgame.game.PlayerClasses.Mage;
+import com.boardgame.game.PlayerClasses.Ranger;
+import com.boardgame.game.PlayerClasses.Warrior;
 import com.boardgame.game.states.PlayScreen;
 
 /**
@@ -31,13 +34,15 @@ public class UserInterface extends ApplicationAdapter implements InputProcessor 
     private Table hpTable;
     private TextButton hpDisplay;
 
-    private PlayScreen playscreen;
-    private PlayModel playmodel;
     private Character activechar;
     private SpriteBatch batch;
     private Sprite sprite;
 
-    public UserInterface(int x, int y) {
+    private PlayModel playModel;
+
+    public UserInterface(int x, int y, PlayModel playmodel) {
+        activechar = playmodel.getActiveChar();
+        this.playModel = playmodel;
         create(x, y);
     }
 
@@ -46,13 +51,11 @@ public class UserInterface extends ApplicationAdapter implements InputProcessor 
         skin = new Skin(Gdx.files.internal("uiskin.json"));
         stage = new Stage(new ScreenViewport());
         hpTable = new Table();
-        playmodel = new PlayModel(playscreen);
-        activechar = playmodel.getActiveChar();
-
         hpTable.setWidth(70);   //tile width
         hpTable.align(Align.center);
         hpTable.setPosition(x, y);
         hpDisplay = new TextButton("HP: " + activechar.getStats().getHP(), skin);
+//        System.out.println(activechar.getStats().getHP());
         hpTable.add(hpDisplay).padBottom(10);
         stage.addActor(hpTable);
 //        Gdx.input.setInputProcessor(stage);   //can only have one input processor
@@ -61,13 +64,17 @@ public class UserInterface extends ApplicationAdapter implements InputProcessor 
     @Override
     public void render() {
 //        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-//        stage.act(Gdx.graphics.getDeltaTime());
+        stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
     }
     public void setSpot(int x, int y){
         hpTable.setPosition(x, y);
     }
-
+    public void resetActiveChar(){
+        activechar = playModel.getActiveChar();
+        hpDisplay.setText("HP: "+activechar.getStats().getHP());
+        render();
+    }
 
     @Override
     public boolean keyDown(int keycode) {

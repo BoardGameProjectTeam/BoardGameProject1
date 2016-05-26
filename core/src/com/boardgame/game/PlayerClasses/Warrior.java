@@ -10,4 +10,8 @@ public class Warrior extends Character {
 		// TODO Auto-generated constructor stub
 	}
 
+	public int getHP() {
+		return stats.getHP();
+	}
+
 }

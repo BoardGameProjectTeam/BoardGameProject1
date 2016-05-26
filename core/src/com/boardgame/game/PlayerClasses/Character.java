@@ -24,6 +24,10 @@ public class Character extends BoardObject implements ABoardObject{
 	//dunno if these belong here? vv
 	private ArrayList<Card> passivecard= new ArrayList<Card>(); //for any passive cards that affect this character
 	private ArrayList<Skill> passiveSkills = new ArrayList<Skill>();
+
+	private Mage mage;
+	private Ranger ranger;
+	private Warrior warrior;
 	
 	public Character(String name, BoardSpace spaceOn){
 		super.setName(name);
@@ -50,7 +54,20 @@ public class Character extends BoardObject implements ABoardObject{
 		setPos(spaceOn.getX(),spaceOn.getY());
 		passivecard = new ArrayList<Card>();
 		passiveSkills = new ArrayList<Skill>();
-		stats = new CharacterStats(0, 0, 0, 0);
+		mage = new Mage("Mage", spaceon);
+		ranger = new Ranger("Ranger", spaceon);
+		warrior = new Warrior("Warrior", spaceon);
+		switch (charSeq) {
+			case 1:
+				stats = new CharacterStats(mage.getHP(), 0, 0, 0);
+				break;
+			case 2:
+				stats = new CharacterStats(ranger.getHP(), 0, 0, 0);
+				break;
+			case 3:
+				stats = new CharacterStats(warrior.getHP(), 0, 0, 0);
+				break;
+		}
 	}
 
 	public void setPos(int x, int y){

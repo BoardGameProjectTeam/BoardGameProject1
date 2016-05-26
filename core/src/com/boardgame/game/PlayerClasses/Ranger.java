@@ -11,4 +11,8 @@ public class Ranger extends Character {
 
 	}
 
+	public int getHP() {
+		return stats.getHP();
+	}
+
 }

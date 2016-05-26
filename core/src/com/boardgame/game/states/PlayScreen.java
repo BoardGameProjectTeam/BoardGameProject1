@@ -60,7 +60,7 @@ public class PlayScreen extends State {
         boardOffsetX = 0;
         boardOffsetY = 0;
 
-        hpBar = new UserInterface(activeChar.getX()*70,activeChar.getY()*70);
+        hpBar = new UserInterface(activeChar.getX()*70,activeChar.getY()*70, playModel);
     }
     @Override
     //for testing only
@@ -122,7 +122,6 @@ public class PlayScreen extends State {
 
 
 
-
         for(int i = 0; i < animations.size();i++) {
             AttackAnimation s;
             s = animations.get(i);
@@ -140,19 +139,18 @@ public class PlayScreen extends State {
         sb.end();
 
         hpBar.setSpot(playModel.getActiveChar().getX()*70, (playModel.getActiveChar().getY()*70)+50);
+        hpBar.resetActiveChar();
         hpBar.render();
         System.out.println(playModel.getActiveChar().getStats().getHP());
 //        cam.update();
     }
 
-
-
-
-
     public void addAnimation(AttackAnimation animation){
         animations.add(animation);
     }
-
+    public UserInterface getHpBar(){
+        return hpBar;
+    }
     @Override
     public void dispose() {
 
