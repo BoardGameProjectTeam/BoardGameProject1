@@ -35,7 +35,6 @@ public class MyAnimation {
     }
     public void update(float dt){
         currentFrameTime += dt;
-        System.out.println(dt);
         if(currentFrameTime>maxFrameTime){
             frame++;
             currentFrameTime = 0;

@@ -104,6 +104,8 @@ public class Character extends BoardObject implements ABoardObject{
 	public TextureRegion getTexture(){
 		return player.getTile();
 	}
-	
+	public void takeDamage(int i){
+		stats.setHP(stats.getHP()-i);
+	}
 }
 
