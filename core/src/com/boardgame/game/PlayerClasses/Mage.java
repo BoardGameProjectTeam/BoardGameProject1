@@ -7,12 +7,10 @@ public class Mage extends Character {
 
 	public Mage(String name, BoardSpace spaceOn) {
 		super(name, spaceOn);
-		stats = new CharacterStats(10, 30, 3, 0);
+		stats = new CharacterStats(10, 30, 3, 0, 3);
 		// TODO Auto-generated constructor stub
 	}
 
-	public int getHP() {
-		return stats.getHP();
-	}
+
 
 }

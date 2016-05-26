@@ -6,7 +6,7 @@ public class Ranger extends Character {
 
 	public Ranger(String name, BoardSpace spaceOn) {
 		super(name, spaceOn);
-		stats = new CharacterStats(20, 15, 2, 1);
+		stats = new CharacterStats(20, 15, 2, 1,3);
 		//use archer sprite?
 
 	}

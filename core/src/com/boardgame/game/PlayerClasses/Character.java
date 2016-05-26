@@ -14,16 +14,16 @@ import com.boardgame.game.sprites.PlayerSprite;
 
 import java.util.ArrayList;
 
-public class Character extends BoardObject implements ABoardObject{
+public abstract class Character extends BoardObject implements ABoardObject{
 
 	private PlayerSprite player;
 	private Sprite sprite;
 	protected CharacterStats stats;
 	private SkillList skills;
 	private BoardSpace spaceon; //for tracking purposes
-	//dunno if these belong here? vv
+	private char facing; //
 	private ArrayList<Card> passivecard= new ArrayList<Card>(); //for any passive cards that affect this character
-	private ArrayList<Skill> passiveSkills = new ArrayList<Skill>();
+	private ArrayList<Skill> passiveSkills = new ArrayList<Skill>(); // skills the character has on
 
 	private Mage mage;
 	private Ranger ranger;
@@ -44,7 +44,7 @@ public class Character extends BoardObject implements ABoardObject{
 		setPos(spaceOn.getX(),spaceOn.getY());
 		passivecard = new ArrayList<Card>();
 		passiveSkills = new ArrayList<Skill>();
-		stats = new CharacterStats(0, 0, 0, 0);
+		stats = new CharacterStats(0, 0, 0, 0, 1);
 	}
 	//testing different constructor
 	public Character(BoardSpace spaceOn, int charSeq)
@@ -54,18 +54,20 @@ public class Character extends BoardObject implements ABoardObject{
 		setPos(spaceOn.getX(),spaceOn.getY());
 		passivecard = new ArrayList<Card>();
 		passiveSkills = new ArrayList<Skill>();
+
+		//testing?
 		mage = new Mage("Mage", spaceon);
 		ranger = new Ranger("Ranger", spaceon);
 		warrior = new Warrior("Warrior", spaceon);
 		switch (charSeq) {
 			case 1:
-				stats = new CharacterStats(mage.getHP(), 0, 0, 0);
+				stats = new CharacterStats(mage.getHP(), 0, 0, 0,3);
 				break;
 			case 2:
-				stats = new CharacterStats(ranger.getHP(), 0, 0, 0);
+				stats = new CharacterStats(ranger.getHP(), 0, 0, 0,4);
 				break;
 			case 3:
-				stats = new CharacterStats(warrior.getHP(), 0, 0, 0);
+				stats = new CharacterStats(warrior.getHP(), 0, 0, 0,4);
 				break;
 		}
 	}
@@ -103,6 +105,9 @@ public class Character extends BoardObject implements ABoardObject{
 	}
 	public TextureRegion getTexture(){
 		return player.getTile();
+	}
+	public int getHP(){
+		return stats.getHP();
 	}
 	public void takeDamage(int i){
 		stats.setHP(stats.getHP()-i);
