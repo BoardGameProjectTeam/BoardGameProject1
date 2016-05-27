@@ -8,6 +8,7 @@ import com.boardgame.game.Animations.SlashAnimation;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.CardClasses.Card;
 import com.boardgame.game.CardClasses.CardHand;
+import com.boardgame.game.sprites.SingleTile;
 import com.boardgame.game.states.PlayScreen;
 
 import com.boardgame.game.ModelClasses.PlayModel;
@@ -19,13 +20,15 @@ public class PlayController implements InputProcessor{
 
     private PlayScreen playScreen;
     private PlayModel playModel;
-        int panelSize= 35;
+    private SingleTile tile;
+        int panelSize;
         private ActionPerformer actionPerformer;
 
     public PlayController(PlayModel playModel,PlayScreen playScreen){
         this.playModel = playModel;
         this.playScreen = playScreen;
-
+        tile = new SingleTile(0);
+        panelSize = tile.getWidth();
         actionPerformer = new ActionPerformer(playModel, playScreen);
     }
 
@@ -140,6 +143,7 @@ public class PlayController implements InputProcessor{
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
+        touchDown(screenX,screenY,pointer,0);
         return false;
     }
 

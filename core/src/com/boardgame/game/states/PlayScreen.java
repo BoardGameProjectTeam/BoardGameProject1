@@ -69,7 +69,8 @@ public class PlayScreen extends State {
 
         }
         if(Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
-
+            cam.zoom = 10f;
+            System.out.println("ZOOOM");
         }
     }
 
@@ -141,7 +142,7 @@ public class PlayScreen extends State {
         hpBar.setSpot(playModel.getActiveChar().getX()*70, (playModel.getActiveChar().getY()*70)+50);
         hpBar.resetActiveChar();
         hpBar.render();
-        System.out.println(playModel.getActiveChar().getStats().getHP());
+//        System.out.println(playModel.getActiveChar().getStats().getHP());
 //        cam.update();
     }
 

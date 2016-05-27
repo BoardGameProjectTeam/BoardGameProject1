@@ -20,8 +20,8 @@ public class SingleTile {
 //                tile = new Texture("normal_small.png");
                 tile = new Texture("first_tile-30x30.png");
                 this.type = type;
-                width = 35;
-                height = 35;
+                width = tile.getWidth();
+                height = tile.getHeight();
                 break;
             default:
                 //not imported tile, so use default normal.
