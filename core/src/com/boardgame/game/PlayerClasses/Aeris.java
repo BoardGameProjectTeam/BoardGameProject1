@@ -16,7 +16,7 @@ import com.boardgame.game.BoardClasses.BoardSpace;
  * 3x to fire based cards
  *
  *
- * basic attack: fire breathe, shoots fire in front over cauing the panel to be lit a period of turns unless an object/player is present, which then will push them back
+ * basic attack: fire breathe, shoots fire in front over cauing the panel to be lit a period of turns unless an object/playerSprite is present, which then will push them back
  * Created by Cliff on 5/26/2016.
  */
 public class Aeris extends Character {

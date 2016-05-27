@@ -6,17 +6,15 @@ import com.boardgame.game.BoardClasses.ABoardObject;
 import com.boardgame.game.BoardClasses.BoardObject;
 import com.boardgame.game.BoardClasses.BoardSpace;
 import com.boardgame.game.CardClasses.Card;
-import com.boardgame.game.PlayerClasses.CharacterStats;
 import com.boardgame.game.SkillClasses.Skill;
 import com.boardgame.game.SkillClasses.SkillList;
-import com.boardgame.game.gamepack.UserInterface;
 import com.boardgame.game.sprites.PlayerSprite;
 
 import java.util.ArrayList;
 
 public abstract class Character extends BoardObject implements ABoardObject{
 
-	protected PlayerSprite player;
+	protected PlayerSprite playerSprite;
 	protected Sprite sprite;
 	protected CharacterStats stats;
 	protected SkillList skills;
@@ -35,7 +33,7 @@ public abstract class Character extends BoardObject implements ABoardObject{
 	}
 
 	private void commonConstructor(BoardSpace spaceOn){
-//		player = new PlayerSprite();// will be done in the characters sub class
+//		playerSprite = new PlayerSprite();// will be done in the characters sub class
 		spaceon = spaceOn;
 		setPos(spaceOn.getX(),spaceOn.getY());
 		passivecard = new ArrayList<Card>();
@@ -46,7 +44,7 @@ public abstract class Character extends BoardObject implements ABoardObject{
 	//testing different constructor
 	public Character(BoardSpace spaceOn, int charSeq)
 	{
-		player = new PlayerSprite(charSeq);
+		playerSprite = new PlayerSprite(charSeq);
 		spaceon = spaceOn;
 		setPos(spaceOn.getX(),spaceOn.getY());
 		passivecard = new ArrayList<Card>();
@@ -81,12 +79,12 @@ public abstract class Character extends BoardObject implements ABoardObject{
 		this.passiveSkills = passiveSkills;
 	}
 
-	//for the boardspace function to check if its object is a player
+	//for the boardspace function to check if its object is a playerSprite
 	public boolean isCharacter(){
 		return true;
 	}
 	public TextureRegion getTexture(){
-		return player.getTile();
+		return playerSprite.getTile();
 	}
 	public int getHP(){
 		return stats.getHP();

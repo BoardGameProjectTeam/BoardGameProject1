@@ -35,20 +35,20 @@ public class GameManager {
 //		deck.draw();
 //		deck.printdeck(); //should then print 2,3,4
 		
-		int pnum =0; //used to reference the player element in the main boards array list
+		int pnum =0; //used to reference the playerSprite element in the main boards array list
 
 		
 		
-		//mn.addPlayer(1, 1, "2");//testing adding a player style 1
-//		Character p1 = new Character("1");//testng adding a player style 2
+		//mn.addPlayer(1, 1, "2");//testing adding a playerSprite style 1
+//		Character p1 = new Character("1");//testng adding a playerSprite style 2
 //		p1.setPos(3,3);
 //		mn.addPlayer(p1);
 //		bp.printBoard(mn);
 		
 		//Plans:
-		//turn order starts at 0, aka player 1
-		//player x selects card to play
-		//if no cards or player x selects end turn, goes to next player
+		//turn order starts at 0, aka playerSprite 1
+		//playerSprite x selects card to play
+		//if no cards or playerSprite x selects end turn, goes to next playerSprite
 		
 		
 		

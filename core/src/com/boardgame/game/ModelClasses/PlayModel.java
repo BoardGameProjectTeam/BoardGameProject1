@@ -24,7 +24,7 @@ public class PlayModel {
     private MainPlayer p2;
     private MainPlayer activePlayer;
 
-    //    private PlayerSprite player;
+    //    private PlayerSprite playerSprite;
     private Character activeChar;
     //    private Character passiveChar; //testing
     private ArrayList<Character> characters;
@@ -45,7 +45,7 @@ public class PlayModel {
         p2 = new MainPlayer();
         activePlayer = p1;
 
-        //setup player 1
+        //setup playerSprite 1
         for(int i = 0; i<numberOfCards;i++) {
             p1.getDeck().addCard(new SlashCard(i*35,handY));
         }

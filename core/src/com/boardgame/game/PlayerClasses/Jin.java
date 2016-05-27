@@ -3,7 +3,7 @@ package com.boardgame.game.PlayerClasses;
 import com.boardgame.game.BoardClasses.BoardSpace;
 
 /**
- * Card specialist, Somewhat a luck based character, but helps the player when it comes to card usage
+ * Card specialist, Somewhat a luck based character, but helps the playerSprite when it comes to card usage
  * high HP, MP, med power, resist, movement
  *
  * every card used, causes Jin to swap suits (card suits) each with their own traits in this order

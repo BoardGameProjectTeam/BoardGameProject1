@@ -13,8 +13,8 @@ public class TurnManager {
 	public void beginPhase(){
 		//activate all passive effects
 		//cards first
-		//current player's turn skills next
-		//other players in accending order from the current player
+		//current playerSprite's turn skills next
+		//other players in accending order from the current playerSprite
 	}
 	public void playerPhase(){
 		
@@ -22,8 +22,8 @@ public class TurnManager {
 	public void endPhase(){
 		//activate all passive effects
 		//cards first
-		//current player's turn skills next
-		//other players in accending order from the current player
+		//current playerSprite's turn skills next
+		//other players in accending order from the current playerSprite
 	}
 	
 }

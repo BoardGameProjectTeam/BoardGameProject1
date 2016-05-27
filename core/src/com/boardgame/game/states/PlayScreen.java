@@ -135,7 +135,7 @@ public class PlayScreen extends State {
         }
 
         sb.setProjectionMatrix(spriteCam.combined);
-//        sb.draw(player.getTile(), spriteOffsetX, spriteOffsetY);
+//        sb.draw(playerSprite.getTile(), spriteOffsetX, spriteOffsetY);
         sb.end();
 
         hpBar.setSpot(playModel.getActiveChar().getX()*70, (playModel.getActiveChar().getY()*70)+50);

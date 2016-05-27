@@ -7,7 +7,7 @@ import com.boardgame.game.CardClasses.Deck;
 import java.util.ArrayList;
 
 /**
- * This class represents the actual player who makes decisions for all the characters they control
+ * This class represents the actual playerSprite who makes decisions for all the characters they control
  *
  * Created by Cliff on 5/11/2016.
  */

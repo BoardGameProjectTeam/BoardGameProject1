@@ -9,7 +9,7 @@ public class Ranger extends Character {
 		super(name, spaceOn);
 		stats = new CharacterStats(20, 15, 2, 1,3);
 		//use archer sprite?
-		player = new PlayerSprite(3);
+		playerSprite = new PlayerSprite(3);
 	}
 
 }

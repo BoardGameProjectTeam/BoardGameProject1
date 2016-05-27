@@ -71,7 +71,7 @@ public class BoardMovement {
 				if(!b2.hasObject()) {
 					b.removeObject(obj);
 					b2.addObject(obj);
-//					obj.setY(obj.getY() + 1); fixed in player to not need this anymore
+//					obj.setY(obj.getY() + 1); fixed in playerSprite to not need this anymore
 					obj.setSpaceon(b2);
 				}
 			}

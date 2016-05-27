@@ -17,7 +17,8 @@ public class SingleTile {
         switch(type){
             case 0:
                 //normal tile
-                tile = new Texture("normal_small.png");
+//                tile = new Texture("normal_small.png");
+                tile = new Texture("first_tile-30x30.png");
                 this.type = type;
                 width = 35;
                 height = 35;
