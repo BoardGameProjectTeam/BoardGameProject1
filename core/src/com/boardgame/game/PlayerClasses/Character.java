@@ -21,14 +21,10 @@ public abstract class Character extends BoardObject implements ABoardObject{
 	protected CharacterStats stats;
 	private SkillList skills;
 	private BoardSpace spaceon; //for tracking purposes
-	private char facing; //
+	private char facing; //n,s,e,w or r,l,u,d
 	private ArrayList<Card> passivecard= new ArrayList<Card>(); //for any passive cards that affect this character
 	private ArrayList<Skill> passiveSkills = new ArrayList<Skill>(); // skills the character has on
 
-	private Mage mage;
-	private Ranger ranger;
-	private Warrior warrior;
-	
 	public Character(String name, BoardSpace spaceOn){
 		super.setName(name);
 		commonConstructor(spaceOn);
@@ -45,6 +41,7 @@ public abstract class Character extends BoardObject implements ABoardObject{
 		passivecard = new ArrayList<Card>();
 		passiveSkills = new ArrayList<Skill>();
 		stats = new CharacterStats(0, 0, 0, 0, 1);
+		facing = 'r';
 	}
 	//testing different constructor
 	public Character(BoardSpace spaceOn, int charSeq)
@@ -55,21 +52,6 @@ public abstract class Character extends BoardObject implements ABoardObject{
 		passivecard = new ArrayList<Card>();
 		passiveSkills = new ArrayList<Skill>();
 
-		//testing?
-		mage = new Mage("Mage", spaceon);
-		ranger = new Ranger("Ranger", spaceon);
-		warrior = new Warrior("Warrior", spaceon);
-		switch (charSeq) {
-			case 1:
-				stats = new CharacterStats(mage.getHP(), 0, 0, 0,3);
-				break;
-			case 2:
-				stats = new CharacterStats(ranger.getHP(), 0, 0, 0,4);
-				break;
-			case 3:
-				stats = new CharacterStats(warrior.getHP(), 0, 0, 0,4);
-				break;
-		}
 	}
 
 	public void setPos(int x, int y){
