@@ -1,6 +1,7 @@
 package com.boardgame.game.PlayerClasses;
 
 import com.boardgame.game.BoardClasses.BoardSpace;
+import com.boardgame.game.sprites.PlayerSprite;
 
 public class Ranger extends Character {
 
@@ -8,11 +9,7 @@ public class Ranger extends Character {
 		super(name, spaceOn);
 		stats = new CharacterStats(20, 15, 2, 1,3);
 		//use archer sprite?
-
-	}
-
-	public int getHP() {
-		return stats.getHP();
+		player = new PlayerSprite(3);
 	}
 
 }

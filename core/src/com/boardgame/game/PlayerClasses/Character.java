@@ -16,14 +16,14 @@ import java.util.ArrayList;
 
 public abstract class Character extends BoardObject implements ABoardObject{
 
-	private PlayerSprite player;
-	private Sprite sprite;
+	protected PlayerSprite player;
+	protected Sprite sprite;
 	protected CharacterStats stats;
-	private SkillList skills;
-	private BoardSpace spaceon; //for tracking purposes
-	private char facing; //n,s,e,w or r,l,u,d
-	private ArrayList<Card> passivecard= new ArrayList<Card>(); //for any passive cards that affect this character
-	private ArrayList<Skill> passiveSkills = new ArrayList<Skill>(); // skills the character has on
+	protected SkillList skills;
+	protected BoardSpace spaceon; //for tracking purposes
+	protected char facing; //n,s,e,w or r,l,u,d
+	protected ArrayList<Card> passivecard= new ArrayList<Card>(); //for any passive cards that affect this character
+	protected ArrayList<Skill> passiveSkills = new ArrayList<Skill>(); // skills the character has on
 
 	public Character(String name, BoardSpace spaceOn){
 		super.setName(name);
@@ -35,7 +35,7 @@ public abstract class Character extends BoardObject implements ABoardObject{
 	}
 
 	private void commonConstructor(BoardSpace spaceOn){
-		player = new PlayerSprite();
+//		player = new PlayerSprite();// will be done in the characters sub class
 		spaceon = spaceOn;
 		setPos(spaceOn.getX(),spaceOn.getY());
 		passivecard = new ArrayList<Card>();

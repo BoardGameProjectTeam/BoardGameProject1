@@ -54,9 +54,9 @@ public class PlayModel {
 
 
         characters = new ArrayList<Character>();
-        characters.add(new Character(mainBoard.getSpaceAt(0,0),1));   //uses mage stats
-        characters.add(new Character(mainBoard.getSpaceAt(1,1),2));
-        characters.add(new Character(mainBoard.getSpaceAt(1,2),3));
+        characters.add(new Mage("Mage",mainBoard.getSpaceAt(0,0)));   //uses mage stats
+        characters.add(new Warrior("warrior",mainBoard.getSpaceAt(1,1)));
+        characters.add(new Ranger("ranger",mainBoard.getSpaceAt(1,2)));
 
         activeChar = characters.get(0);
 

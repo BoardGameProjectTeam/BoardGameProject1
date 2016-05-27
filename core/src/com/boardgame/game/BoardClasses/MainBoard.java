@@ -123,21 +123,7 @@ public class MainBoard {
 		return spaces;
 	}
 
-	//use this when making a fresh new character
-	public void addPlayer(int x,int y,String name){
-		try {
-			BoardSpace s = getSpaceAt(x, y);
-			Character pp = new Character(name, getSpaceAt(x, y));
-			pp.setX(x);
-			pp.setY(y);
-			s.addObject(pp);
-			pp.setSpaceon(s);
-			characters.add(pp);
-		}catch (Exception e){
-			System.out.println("error board space doesn't exit at "+x+y );
-		}
-			
-	}
+
 	//use this when you made a character and want to add it to the main board
 	public void addPlayer(Character p){
 		BoardSpace s = getSpaceAt(p.getX(),p.getY());
