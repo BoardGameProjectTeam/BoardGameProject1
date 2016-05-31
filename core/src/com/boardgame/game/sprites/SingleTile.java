@@ -11,6 +11,7 @@ public class SingleTile {
     private int type;
     private int width;
     private int height;
+    public static final int PANEL_SIZE = 30; //update this if you change the size as this is the global variable to referense panel sizes
 
     public SingleTile(int type){
         this.type = type;

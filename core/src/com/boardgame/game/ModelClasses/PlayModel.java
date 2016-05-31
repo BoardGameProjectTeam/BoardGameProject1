@@ -1,6 +1,7 @@
 package com.boardgame.game.ModelClasses;
 
 import com.boardgame.game.BoardClasses.MainBoard;
+import com.boardgame.game.CardClasses.Deck;
 import com.boardgame.game.CardClasses.SlashCard;
 import com.boardgame.game.Controllers.PlayController;
 import com.boardgame.game.PlayerClasses.Character;
@@ -91,7 +92,7 @@ public class PlayModel {
         playScreen.getHpBar().resetActiveChar();
     }
     public void draw(){
-        p1.drawCard(p1.getHand().getCards().size());
+            p1.drawCard(p1.getHand().getCards().size());
     }
 
     public ArrayList getCharacters(){
@@ -101,14 +102,6 @@ public class PlayModel {
     public void switchActiveChar(Character character){
         activeChar = character;
     }
-
-
-
-
-
-
-
-
 
 }
 

@@ -3,7 +3,6 @@ package com.boardgame.game.states;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.boardgame.game.Animations.AttackAnimation;
 import com.boardgame.game.Animations.SlashAnimation;
@@ -12,7 +11,6 @@ import com.boardgame.game.BoardClasses.MainBoard;
 import com.boardgame.game.Controllers.PlayController;
 import com.boardgame.game.MyGdxGame;
 import com.boardgame.game.PlayerClasses.Character;
-import com.boardgame.game.PlayerClasses.Mage;
 
 import java.util.ArrayList;
 
@@ -27,7 +25,8 @@ public class PlayScreen extends State {
     private int boardOffsetY;
     private MainBoard mb;
     private ArrayList<BoardSpace> bs;
-
+    float ow = 1;
+    float oh = 1;
     private Character activeChar;
     private ArrayList<Character> characters;
 
@@ -41,13 +40,14 @@ public class PlayScreen extends State {
     public PlayScreen(GameStateManager gsm){
         super(gsm);
 
+
         playModel = new PlayModel(this);
         playController = new PlayController(playModel,this);
 
         Gdx.input.setInputProcessor(playController);
 
         animations = new ArrayList<AttackAnimation>();
-//        animations.add(new SlashAnimation(0,0));
+        animations.add(new SlashAnimation(0,0));
 
         mb = playModel.getMainBoard();
         activeChar = playModel.getActiveChar();
@@ -57,8 +57,6 @@ public class PlayScreen extends State {
 
         cam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
 //        spriteCam.setToOrtho(false, MyGdxGame.WIDTH/2, MyGdxGame.HEIGHT/2);
-        boardOffsetX = 0;
-        boardOffsetY = 0;
 
         hpBar = new UserInterface(activeChar.getX()*70,activeChar.getY()*70, playModel);
     }
@@ -69,8 +67,20 @@ public class PlayScreen extends State {
 
         }
         if(Gdx.input.isKeyJustPressed(Input.Keys.ANY_KEY)) {
-            cam.zoom = 10f;
-            System.out.println("ZOOOM");
+
+            if(Gdx.input.isKeyPressed(Input.Keys.A)){
+//               ow +=48;
+//                oh += 80;
+                ow-=.05f;
+            }
+            if(Gdx.input.isKeyPressed(Input.Keys.S)){
+//                 ow -=48;
+//                oh -= 80;
+                ow+= .05f;
+            }
+            cam.zoom = ow;
+//            cam.setToOrtho(false, MyGdxGame.WIDTH+ ow, MyGdxGame.HEIGHT+ oh);
+            cam.update();
         }
     }
 
@@ -87,11 +97,10 @@ public class PlayScreen extends State {
     @Override
     public void render(SpriteBatch sb) {
 
-        //display MP to console
-//        System.out.println("MP: " + activeChar.getStats().getMP());
 
         sb.setProjectionMatrix(cam.combined);
         sb.begin();
+
         //for loop for main board tiles
         for(int i = 0; i < mb.getXSize(); i ++){
             for(int j = 0; j < mb.getYSize(); j++){
@@ -103,7 +112,6 @@ public class PlayScreen extends State {
                     Character c = characters.get(k);
                     sb.draw(c.getTexture(),c.getX()*width,c.getY()*height);
                 }
-//                sb.draw(passiveChar.getTexture(),passiveChar.getX()*width+boardOffsetX,passiveChar.getY()*height+boardOffsetY); //testing
             }
         }
 
@@ -116,13 +124,13 @@ public class PlayScreen extends State {
                     xx,
                     handY);
         }
-//        if(bs.size()>0) {
+
+        //boardspaces
         for(int i = 0; i < bs.size();i++) {
             sb.draw(bs.get(i).getTextures(), i * 74, 0);
         }
 
-
-
+        //animations
         for(int i = 0; i < animations.size();i++) {
             AttackAnimation s;
             s = animations.get(i);
@@ -136,7 +144,6 @@ public class PlayScreen extends State {
         }
 
         sb.setProjectionMatrix(spriteCam.combined);
-//        sb.draw(playerSprite.getTile(), spriteOffsetX, spriteOffsetY);
         sb.end();
 
         hpBar.setSpot(playModel.getActiveChar().getX()*70, (playModel.getActiveChar().getY()*70)+50);

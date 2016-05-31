@@ -32,17 +32,24 @@ public class MainPlayer {
             hand.addCard(deck.draw(position));
         }catch (Exception e){
             System.out.println("No more cards");
+            setDeck(getDiscardPile());
         }
     }
     public CardHand getHand(){
         return hand;
     }
+    public void Discard(Card card){
+        discardPile.addCard(card);
+    }
+    public Deck getDiscardPile(){return discardPile;}
+
     public Deck getDeck(){
         return deck;
     }
-    public void UseCard(Card card){
-
+    public void setDeck(Deck deck){
+        this.deck = deck;
     }
+
 
 
 

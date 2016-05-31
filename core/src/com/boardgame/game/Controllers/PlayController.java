@@ -116,6 +116,7 @@ public class PlayController implements InputProcessor{
                     //perform card action here?
                     actionPerformer.useCard(card);
                     //getanimation?
+                    playModel.getActivePlayer().Discard(card);
                     hand.removeCard(card);
 
                     for(int j = position;
@@ -143,7 +144,7 @@ public class PlayController implements InputProcessor{
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-        touchDown(screenX,screenY,pointer,0);
+//        touchDown(screenX,screenY,pointer,0);
         return false;
     }
 
