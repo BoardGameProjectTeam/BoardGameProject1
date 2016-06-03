@@ -19,11 +19,14 @@ public class SingleTile {
             case 0:
                 //normal tile
 //                tile = new Texture("normal_small.png");
-                tile = new Texture("DefaultTile.png");
+//                tile = new Texture("DefaultTile.png");
 //                tile = new Texture("FireTile.png");
 //                tile = new Texture("IceTile.png.");
 //                tile = new Texture("WaterTile.png");
 //                tile = new Texture("MetalTile.png");
+//                tile = new Texture("LightningTile.png");
+//                tile = new Texture("WindTile.png");
+                tile = new Texture("SandTile.png");
                 this.type = type;
                 width = tile.getWidth();
                 height = tile.getHeight();
